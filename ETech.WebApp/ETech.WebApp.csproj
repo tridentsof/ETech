@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ADMIN\DangNhap.aspx" />
+    <Content Include="ADMIN\QuanLiTaiKhoan.aspx" />
     <Content Include="ADMIN\TrangChu.aspx" />
     <Content Include="App_Data\ETech_Data.mdf" />
     <Content Include="App_Data\ETech_Data_log.ldf">
@@ -1722,6 +1723,11 @@
     <Content Include="wwwroot\font-awsome\webfonts\fa-brands-400.svg" />
     <Content Include="wwwroot\font-awsome\webfonts\fa-regular-400.svg" />
     <Content Include="wwwroot\font-awsome\webfonts\fa-solid-900.svg" />
+    <Content Include="wwwroot\img\icon\avatar.svg" />
+    <Content Include="wwwroot\img\icon\background.svg" />
+    <Content Include="wwwroot\img\icon\BG.jfif" />
+    <Content Include="wwwroot\img\icon\logo.png" />
+    <Content Include="wwwroot\img\icon\wave.png" />
     <Content Include="wwwroot\js\admin.js" />
   </ItemGroup>
   <ItemGroup>
@@ -1740,6 +1746,13 @@
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
     <Content Include="App_Code\DataAccess.cs" />
+    <Compile Include="ADMIN\QuanLiTaiKhoan.aspx.cs">
+      <DependentUpon>QuanLiTaiKhoan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\QuanLiTaiKhoan.aspx.designer.cs">
+      <DependentUpon>QuanLiTaiKhoan.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ADMIN\TrangChu.aspx.cs">
       <DependentUpon>TrangChu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1831,8 +1844,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\font\" />
-    <Folder Include="wwwroot\img\banner\" />
-    <Folder Include="wwwroot\img\sp\" />
     <Folder Include="wwwroot\lib\" />
   </ItemGroup>
   <PropertyGroup>
