@@ -313,7 +313,7 @@ a:hover {
                         </div>
                         <div class="div">
                             <h5>Password</h5>
-                            <asp:textbox id="txtpass" cssclass="input" runat="server"></asp:textbox>
+                            <asp:TextBox ID="txtPass" CssClass="input" runat="server"></asp:TextBox>
                         </div>
                     </div>
                     <div class="captcha-container">
