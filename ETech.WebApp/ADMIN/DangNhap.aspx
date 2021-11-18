@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet"/>
@@ -54,19 +54,24 @@ body {
   justify-content: flex-end;
   align-items: center;
 }
-
+.avatar{
+    margin-left: 110px;
+}
 .login-content {
   display: flex;
+/*  flex-direction: column;*/
   justify-content: flex-start;
   align-items: center;
-  text-align: center;
+ 
+ 
+ 
 }
 
 .img img {
   width: 500px;
 }
 
-form {
+.form {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   padding: 20px 40px 40px 40px; 
   border-radius: 25px;
@@ -75,6 +80,7 @@ form {
 
 .login-content img {
   height: 100px;
+  text-align: center;
 }
 
 .login-content h3 {
@@ -92,7 +98,7 @@ form {
   padding: 5px 0;
   border-bottom: 2px solid #d9d9d9;
 }
-
+.title{text-align:center; margin-bottom:15px;}
 .login-content .input-div.one {
   margin-top: 0;
 }
@@ -204,7 +210,7 @@ a:hover {
   margin: 1rem 0;
   cursor: pointer;
   transition: .5s;
-  font-weight: bold;;
+  font-weight: bold;
 }
 
 .btn:hover {
@@ -282,71 +288,71 @@ a:hover {
 </head>
 <body>
     <form runat="server">
-         <img class="wave" src="../wwwroot/img/icon/wave.png"/>
-        <div class="container">
-    <div class="img">
-      <img src="../wwwroot/img/icon/background.svg"/>
-    </div>
-    <div class="login-content">
-
-        <img src="../wwwroot/img/icon/avatar.svg"/>
-        <h3 class="title">Welcome</h3>
-        <div class="input-div one">
-          <div class="i">
-            <i class="fas fa-user"></i>
-          </div>
-          <div class="div">
-            <h5>Username</h5>
-             <asp:TextBox ID="txtUser" CssClass="input" runat="server"></asp:TextBox>
-          </div>
+        <div>
+            <img class="wave" src="../wwwroot/img/icon/wave.png" />
+            <div class="container">
+                <div class="img">
+                    <img src="../wwwroot/img/icon/background.svg" />
+                </div>
+                <div class="login-content">
+                    <div class="form">
+                    <img src="../wwwroot/img/icon/avatar.svg" class="avatar" />
+                    <h3 class="title">Welcome</h3>
+                    <div class="input-div one">
+                        <div class="i">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="div">
+                            <h5>Username</h5>
+                            <asp:TextBox ID="txtUser" CssClass="input" runat="server"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="input-div pass">
+                        <div class="i">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="div">
+                            <h5>Password</h5>
+                            <asp:textbox id="txtpass" cssclass="input" runat="server"></asp:textbox>
+                        </div>
+                    </div>
+                    <div class="captcha-container">
+                        <asp:Image ID="imgCaptcha" CssClass="captcha-size" runat="server" ImageUrl="~/ADMIN/CaptchaImage.aspx" />
+                        <div class="input-captcha">
+                            <p class="text-captcha">Vui lòng nhập mã Captcha</p>
+                            <asp:TextBox ID="txtCaptcha" runat="server"></asp:TextBox>
+                        </div>
+                    </div>
+                    <asp:Button ID="Button1" CssClass="btn" runat="server" Text="Đăng nhập" />
+                    <a href="#">Quên mật khẩu?</a>
+                        </div>
+                </div>
+            </div>
         </div>
-        <div class="input-div pass">
-          <div class="i">
-            <i class="fas fa-lock"></i>
-          </div>
-          <div class="div">
-            <h5>Password</h5>
-             <asp:TextBox ID="txtPass" CssClass="input" runat="server"></asp:TextBox>
-          </div>
-        </div>
-        <div class="captcha-container">
-          <asp:Image ID="imgCaptcha" CssClass="captcha-size" runat="server" ImageUrl="~/ADMIN/CaptchaImage.aspx" />
-          <div class="input-captcha">
-            <p class="text-captcha">Vui lòng nhập mã Captcha</p>
-            <asp:TextBox ID="txtCaptcha" runat="server"></asp:TextBox>
-          </div>
-        </div>
-          <asp:Button ID="Button1" CssClass="btn" runat="server" Text="Đăng nhập" />
-        <a href="#">Quên mật khẩu?</a>
-    </div>
-  </div>
+       
+    </form>
+     <script>
+         const inputs = document.querySelectorAll(".input");
 
 
-     
+         function addcl() {
+             let parent = this.parentNode.parentNode;
+             parent.classList.add("focus");
+         }
 
-    <script>
-        const inputs = document.querySelectorAll(".input");
-
-
-        function addcl() {
-            let parent = this.parentNode.parentNode;
-            parent.classList.add("focus");
-        }
-
-        function remcl() {
-            let parent = this.parentNode.parentNode;
-            if (this.value == "") {
-                parent.classList.remove("focus");
-            }
-        }
+         function remcl() {
+             let parent = this.parentNode.parentNode;
+             if (this.value == "") {
+                 parent.classList.remove("focus");
+             }
+         }
 
 
-        inputs.forEach(input => {
-            input.addEventListener("focus", addcl);
-            input.addEventListener("blur", remcl);
-        });
+         inputs.forEach(input => {
+             input.addEventListener("focus", addcl);
+             input.addEventListener("blur", remcl);
+         });
 
-    </script>
-    </form>       
+     </script>
 </body>
 </html>
