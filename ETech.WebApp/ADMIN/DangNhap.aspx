@@ -5,14 +5,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
      <title>ĐĂNG NHẬP</title>
-  <link rel="stylesheet" href="../wwwroot/font-awsome/css/all.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../wwwroot/font-awsome/css/all.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-    rel="stylesheet">
+    rel="stylesheet"/>
     <style>
         :root {
   --primary-color: #2d21ff;
@@ -273,21 +273,23 @@ a:hover {
   .login-content {
     justify-content: center;
   }
+  .captcha-size{
+      height:70px;
+      width:100px;
+  }
 }
     </style>
 </head>
 <body>
-    
-     
-
-            <img class="wave" src="../wwwroot/img/icon/wave.png">
-  <div class="container">
+    <form runat="server">
+         <img class="wave" src="../wwwroot/img/icon/wave.png"/>
+        <div class="container">
     <div class="img">
-      <img src="../wwwroot/img/icon/background.svg">
+      <img src="../wwwroot/img/icon/background.svg"/>
     </div>
     <div class="login-content">
-      <form action="index.html">
-        <img src="../wwwroot/img/icon/avatar.svg">
+
+        <img src="../wwwroot/img/icon/avatar.svg"/>
         <h3 class="title">Welcome</h3>
         <div class="input-div one">
           <div class="i">
@@ -295,7 +297,7 @@ a:hover {
           </div>
           <div class="div">
             <h5>Username</h5>
-            <input type="text" class="input">
+             <asp:TextBox ID="txtUser" CssClass="input" runat="server"></asp:TextBox>
           </div>
         </div>
         <div class="input-div pass">
@@ -304,26 +306,25 @@ a:hover {
           </div>
           <div class="div">
             <h5>Password</h5>
-            <input type="password" class="input">
+             <asp:TextBox ID="txtPass" CssClass="input" runat="server"></asp:TextBox>
           </div>
         </div>
         <div class="captcha-container">
-          <div class="captcha"></div>
+          <asp:Image ID="imgCaptcha" CssClass="captcha-size" runat="server" ImageUrl="~/ADMIN/CaptchaImage.aspx" />
           <div class="input-captcha">
             <p class="text-captcha">Vui lòng nhập mã Captcha</p>
-            <input type="text">
+            <asp:TextBox ID="txtCaptcha" runat="server"></asp:TextBox>
           </div>
         </div>
-        <input type="submit" class="btn" value="Đăng nhập">
+          <asp:Button ID="Button1" CssClass="btn" runat="server" Text="Đăng nhập" />
         <a href="#">Quên mật khẩu?</a>
-      </form>
     </div>
   </div>
 
 
      
 
-    <script language="javascript">
+    <script>
         const inputs = document.querySelectorAll(".input");
 
 
@@ -346,5 +347,6 @@ a:hover {
         });
 
     </script>
+    </form>       
 </body>
 </html>
