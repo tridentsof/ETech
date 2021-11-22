@@ -242,6 +242,16 @@ a:hover {
   color: #999;
   font-size: 14px;
 }
+.cbReLogin{
+      margin-left:80px;
+ }
+.textRelogin{
+    color: #999999;
+    padding-left:5px;
+}
+.forgetPass{
+    margin-top:20px;
+}
 @media screen and (max-width: 1050px) {
   .container {
     grid-gap: 5rem;
@@ -296,9 +306,9 @@ a:hover {
                 </div>
                 <div class="login-content">
                     <div class="form">
-                    <img src="../wwwroot/img/icon/avatar.svg" class="avatar" />
-                    <h3 class="title">Welcome</h3>
-                    <div class="input-div one">
+                        <img src="../wwwroot/img/icon/avatar.svg" class="avatar" />
+                        <h3 class="title">Welcome</h3>
+                        <div class="input-div one">
                         <div class="i">
                             <i class="fas fa-user"></i>
                         </div>
@@ -307,25 +317,26 @@ a:hover {
                             <asp:TextBox ID="txtUser" CssClass="input" runat="server"></asp:TextBox>
                         </div>
                     </div>
-                    <div class="input-div pass">
+                        <div class="input-div pass">
                         <div class="i">
                             <i class="fas fa-lock"></i>
                         </div>
                         <div class="div">
                             <h5>Password</h5>
-                            <asp:TextBox ID="txtPass" CssClass="input" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtPass" CssClass="input" runat="server" TextMode="Password"></asp:TextBox>
                         </div>
                     </div>
-                    <div class="captcha-container">
+                        <div class="captcha-container">
                         <asp:Image ID="imgCaptcha" CssClass="captcha-size" runat="server" ImageUrl="~/ADMIN/CaptchaImage.aspx" />
                         <div class="input-captcha">
                             <p class="text-captcha">Vui lòng nhập mã Captcha</p>
                             <asp:TextBox ID="txtCaptcha" runat="server"></asp:TextBox>
                         </div>
                     </div>
-                    <asp:Button ID="Button1" CssClass="btn" runat="server" Text="Đăng nhập" />
-                    <a href="#">Quên mật khẩu?</a>
-                        </div>
+                        <asp:Button ID="btnLogin" CssClass="btn" runat="server" Text="Đăng nhập" OnClick="btnLogin_Click" />
+                        <asp:CheckBox ID="cbReLogin" CssClass="cbReLogin" runat="server" /><span class="textRelogin">Ghi nhớ đăng nhập</span>
+                    <a class="forgetPass" href="#">Quên mật khẩu?</a>
+                    </div>
                 </div>
             </div>
         </div>
