@@ -26,7 +26,9 @@ namespace ETech.WebApp.AppCode
 
         public DataTable TableFill(string procedureName, IDataParameter[] parameters)
         {
+            MoKetNoiCSDL();
             SqlCommand cmd = new SqlCommand(procedureName);
+            cmd.Connection = this.connection;
             cmd.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dataTable = new DataTable();
