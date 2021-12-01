@@ -70,7 +70,7 @@ namespace ETech.WebApp.ADMIN
                     }
 
                     Session["userKH"] = txtUser.Text;
-                    Response.Redirect("WebForm1.aspx");
+                    Response.Redirect("QuanLyAdmin.aspx");
                     Session.RemoveAll();
                 }
                 else
