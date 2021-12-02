@@ -66,20 +66,20 @@ hr {
     <hr>
     <div class="container">
       <div class="block_item">
-        <h4>Tài khoản</h4>
-        <span>2</span>
+        <h4>Người dùng</h4>
+          <asp:Label ID="lblTK" runat="server" Text=""></asp:Label>
       </div>
       <div class="block_item">
         <h4>Nhà cung cấp</h4>
-        <span>5</span>
+          <asp:Label ID="lblNCC" runat="server" Text=""></asp:Label>
       </div>
       <div class="block_item">
-        <h4>Danh mục</h4>
-        <span>9</span>
+        <h4>Admin</h4>
+          <asp:Label ID="lblAd" runat="server" Text=""></asp:Label>
       </div>
       <div class="block_item">
         <h4>Đơn vị <br> vận chuyển</h4>
-        <span>6</span>
+          <asp:Label ID="lblDVVC" runat="server" Text=""></asp:Label>
       </div>
     </div>
   </div>

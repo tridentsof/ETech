@@ -84,6 +84,14 @@ input[type="date"i] {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   display: table;
 }
+.qltn-column {
+  font-weight: 900;
+  height:40px;
+  color: #ffffff;
+}
+.row-header{
+      background: var(--primary-color);
+}
 
 @media screen and (max-width: 580px) {
   .table {
@@ -150,52 +158,52 @@ input[type="date"i] {
     display: block;
   }
 }
+ .edit-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 150px;
+            color:rgb(131, 131, 131);
+            height:30px;
+        }
+.qltn-column2{
+        padding: 10px;
+       border: 1px solid black;  
+       line-height:1.3;
+       text-align: left;
+       color: #2f3542;
+       font-weight:600;
+}
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
   <div class="container">
-    <h2>XEM THU NHẬP</h2>
+    <h2>XEM THU NHẬP NHÀ CUNG CẤP</h2>
     <div class="container-item">
       <div class="select_date">
         <p>Từ ngày</p>
-        <input type="date">
+       <asp:TextBox ID="txtNgayBD" CssClass="input-percent" TextMode="Date" runat="server"></asp:TextBox>
       </div>
       <div class="select_date">
         <p>Đến ngày</p>
-        <input type="date">
+        <asp:TextBox ID="txtNgayKT" CssClass="input-percent" TextMode="Date" runat="server"></asp:TextBox>
       </div>
       <div class="selectdiv">
-        <select>
-          <option selected disabled>Chọn nhà cung cấp</option>
-          <option>ABC</option>
-          <option>XYZ</option>
-        </select>
+        <asp:DropDownList CssClass="edit-container" ID="ddNCC" runat="server"></asp:DropDownList>
       </div>
     </div>
-    <button class="search">Tìm kiếm</button>
-    <div class="table">
-      <div class="row header">
-        <div class="cell">
-          Tên nhà cung cấp
-        </div>
-        <div class="cell">
-          Phần trăm
-        </div>
-        <div class="cell">
-          Doanh thu
-        </div>
-      </div>
-      <div class="row">
-        <div class="cell">
-          ABC
-        </div>
-        <div class="cell">
-          10%
-        </div>
-        <div class="cell">
-          2.000.000
-        </div>
-      </div>
-    </div>
+      <asp:Button ID="btnTim" runat="server" Text="Tìm kiếm"  class="search" OnClick="btnTim_Click" />
+     <table class="table" cellpadding="0" cellspacing="0">
+            <thead class="row-header">
+                <tr>
+                    <th class="qltn-column" style="min-width: 300px">Tên nhà cung cấp</th>   
+                    <th class="qltn-column" style="min-width: 200px">Doanh Thu</th>
+                    <th class="qltn-column" style="min-width: 200px">Thuế</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <asp:Panel ID="Panel1" runat="server"></asp:Panel>
+            </tbody>
+        </table>
   </div>
 </asp:Content>

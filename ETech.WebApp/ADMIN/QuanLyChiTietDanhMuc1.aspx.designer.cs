@@ -11,43 +11,43 @@ namespace ETech.WebApp.ADMIN
 {
 
 
-    public partial class QuanLyThongKe
+    public partial class QuanLyChiTietDanhMuc1
     {
 
         /// <summary>
-        /// lblTK control.
+        /// tb1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTK;
+        protected global::System.Web.UI.WebControls.Table tb1;
 
         /// <summary>
-        /// lblNCC control.
+        /// lblTen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNCC;
+        protected global::System.Web.UI.WebControls.Label lblTen;
 
         /// <summary>
-        /// lblAd control.
+        /// btnDuyet control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAd;
+        protected global::System.Web.UI.WebControls.Button btnDuyet;
 
         /// <summary>
-        /// lblDVVC control.
+        /// btnHuy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDVVC;
+        protected global::System.Web.UI.WebControls.Button btnHuy;
     }
 }
