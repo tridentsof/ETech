@@ -44,6 +44,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SRVTextToImage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Jennifer\OneDrive\Study\1.Tài liệu CDIO\CDIO TÍCH HỢP\SRVTextToImage.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -67,15 +71,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ADMIN\CaptchaImage.aspx" />
     <Content Include="ADMIN\DangNhap.aspx" />
-    <Content Include="ADMIN\QuanLiTaiKhoan.aspx" />
-    <Content Include="ADMIN\TrangChu.aspx" />
+    <Content Include="ADMIN\QuanLyAdmin.aspx" />
+    <Content Include="ADMIN\QuanLyAdminChiTiet.aspx" />
+    <Content Include="ADMIN\QuanLyDanhMuc.aspx" />
+    <Content Include="ADMIN\QuanLyDanhMucChiTiet.aspx" />
+    <Content Include="ADMIN\QuanLyDVVC.aspx" />
+    <Content Include="ADMIN\QuanLyNCC.aspx" />
+    <Content Include="ADMIN\QuanLyNCCChiTiet.aspx" />
+    <Content Include="ADMIN\QuanLyNguoiDung.aspx" />
+    <Content Include="ADMIN\QuanLyNguoiDungChiTiet.aspx" />
+    <Content Include="ADMIN\QuanLyThongKe.aspx" />
+    <Content Include="ADMIN\QuanLyThuNhap.aspx" />
     <Content Include="App_Data\ETech_Data.mdf" />
     <Content Include="App_Data\ETech_Data_log.ldf">
       <DependentUpon>ETech_Data.mdf</DependentUpon>
     </Content>
+    <Content Include="NCC\QuanLyDonHang.aspx" />
+    <Content Include="NCC\QuanLyHoSo.aspx" />
+    <Content Include="NCC\QuanLyKhachHang.aspx" />
+    <Content Include="NCC\QuanLyKhachHangChiTiet.aspx" />
+    <Content Include="NCC\QuanLyKhuyenMai.aspx" />
+    <Content Include="NCC\QuanLySanPham.aspx" />
+    <Content Include="NCC\QuanLyThongKe.aspx" />
+    <Content Include="NCC\YeuCauDanhMuc.aspx" />
+    <Content Include="NCC\YeuCauVanChuyen.aspx" />
     <Content Include="Web.config" />
     <Content Include="wwwroot\css\admin.css" />
+    <Content Include="wwwroot\css\nhacungcap.css" />
     <Content Include="wwwroot\font-awsome\attribution.js" />
     <Content Include="wwwroot\font-awsome\css\all.css" />
     <Content Include="wwwroot\font-awsome\css\all.min.css" />
@@ -1723,14 +1747,27 @@
     <Content Include="wwwroot\font-awsome\webfonts\fa-brands-400.svg" />
     <Content Include="wwwroot\font-awsome\webfonts\fa-regular-400.svg" />
     <Content Include="wwwroot\font-awsome\webfonts\fa-solid-900.svg" />
+    <Content Include="wwwroot\img\icon\apple.png" />
     <Content Include="wwwroot\img\icon\avatar.svg" />
     <Content Include="wwwroot\img\icon\background.svg" />
-    <Content Include="wwwroot\img\icon\BG.jfif" />
+    <Content Include="wwwroot\img\icon\BG_SIN_kh.svg" />
+    <Content Include="wwwroot\img\icon\BG_SIN_ncc.svg" />
+    <Content Include="wwwroot\img\icon\BG_SUP_kh.svg" />
+    <Content Include="wwwroot\img\icon\BG_SUP_ncc.svg" />
     <Content Include="wwwroot\img\icon\logo.png" />
+    <Content Include="wwwroot\img\icon\logo_text.png" />
     <Content Include="wwwroot\img\icon\wave.png" />
     <Content Include="wwwroot\js\admin.js" />
+    <Content Include="wwwroot\js\nhacungcap.js" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADMIN\CaptchaImage.aspx.cs">
+      <DependentUpon>CaptchaImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\CaptchaImage.aspx.designer.cs">
+      <DependentUpon>CaptchaImage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ADMIN\DangNhap.aspx.cs">
       <DependentUpon>DangNhap.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1738,6 +1775,7 @@
     <Compile Include="ADMIN\DangNhap.aspx.designer.cs">
       <DependentUpon>DangNhap.aspx</DependentUpon>
     </Compile>
+    <Content Include="App_Code\DataAccess.cs" />
     <Compile Include="ADMIN\MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1745,21 +1783,84 @@
     <Compile Include="ADMIN\MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
-    <Content Include="App_Code\DataAccess.cs" />
-    <Compile Include="ADMIN\QuanLiTaiKhoan.aspx.cs">
-      <DependentUpon>QuanLiTaiKhoan.aspx</DependentUpon>
+    <Compile Include="ADMIN\QuanLyAdmin.aspx.cs">
+      <DependentUpon>QuanLyAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ADMIN\QuanLiTaiKhoan.aspx.designer.cs">
-      <DependentUpon>QuanLiTaiKhoan.aspx</DependentUpon>
+    <Compile Include="ADMIN\QuanLyAdmin.aspx.designer.cs">
+      <DependentUpon>QuanLyAdmin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ADMIN\TrangChu.aspx.cs">
-      <DependentUpon>TrangChu.aspx</DependentUpon>
+    <Compile Include="ADMIN\QuanLyAdminChiTiet.aspx.cs">
+      <DependentUpon>QuanLyAdminChiTiet.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ADMIN\TrangChu.aspx.designer.cs">
-      <DependentUpon>TrangChu.aspx</DependentUpon>
+    <Compile Include="ADMIN\QuanLyAdminChiTiet.aspx.designer.cs">
+      <DependentUpon>QuanLyAdminChiTiet.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ADMIN\QuanLyDanhMuc.aspx.cs">
+      <DependentUpon>QuanLyDanhMuc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\QuanLyDanhMuc.aspx.designer.cs">
+      <DependentUpon>QuanLyDanhMuc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\QuanLyDanhMucChiTiet.aspx.cs">
+      <DependentUpon>QuanLyDanhMucChiTiet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\QuanLyDanhMucChiTiet.aspx.designer.cs">
+      <DependentUpon>QuanLyDanhMucChiTiet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\QuanLyDVVC.aspx.cs">
+      <DependentUpon>QuanLyDVVC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\QuanLyDVVC.aspx.designer.cs">
+      <DependentUpon>QuanLyDVVC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\QuanLyNCC.aspx.cs">
+      <DependentUpon>QuanLyNCC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\QuanLyNCC.aspx.designer.cs">
+      <DependentUpon>QuanLyNCC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\QuanLyNCCChiTiet.aspx.cs">
+      <DependentUpon>QuanLyNCCChiTiet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\QuanLyNCCChiTiet.aspx.designer.cs">
+      <DependentUpon>QuanLyNCCChiTiet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\QuanLyNguoiDung.aspx.cs">
+      <DependentUpon>QuanLyNguoiDung.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\QuanLyNguoiDung.aspx.designer.cs">
+      <DependentUpon>QuanLyNguoiDung.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\QuanLyNguoiDungChiTiet.aspx.cs">
+      <DependentUpon>QuanLyNguoiDungChiTiet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\QuanLyNguoiDungChiTiet.aspx.designer.cs">
+      <DependentUpon>QuanLyNguoiDungChiTiet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\QuanLyThongKe.aspx.cs">
+      <DependentUpon>QuanLyThongKe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\QuanLyThongKe.aspx.designer.cs">
+      <DependentUpon>QuanLyThongKe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\QuanLyThuNhap.aspx.cs">
+      <DependentUpon>QuanLyThuNhap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\QuanLyThuNhap.aspx.designer.cs">
+      <DependentUpon>QuanLyThuNhap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppCode\DataAccess.cs" />
     <Compile Include="KH\MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1774,12 +1875,75 @@
     <Compile Include="NCC\MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="NCC\QuanLyDonHang.aspx.cs">
+      <DependentUpon>QuanLyDonHang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NCC\QuanLyDonHang.aspx.designer.cs">
+      <DependentUpon>QuanLyDonHang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NCC\QuanLyHoSo.aspx.cs">
+      <DependentUpon>QuanLyHoSo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NCC\QuanLyHoSo.aspx.designer.cs">
+      <DependentUpon>QuanLyHoSo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NCC\QuanLyKhachHang.aspx.cs">
+      <DependentUpon>QuanLyKhachHang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NCC\QuanLyKhachHang.aspx.designer.cs">
+      <DependentUpon>QuanLyKhachHang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NCC\QuanLyKhachHangChiTiet.aspx.cs">
+      <DependentUpon>QuanLyKhachHangChiTiet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NCC\QuanLyKhachHangChiTiet.aspx.designer.cs">
+      <DependentUpon>QuanLyKhachHangChiTiet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NCC\QuanLyKhuyenMai.aspx.cs">
+      <DependentUpon>QuanLyKhuyenMai.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NCC\QuanLyKhuyenMai.aspx.designer.cs">
+      <DependentUpon>QuanLyKhuyenMai.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NCC\QuanLySanPham.aspx.cs">
+      <DependentUpon>QuanLySanPham.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NCC\QuanLySanPham.aspx.designer.cs">
+      <DependentUpon>QuanLySanPham.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NCC\QuanLyThongKe.aspx.cs">
+      <DependentUpon>QuanLyThongKe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NCC\QuanLyThongKe.aspx.designer.cs">
+      <DependentUpon>QuanLyThongKe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NCC\YeuCauDanhMuc.aspx.cs">
+      <DependentUpon>YeuCauDanhMuc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NCC\YeuCauDanhMuc.aspx.designer.cs">
+      <DependentUpon>YeuCauDanhMuc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NCC\YeuCauVanChuyen.aspx.cs">
+      <DependentUpon>YeuCauVanChuyen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NCC\YeuCauVanChuyen.aspx.designer.cs">
+      <DependentUpon>YeuCauVanChuyen.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="KH\MasterPage.Master" />
-    <Content Include="ADMIN\MasterPage.Master" />
     <Content Include="NCC\MasterPage.Master" />
+    <Content Include="ADMIN\MasterPage.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
