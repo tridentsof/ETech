@@ -23,6 +23,19 @@ namespace ETech.WebApp.AppCode
         {
             return this.connection;
         }
+
+        public DataTable TableFill(string procedureName, IDataParameter[] parameters)
+        {
+            MoKetNoiCSDL();
+            SqlCommand cmd = new SqlCommand(procedureName);
+            cmd.Connection = this.connection;
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            sda.Fill(dataTable);
+            return dataTable;
+        }
+
         public DataTable LayBangDuLieu(string sql)
         {
             SqlDataAdapter adapter = new SqlDataAdapter(sql, this.connection);

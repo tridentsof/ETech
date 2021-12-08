@@ -8,30 +8,28 @@
 
 body {
   font-size: 16px;
-  background-color: #eee;
   font-family: 'Roboto', sans-serif;
+  background-color: #eee;
 }
 
 #container {
-  max-width: 800px;
-  margin: 200px 0 0 550px;
+  max-width: 900px;
+  margin: 170px 0 0 450px;
   padding: 40px;
-  background-color: white;
-  border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .title {
   text-align: center;
   margin-bottom: 30px;
 }
+
 .nav-tabs {
   display: flex;
   list-style: none;
   margin: 0;
-  margin-bottom: 20px;
   padding: 0;
   border-bottom: 3px solid #ddd;
+  justify-content: space-between;
 }
 
 .nav-tabs li {
@@ -69,11 +67,30 @@ body {
   font-weight: bold;
 }
 
+.dangki_danhmuc {
+  flex-grow: 1;
+  color: var(--text-color);
+  font-size: 17px;
+  text-decoration: none;
+  transition: .3s;
+  text-align: right;
+  padding: 3px;
+}
+
+.dangki_danhmuc:hover {
+  color: var(--primary-color);
+}
+
+.dangki_danhmuc .fas {
+  margin-right: 5px;
+}
+
 /* Tab style */
 .table {
-  width: 100%;
+  width:100%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   display: table;
+  margin:auto;
 }
 
 .row {
@@ -85,14 +102,15 @@ body {
   background: #e9e9e9;
 }
 
-.row.header {
+.qldm-column {
   font-weight: 900;
+  height:40px;
   color: #ffffff;
-  background: var(--primary-color);
 }
-
+.row-header{
+      background: var(--primary-color);
+}
 .cell {
-  text-align: center;
   padding: 6px 12px;
   display: table-cell;
 }
@@ -102,6 +120,7 @@ body {
   color: var(--text-color);
   margin: 5px;
   font-weight: bold;
+  text-align:center;
 }
 
 .cell_xem:hover {
@@ -109,207 +128,61 @@ body {
 }
 
 .tab-content {
-  margin-top: 10px;
+  margin-top: 30px;
 }
-
-.input-enter-shipping {
-  padding: 0;
-  text-align: center;
-  font-size: 16px;
-}
-
-.menu2-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.container-add {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 20px;
-}
-
-.add-shippingfee {
-  margin-bottom: 20px;
-  height: 30px;
-  border: none;
-  border-radius: 5px;
-  background-color: white;
-  font-size: 16px;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-  transition: .3s;
-}
-
-.add-shippingfee:hover {
-  cursor: pointer;
-  background-color: var(--primary-color);
-  color: white;
-}
-
-.fa-plus {
-  margin-right: 3px;
-}
-
-.add-shippingfee:active {
-  transform: scale(.8);
-}
-
-hr {
-  width: 100%;
-  border: 1px solid #ddd;
-  background-color: #ddd;
-}
-
-.enter_shipping-fee,
-.selectdiv select {
-  padding: 5px;
-}
-
-.container-add-item_text {
-  font-size: 15px;
-  text-align: center;
-  margin: 5px 0;
+.qldm-column2{
+        padding: 10px;
+       border: 1px solid black;  
+       line-height:1.3;
+       text-align: left;
+       color: #2f3542;
+       font-weight:600;
 }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-  <div id="container">
-    <h2 class="title">PHÍ VẬN CHUYỂN</h2>
+    <div id="container">
+    <h2 class="title">QUẢN LÝ ĐƠN VỊ VẬN CHUYỂN</h2>
     <div class="tabs">
       <ul class="nav-tabs">
-        <li class="active"><a href="#menu_1">PHÍ VẬN CHUYỂN CHỜ DUYỆT</a></li>
-        <li><a href="#menu_2">PHÍ VẬN CHUYỂN CÓ SẴN</a></li>
+        <li class="active"><a href="#menu_1">ĐƠN VỊ VẬN CHUYỂN CHỜ DUYỆT</a></li>
+        <li><a href="#menu_2">ĐƠN VỊ VẬN CHUYỂN CÓ SẴN</a></li>
+        <a class="dangki_danhmuc" href="QuanLyThemDVVC.aspx">
+          <i class="fas fa-plus"></i>Thêm đơn vị vận chuyển
+        </a>
       </ul>
       <div class="tab-content">
         <div id="menu_1" class="tab-content-item">
-          <div class="table">
-            <div class="row header">
-              <div class="cell">
-                STT
-              </div>
-              <div class="cell">
-                Nơi đi
-              </div>
-              <div class="cell">
-                Nơi đến
-              </div>
-              <div class="cell">
-                Loại sản phẩm
-              </div>
-              <div class="cell">
-                Phí vận chuyển
-              </div>
-              <div class="cell">
-                Tính năng
-              </div>
-            </div>
-            <div class="row">
-              <div class="cell">
-                1
-              </div>
-              <div class="cell">
-                Đà Nẵng
-              </div>
-              <div class="cell">
-                HCM
-              </div>
-              <div class="cell">
-                Tính theo km
-              </div>
-              <div class="cell">
-                <input type="text" placeholder="Nhập phí vận chuyển" class="input-enter-shipping">
-              </div>
-              <div class="cell">
-                <a class="cell_xem" href="#">Duyệt</a>
-                <a class="cell_xem" href="#">Huỷ</a>
-              </div>
-            </div>
-          </div>
+        <table class="table" cellpadding="0" cellspacing="0">
+            <thead class="row-header">
+                <tr>
+                    <th class="qldm-column" style="min-width: 50px">ID</th>   
+                    <th class="qldm-column" style="min-width: 250px">Nhà Cung Cấp</th>
+                    <th class="qldm-column" style="min-width: 250px">Tên Đơn Vị Vận Chuyển</th>
+                    <th class="qldm-column" style="min-width: 150px">Chức năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <asp:Panel ID="Panel1" runat="server"></asp:Panel>
+            </tbody>
+        </table>   
+
         </div>
 
-        <div id="menu_2" class="tab-content-item menu2-wrapper">
-          <div class="container-add">
-            <div class="container-add_item">
-              <h4 class="container-add-item_text">Chọn nơi đi</h4>
-              <div class="selectdiv">
-                <select>
-                  <option></option>
-                  <option>Đà Nẵng</option>
-                  <option>HCM</option>
-                </select>
-              </div>
-            </div>
-            <div class="container-add_item">
-              <h4 class="container-add-item_text">Chọn nơi đến</h4>
-              <div class="selectdiv">
-                <select>
-                  <option></option>
-                  <option>Đà Nẵng</option>
-                  <option>HCM</option>
-                </select>
-              </div>
-            </div>
-            <div class="container-add_item">
-              <h4 class="container-add-item_text">Chọn loại sản phẩm</h4>
-              <div class="selectdiv">
-                <select>
-                  <option></option>
-                  <option>Tính theo Km</option>
-                  <option>Tính theo Kg</option>
-                </select>
-              </div>
-            </div>
-            <div class="container-add_item">
-              <h4 class="container-add-item_text">Phí vận chuyển(VNĐ)</h4>
-              <input class="enter_shipping-fee" type="text">
-            </div>
-          </div>
-          <button class="add-shippingfee"><i class="fas fa-plus"></i>Thêm phí vận chuyển</button>
-          <hr>
-          <div class="table">
-            <div class="row header">
-              <div class="cell">
-                STT
-              </div>
-              <div class="cell">
-                Nơi đi
-              </div>
-              <div class="cell">
-                Nơi đến
-              </div>
-              <div class="cell">
-                Loại sản phẩm
-              </div>
-              <div class="cell">
-                Phí vận chuyển
-              </div>
-              <div class="cell">
-                Tính năng
-              </div>
-            </div>
-            <div class="row">
-              <div class="cell">
-                1
-              </div>
-              <div class="cell">
-                Đà Nẵng
-              </div>
-              <div class="cell">
-                HCM
-              </div>
-              <div class="cell">
-                Tính theo km
-              </div>
-              <div class="cell">
-                30000
-              </div>
-              <div class="cell">
-                <a class="cell_xem" href="#">Xoá</a>
-              </div>
-            </div>
-          </div>
+        <div id="menu_2" class="tab-content-item" >
+          <table class="table"  cellpadding="0" cellspacing="0">
+            <thead class="row-header" >
+                <tr>
+                    <th  class="qldm-column" style="min-width: 50px" >ID</th>   
+                    <th  class="qldm-column" style="min-width: 300px">Tên Đơn Vị Vận Chuyển</th>
+                    <th  class="qldm-column" style="min-width: 150px">Phí Vận Chuyển</th>
+                    <th  class="qldm-column" style="min-width: 150px">Chức năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                <asp:Panel ID="Panel2" runat="server"></asp:Panel>
+            </tbody>
+        </table> 
         </div>
       </div>
     </div>

@@ -74,8 +74,8 @@
                 </a>
                 <div class="sub-menu">
                   <a href="QuanLyDanhMuc.aspx" class="sub-item">Danh mục chờ duyệt</a>
-                  <a href="#" class="sub-item">Danh mục có sẵn</a>
-                  <a href="#" class="sub-item">Danh mục đã huỷ</a>
+                  <a href="" class="sub-item">Danh mục có sẵn</a>
+                  <a href="" class="sub-item">Danh mục đã huỷ</a>
                 </div>
               </div>
               <div class="menu-item"><a href="QuanLyThuNhap.aspx"><i class="fas fa-stream" style="color: #c0c0c0"></i>Thu nhập</a></div>
