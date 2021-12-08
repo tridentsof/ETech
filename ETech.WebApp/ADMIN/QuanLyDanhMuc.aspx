@@ -87,9 +87,10 @@ body {
 
 /* Tab style */
 .table {
-  width: 100%;
+  width:100%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   display: table;
+  margin:auto;
 }
 
 .row {
@@ -101,14 +102,15 @@ body {
   background: #e9e9e9;
 }
 
-.row.header {
+.qldm-column {
   font-weight: 900;
+  height:40px;
   color: #ffffff;
-  background: var(--primary-color);
 }
-
+.row-header{
+      background: var(--primary-color);
+}
 .cell {
-  text-align: center;
   padding: 6px 12px;
   display: table-cell;
 }
@@ -118,6 +120,7 @@ body {
   color: var(--text-color);
   margin: 5px;
   font-weight: bold;
+  text-align:center;
 }
 
 .cell_xem:hover {
@@ -126,6 +129,14 @@ body {
 
 .tab-content {
   margin-top: 30px;
+}
+.qldm-column2{
+        padding: 10px;
+       border: 1px solid black;  
+       line-height:1.3;
+       text-align: left;
+       color: #2f3542;
+       font-weight:600;
 }
     </style>
 </asp:Content>
@@ -137,96 +148,55 @@ body {
         <li class="active"><a href="#menu_1">DANH MỤC CHỜ DUYỆT</a></li>
         <li><a href="#menu_2">DANH MỤC CÓ SẴN</a></li>
         <li><a href="#menu_3">DANH MỤC ĐÃ HUỶ</a></li>
-        <a class="dangki_danhmuc" href="QuanLyDanhMucChiTiet.aspx">
+        <a class="dangki_danhmuc" href="QuanLyThemDanhMuc.aspx">
           <i class="fas fa-plus"></i>Đăng kí danh mục
         </a>
       </ul>
       <div class="tab-content">
         <div id="menu_1" class="tab-content-item">
-          <div class="table">
-            <div class="row header">
-              <div class="cell">
-                STT
-              </div>
-              <div class="cell">
-                Tên danh mục
-              </div>
-              <div class="cell">
-                Tính năng
-              </div>
-            </div>
+        <table class="table" cellpadding="0" cellspacing="0">
+            <thead class="row-header">
+                <tr>
+                    <th class="qldm-column" style="min-width: 100px">ID</th>   
+                    <th class="qldm-column" style="min-width: 500px">Tên Danh Mục</th>
+                    <th class="qldm-column" style="min-width: 100px">Chức năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <asp:Panel ID="Panel1" runat="server"></asp:Panel>
+            </tbody>
+        </table>   
 
-            <div class="row">
-              <div class="cell">
-                1
-              </div>
-              <div class="cell">
-                Apple
-              </div>
-              <div class="cell">
-                <a class="cell_xem" href="#">Duyệt</a>
-                <a class="cell_xem" href="#">Huỷ</a>
-              </div>
-            </div>
-          </div>
         </div>
 
-        <div id="menu_2" class="tab-content-item">
-          <div class="table">
-            <div class="row header">
-              <div class="cell">
-                STT
-              </div>
-              <div class="cell">
-                Tên danh mục
-              </div>
-              <div class="cell">
-                Tính năng
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="cell">
-                1
-              </div>
-              <div class="cell">
-                Apple
-              </div>
-              <div class="cell">
-                <a class="cell_xem" href="QuanLyDanhMucChiTiet.aspx">Sửa</a>
-                <a class="cell_xem" href="#">Xoá</a>
-              </div>
-            </div>
-          </div>
+        <div id="menu_2" class="tab-content-item" >
+          <table class="table"  cellpadding="0" cellspacing="0">
+            <thead class="row-header" >
+                <tr>
+                    <th  class="qldm-column" style="min-width: 100px" >ID</th>   
+                    <th  class="qldm-column" style="min-width: 500px">Tên Danh Mục</th>
+                    <th  class="qldm-column" style="min-width: 100px">Chức năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                <asp:Panel ID="Panel2" runat="server"></asp:Panel>
+            </tbody>
+        </table> 
         </div>
 
         <div id="menu_3" class="tab-content-item">
-          <div class="table">
-            <div class="row header">
-              <div class="cell">
-                STT
-              </div>
-              <div class="cell">
-                Tên danh mục
-              </div>
-              <div class="cell">
-                Tính năng
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="cell">
-                1
-              </div>
-              <div class="cell" data-title="Username">
-                Apple
-              </div>
-              <div class="cell" data-title="Tinh-nang">
-                <a class="cell_xem" href="#">Duyệt</a>
-                <a class="cell_xem" href="#">Xoá</a>
-              </div>
-            </div>
-          </div>
+          <table class="table"  cellpadding="0" cellspacing="0">
+            <thead class="row-header">
+                <tr >
+                    <th  class="qldm-column" style="min-width: 100px" >ID</th>   
+                    <th  class="qldm-column" style="min-width: 500px">Tên Danh Mục</th>
+                    <th  class="qldm-column"" style="min-width: 100px">Chức năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                <asp:Panel ID="Panel3" runat="server"></asp:Panel>
+            </tbody>
+        </table> 
         </div>
 
       </div>

@@ -8,9 +8,9 @@
 //------------------------------------------------------------------------------
 
 
-namespace ETech.WebApp.ADMIN
+namespace ETech.WebApp.NCC
 {
-    public partial class QuanLyDanhMucChiTiet
+    public partial class QuanLyKhuyenMai
     {
     }
 }
