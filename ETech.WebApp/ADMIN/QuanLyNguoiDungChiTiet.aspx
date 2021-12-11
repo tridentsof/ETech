@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ADMIN/MasterPage.Master" AutoEventWireup="true" CodeBehind="QuanLyNguoiDungChiTiet.aspx.cs" Inherits="ETech.WebApp.ADMIN.QuanLyNguoiDungChiTiet" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style>
+   <style>
 :root {
   --primary-color: #3e67b9;
 }
@@ -114,6 +114,23 @@ a {
   color: white;
   background-color: #F8333C;
 }
+.btnMo{
+background:white;
+display:none;
+}
+.btnMo:hover{
+background: #6AB547;
+transition:0.25s ;
+}
+.btnKhoa{
+background:white;
+width: 108px;
+display:none;
+}
+.btnKhoa:hover{
+background:#70161E;
+transition:0.25s;
+}
 
 .btn_update:hover {
   background-color: var(--primary-color);
@@ -122,6 +139,48 @@ a {
 .btn_add:hover {
   background-color: #06BCC1;
 }
+.auto-style1 {
+            float: left;
+            width: 300px;
+            position: relative;
+            left: 0px;
+            top: 0px;
+        }
+                .cnsp-rblTrangThai tbody tr td {
+            display: flex;
+        }
+
+            .cnsp-rblTrangThai tbody tr td input {
+                margin: 0;
+                margin-top: 2px;
+                margin-right: 10px;
+                width: 10px;
+            }
+
+            .cnsp-rblTrangThai tbody tr td label {
+                font-weight: normal;
+            }
+
+            .cnsp-rblTrangThai tbody tr td:last-child {
+                display: flex
+            }
+table.cnsp-table tbody tr td:last-child:not(.cnsp-rblTrangThai tbody tr td:last-child) {
+            width: 100%;
+            display: block;
+            }
+        .txterror {
+            color: tomato;
+            margin-top: 5px;
+            display: block;
+            position: relative;
+            top: 10px;
+            margin-bottom: 10px;
+        }
+        .auto-style2 {
+            height: 299px;
+            width: 552px;
+            display:inline-flex;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -129,19 +188,11 @@ a {
         <div class="title">
           <a href="QuanLyNguoiDung.aspx" class="head-container"><i class="fas fa-long-arrow-alt-left"></i>Back</a>
           <h3>QUẢN LÝ NGƯỜI DÙNG CHI TIẾT</h3>
-        </div>
+       </div>
         <div class="div">
           <h5>Tên đăng nhập</h5>
-          <div class="input">
-            <input class="effect" type="text">
-            <span class="focus-border"></span>
-          </div>
-        </div>
-
-        <div class="div">
-          <h5>Mật khẩu</h5>
-          <div class="input">
-            <input class="effect" type="text">
+          <div class="auto-style1">
+              <asp:Label ID="lbdangnhap" runat="server"></asp:Label>
             <span class="focus-border"></span>
           </div>
         </div>
@@ -149,7 +200,7 @@ a {
         <div class="div">
           <h5>Họ tên</h5>
           <div class="input">
-            <input class="effect" type="text">
+              <asp:TextBox ID="txthoten" runat="server"></asp:TextBox>
             <span class="focus-border"></span>
           </div>
         </div>
@@ -157,7 +208,7 @@ a {
         <div class="div">
           <h5>Email</h5>
           <div class="input">
-            <input class="effect" type="text">
+              <asp:TextBox ID="txtemail" runat="server"></asp:TextBox>
             <span class="focus-border"></span>
           </div>
         </div>
@@ -165,7 +216,7 @@ a {
         <div class="div">
           <h5>Địa chỉ</h5>
           <div class="input">
-            <input class="effect" type="text">
+              <asp:TextBox ID="txtdiachi" runat="server"></asp:TextBox>
             <span class="focus-border"></span>
           </div>
         </div>
@@ -173,15 +224,17 @@ a {
         <div class="div">
           <h5>Số điện thoại</h5>
           <div class="input">
-            <input class="effect" type="text">
+              <asp:TextBox ID="txtsdt" runat="server"></asp:TextBox>
             <span class="focus-border"></span>
           </div>
         </div>
 
-        <div>
-          <button class="btn btn_update"><a href="#">Cập nhật</a></button>
-          <button class="btn btn_add"><a href="#">Thêm</a></button>
-          <button class="btn"><a href="#">Xoá</a></button>
+        <asp:Label ID="lbThongBao" runat="server" Text="" CssClass="txterror"></asp:Label>
+        <div class="auto-style2">
+          <asp:button class="btn btn_update" runat="server" Text="Cập nhật" Height="30px" OnClick="btn_CapNhap_Click"></asp:button>
+          <asp:button class="btn btn_add" runat="server" Text="Xóa" Height="30px" OnClick="btn_Xoa_Click"></asp:button>
+           <asp:button class="btn btnKhoa" runat="server" Text="Khoá tài khoản" Height="30px" OnClick="btn_Khoa_Click" ID="Khoa"></asp:button>
+           <asp:button class="btn btnMo" runat="server" Text="Mở Tài Khoản" Height="30px" OnClick="btn_Mo_Click" ID="Mo"></asp:button>
         </div>
     </div>
 </asp:Content>
