@@ -97,6 +97,10 @@
             </div>
         </header>
 
+         <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
 
         <footer class="MP__footer">
             <div class="MP__footer-1">
@@ -132,10 +136,7 @@
             </div>
         </footer>
 
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
+       
     </form>
 </body>
 </html>

@@ -10,7 +10,7 @@
 
 namespace ETech.WebApp.KH
 {
-    public partial class WebForm1
+    public partial class TrangChu
     {
     }
 }
