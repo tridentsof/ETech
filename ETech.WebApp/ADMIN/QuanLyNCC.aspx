@@ -86,9 +86,13 @@ body {
 
 /* Tab style */
 .table {
+  
   width: 100%;
+  width:100%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   display: table;
+  margin:auto;
+
 }
 
 .row {
@@ -126,9 +130,66 @@ body {
 .tab-content {
   margin-top: 30px;
 }
+.row-header{
+      background: var(--primary-color);
+}
+.qldm-column {
+  font-weight: 900;
+  height:40px;
+  color: #ffffff;
+  background: var(--primary-color);
+}
+.qldm-column2{
+        padding: 10px;
+       border: 1px solid black;  
+       line-height:1.3;
+       text-align: left;
+       color: #2f3542;
+       font-weight:600;
+}
+.container-popup{
+    width: 100%;
+    height: 730px;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.473);
+    display: none;
+    top:0;
+    z-index: 100;
+}
+.popup{
+    width: 300px;
+    height: 170px;
+    background-color: whitesmoke;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 16%;
+    border-radius: 8px;
+    box-shadow: 2px 4px 10px rgb(75, 75, 75);
+    z-index:111;
+}
+.x-icon{
+    font-size: 35px;
+    margin-left: 45%;
+    margin-top: 40px;
+    color: #a9ca25;
+}
+.text-popup{
+    font-weight: 600;
+    color: rgb(97, 97, 97);
+    margin-left: 28%;
+    margin-top: 30px;
+} 
+.active{
+    display: block;
+}
+        .forquit {
+            display: none!important;
+        }
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+   
     <div id="container">
         <h2 class="title">QUẢN LÝ NHÀ CUNG CẤP</h2>
         <div class="tabs">
@@ -136,194 +197,63 @@ body {
             <li class="active"><a href="#menu_1">NCC CHỜ DUYỆT</a></li>
             <li><a href="#menu_2">NCC ĐANG TỒN TẠI</a></li>
             <li><a href="#menu_3">NCC ĐÃ HUỶ</a></li>
-            <a class="dangki_ncc" href="QuanLyNCCChiTiet.aspx">
-              <i class="fas fa-user-plus"></i>Đăng kí nhà cung cấp
-            </a>
+              <a class="dangki_ncc" href="QuanLyNCCChiTiet.aspx">
+                  <i class="fas fa-user-plus"></i>Đăng kí nhà cung cấp
+              </a>
           </ul>
           <div class="tab-content">
             <div id="menu_1" class="tab-content-item">
-              <div class="table">
-
-                <div class="row header">
-                  <div class="cell">
-                    ID
-                  </div>
-                  <div class="cell">
-                    Tên đăng nhập
-                  </div>
-                  <div class="cell">
-                    Mật khẩu
-                  </div>
-                  <div class="cell">
-                    Họ tên
-                  </div>
-                  <div class="cell">
-                    Email
-                  </div>
-                  <div class="cell">
-                    Địa chỉ
-                  </div>
-                  <div class="cell">
-                    SĐT
-                  </div>
-                  <div class="cell">
-                    Tính năng
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="cell" data-title="ID">
-                    09
-                  </div>
-                  <div class="cell" data-title="Username">
-                    vynguyen
-                  </div>
-                  <div class="cell" data-title="Password">
-                    123
-                  </div>
-                  <div class="cell" data-title="Fullname">
-                    Thảo Vy
-                  </div>
-                  <div class="cell" data-title="Email">
-                    thaovy@gmail.com
-                  </div>
-                  <div class="cell" data-title="Location">
-                    500 Tôn Đản
-                  </div>
-                  <div class="cell" data-title="Phone-number">
-                    09746483
-                  </div>
-                  <div class="cell" data-title="Tinh-nang">
-                    <a class="cell_xem" href="#">Duyệt</a>
-                    <a class="cell_xem" href="#">Huỷ</a>
-                  </div>
-                </div>
-              </div>
+            <table class="table" cellpadding="0" cellspacing="0">
+            <thead class="row-header">
+                <tr>
+                    <th class="qldm-column" style="min-width: 50px">ID</th>   
+                    <th class="qldm-column" style="min-width: 250px">Tên Nhà Cung Cấp</th>
+                    <th class="qldm-column" style="min-width: 250px">Địa chỉ</th>
+                    <th class="qldm-column" style="min-width: 150px">SĐT</th>
+                    <th class="qldm-column" style="min-width: 150px">Email</th>
+                    
+                    <th class="qldm-column" style="min-width: 150px">Chỉnh sửa</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <asp:Panel ID="Panel1" runat="server"></asp:Panel>
+            </tbody>
+        </table>
 
             </div>
             <div id="menu_2" class="tab-content-item">
-              <div class="table">
-
-                <div class="row header">
-                  <div class="cell">
-                    ID
-                  </div>
-                  <div class="cell">
-                    Tên đăng nhập
-                  </div>
-                  <div class="cell">
-                    Mật khẩu
-                  </div>
-                  <div class="cell">
-                    Họ tên
-                  </div>
-                  <div class="cell">
-                    Email
-                  </div>
-                  <div class="cell">
-                    Địa chỉ
-                  </div>
-                  <div class="cell">
-                    SĐT
-                  </div>
-                  <div class="cell">
-                    Trạng thái
-                  </div>
-                  <div class="cell">
-                    Tính năng
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="cell" data-title="ID">
-                    09
-                  </div>
-                  <div class="cell" data-title="Username">
-                    vynguyen
-                  </div>
-                  <div class="cell" data-title="Password">
-                    123
-                  </div>
-                  <div class="cell" data-title="Fullname">
-                    Thảo Vy
-                  </div>
-                  <div class="cell" data-title="Email">
-                    thaovy@gmail.com
-                  </div>
-                  <div class="cell" data-title="Location">
-                    500 Tôn Đản
-                  </div>
-                  <div class="cell" data-title="Phone-number">
-                    09746483
-                  </div>
-                  <div class="cell" data-title="Status">
-                    Mở
-                  </div>
-                  <div class="cell" data-title="Tinh-nang">
-                    <a class="cell_xem" href="QuanLyNCCChiTiet.aspx">Sửa</a>
-                    <a class="cell_xem" href="#">Huỷ</a>
-                  </div>
-                </div>
-              </div>
+              <table class="table"  cellpadding="0" cellspacing="0">
+            <thead class="row-header" >
+                <tr>
+                    <th class="qldm-column" style="min-width: 50px">ID</th>   
+                    <th class="qldm-column" style="min-width: 250px">Tên Nhà Cung Cấp</th>
+                    <th class="qldm-column" style="min-width: 250px">Địa chỉ</th>
+                    <th class="qldm-column" style="min-width: 150px">SĐT</th>
+                    <th class="qldm-column" style="min-width: 150px">Email</th>
+                    <th class="qldm-column" style="min-width: 150px">Trạng thái</th>
+                </tr>
+            </thead>
+            <tbody>
+                <asp:Panel ID="Panel2" runat="server"></asp:Panel>
+            </tbody>
+        </table>
             </div>
             <div id="menu_3" class="tab-content-item">
-              <div class="table">
-
-                <div class="row header">
-                  <div class="cell">
-                    ID
-                  </div>
-                  <div class="cell">
-                    Tên đăng nhập
-                  </div>
-                  <div class="cell">
-                    Mật khẩu
-                  </div>
-                  <div class="cell">
-                    Họ tên
-                  </div>
-                  <div class="cell">
-                    Email
-                  </div>
-                  <div class="cell">
-                    Địa chỉ
-                  </div>
-                  <div class="cell">
-                    SĐT
-                  </div>
-                  <div class="cell">
-                    Tính năng
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="cell" data-title="ID">
-                    09
-                  </div>
-                  <div class="cell" data-title="Username">
-                    vynguyen
-                  </div>
-                  <div class="cell" data-title="Password">
-                    123
-                  </div>
-                  <div class="cell" data-title="Fullname">
-                    Thảo Vy
-                  </div>
-                  <div class="cell" data-title="Email">
-                    thaovy@gmail.com
-                  </div>
-                  <div class="cell" data-title="Location">
-                    500 Tôn Đản
-                  </div>
-                  <div class="cell" data-title="Phone-number">
-                    09746483
-                  </div>
-                  <div class="cell" data-title="Tinh-nang">
-                    <a class="cell_xem" href="#">Duyệt</a>
-                    <a class="cell_xem" href="#">Xoá</a>
-                  </div>
-                </div>
-              </div>
+              <table class="table"  cellpadding="0" cellspacing="0">
+            <thead class="row-header" >
+                <tr>
+                   <th class="qldm-column" style="min-width: 50px">ID</th>   
+                    <th class="qldm-column" style="min-width: 250px">Tên Nhà Cung Cấp</th>
+                    <th class="qldm-column" style="min-width: 250px">Địa chỉ</th>
+                    <th class="qldm-column" style="min-width: 150px">SĐT</th>
+                    <th class="qldm-column" style="min-width: 150px">Email</th>
+                    <th class="qldm-column" style="min-width: 150px">Trạng thái</th>
+                </tr>
+            </thead>
+            <tbody>
+                <asp:Panel ID="Panel3" runat="server"></asp:Panel>
+            </tbody>
+        </table>
             </div>
           </div>
         </div>
@@ -331,6 +261,7 @@ body {
     </div>
 
     <script>
+     
       $(document).ready(function () {
         $('.tab-content-item').hide();
         $('.tab-content-item:first-child').fadeIn();

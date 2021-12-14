@@ -133,23 +133,18 @@ a {
         <div class="div">
           <h5>Tên đăng nhập</h5>
           <div class="input">
-            <input class="effect" type="text">
+            
+              <asp:TextBox ID="tendangnhap" runat="server" CssClass="effect" Text=""></asp:TextBox>
             <span class="focus-border"></span>
           </div>
         </div>
 
-        <div class="div">
-          <h5>Mật khẩu</h5>
-          <div class="input">
-            <input class="effect" type="text">
-            <span class="focus-border"></span>
-          </div>
-        </div>
+        
 
         <div class="div">
-          <h5>Họ tên</h5>
+          <h5>Tên nhà cung cấp</h5>
           <div class="input">
-            <input class="effect" type="text">
+            <asp:TextBox ID="hoten" CssClass="effect" runat="server"></asp:TextBox>
             <span class="focus-border"></span>
           </div>
         </div>
@@ -157,7 +152,7 @@ a {
         <div class="div">
           <h5>Email</h5>
           <div class="input">
-            <input class="effect" type="text">
+            <asp:TextBox ID="email" CssClass="effect" runat="server"></asp:TextBox>
             <span class="focus-border"></span>
           </div>
         </div>
@@ -165,7 +160,7 @@ a {
         <div class="div">
           <h5>Địa chỉ</h5>
           <div class="input">
-            <input class="effect" type="text">
+            <asp:TextBox ID="diachi" CssClass="effect" runat="server"></asp:TextBox>
             <span class="focus-border"></span>
           </div>
         </div>
@@ -173,7 +168,7 @@ a {
         <div class="div">
           <h5>Số điện thoại</h5>
           <div class="input">
-            <input class="effect" type="text">
+            <asp:TextBox ID="sdt" CssClass="effect" runat="server"></asp:TextBox>
             <span class="focus-border"></span>
           </div>
         </div>
@@ -181,16 +176,17 @@ a {
         <div class="div">
           <h5>Trạng thái</h5>
           <div class="input">
-            <input name="status" type="radio">Mở
-            <input name="status" type="radio" style="margin-left: 30px">Đóng
+              <asp:RadioButton ID="rdb_open" GroupName="Group1" Text="Mở" runat="server" />
+              <asp:RadioButton ID="rdb_close" GroupName="Group1" Text="Đóng" style="margin-left: 30px" runat="server" />      
             <span class="focus-border"></span>
           </div>
         </div>
 
         <div>
-          <button class="btn btn_update"><a href="#">Cập nhật</a></button>
-          <button class="btn btn_add"><a href="#">Thêm</a></button>
-          <button class="btn"><a href="#">Xoá</a></button>
+            <asp:Button ID="Button1" CssClass="btn btn_update" runat="server" OnClick="Button1_Click" Text="Cập nhật" />
+          
+          
+            <asp:Button ID="Button2" CssClass="btn" runat="server" OnClick="Button2_Click" Text="Hủy" />
         </div>
     </div>
 </asp:Content>
