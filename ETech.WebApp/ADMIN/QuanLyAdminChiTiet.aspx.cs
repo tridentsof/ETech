@@ -33,7 +33,7 @@ namespace ETech.WebApp.ADMIN
 
                 string TrangThaiTk = tbTrangThai.Rows[0]["TRANGTHAI"].ToString();
 
-                if (TrangThaiTk == "0")
+                if (TrangThaiTk != "1")
                 {
                     Mo.Style.Add("display", "block");
                 }
@@ -121,7 +121,7 @@ namespace ETech.WebApp.ADMIN
             string loaiTK = dt.Rows[0]["TRANGTHAI"].ToString();
             if (int.Parse(loaiTK) == 0)
             {
-                Response.Redirect("QuanLyNguoiDung.aspx");
+                Response.Redirect("QuanLyAdmin.aspx");
             }
             if (int.Parse(loaiTK) == 1)
             {

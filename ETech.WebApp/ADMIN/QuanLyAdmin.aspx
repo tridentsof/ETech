@@ -29,9 +29,9 @@ h2 {
 }
 
 .wrapper {
-  margin: 200px 0 0 450px;
-  padding: 0;
-  max-width: 950px;
+  max-width: 900px;
+  margin: 170px 0 0 450px;
+  padding: 40px;
 }
 
 .table {
@@ -219,6 +219,28 @@ h2 {
             margin-top: 0;
             margin-bottom: 0;
         }
+        .qldm-column {
+  font-weight: 900;
+  height:40px;
+  color: #ffffff;
+}
+        .table {
+  width:100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  display: table;
+  margin:auto;
+}
+        .row-header{
+      background: var(--primary-color);
+}
+.qldm-column2{
+        padding: 10px;
+       border: 1px solid black;  
+       line-height:1.3;
+       text-align: left;
+       color: #2f3542;
+       font-weight:600;
+}
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -226,24 +248,25 @@ h2 {
         <div class="auto-style2">
                 <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Admin/QuanLyThemAdmin.aspx">
                     <i class="fas fa-user-plus"></i>
-                    <span>Đăng kí User</span>
+                    <span>Đăng kí Admin</span>
                 </asp:HyperLink>
             
             </div>
     <h2>QUẢN LÝ ADMIN</h2>
-        <table class="auto-style1" border="1">
-            <tr  class="table-tr">
-                <th class="table-th">ID</th>
-                <th class="table-th">Tên đăng nhập</th>
-                <th class="table-th">Mật khẩu</th>
-                <th class="table-th">Họ Tên</th>
-                <th class="table-th">Email</th>
-                <th class="table-th">Địa chỉ</th>
-                <th class="table-th">SĐT</th>
+        <table class="table" cellpadding="0" cellspacing="0">
+            <thead  class="row-header">
+                <tr>
+                <th class="qldm-column" >ID</th>
+                <th class="qldm-column" style="min-width: 150px">Tên đăng nhập</th>
+                <th class="qldm-column" style="min-width: 100px">Mật khẩu</th>
+                <th class="qldm-column" style="min-width">Họ Tên</th>
+                <th class="qldm-column" style="min-width">Email</th>
+                <th class="qldm-column" style="min-width: 80px">Địa chỉ</th>
+                <th class="qldm-column">SĐT</th>
                 <%--<th class="table-th">Trạng Thái</th>--%>
-                <th class="table-th">Tính Năng</th>
-
-            </tr>
+                <th class="qldm-column">Tính Năng</th>
+                </tr>
+            </thead>
         <asp:PlaceHolder ID="PlaceHolder2" runat="server"></asp:PlaceHolder>
         </table> 
   </div>

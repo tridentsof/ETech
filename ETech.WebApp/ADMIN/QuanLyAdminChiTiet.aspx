@@ -27,6 +27,7 @@ body {
 }
 
 .title{
+  margin-top: 30px;
   margin-bottom: 30px;
 }
 
@@ -48,40 +49,10 @@ body {
 :focus {
   outline: none;
 }
-
-.input {
-  float: left;
-  width: 300px;
-  position: relative;
-}
-
-input[type="text"] {
-  color: #333;
-  width: 100%;
-  box-sizing: border-box;
-  font-size: 18px;
-}
-
 .effect {
   height: 30px;
   border: 1px solid #ccc;
 }
-
-.effect~.focus-border {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--primary-color);
-  transition: 0.3s;
-}
-
-.effect:focus~.focus-border {
-  width: 100%;
-  transition: 0.4s;
-}
-
 h5 {
   padding: 0;
   margin: 0;
@@ -95,8 +66,8 @@ a {
 
 .btn {
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-  margin-top: 30px;
-  margin-left: 30px;
+  margin-top: 10px;
+  margin-left: 10px;
   width: 100px;
   height: 30px;
   border: none;
@@ -139,43 +110,13 @@ transition:0.25s;
 .btn_add:hover {
   background-color: #06BCC1;
 }
-        .auto-style1 {
-            float: left;
-            width: 300px;
-            position: relative;
-            left: 0px;
-            top: 0px;
-        }
-                .cnsp-rblTrangThai tbody tr td {
-            display: flex;
-        }
-
-            .cnsp-rblTrangThai tbody tr td input {
-                margin: 0;
-                margin-top: 2px;
-                margin-right: 10px;
-                width: 10px;
-            }
-
-            .cnsp-rblTrangThai tbody tr td label {
-                font-weight: normal;
-            }
-
-            .cnsp-rblTrangThai tbody tr td:last-child {
-                display: flex
-            }
-table.cnsp-table tbody tr td:last-child:not(.cnsp-rblTrangThai tbody tr td:last-child) {
-            width: 100%;
-            display: block;
-            }
         .auto-style2 {
-            background-color: white;
+            background-color: #fff;
             border-radius: 20px;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-            margin: 120px 0 0 600px;
+            margin: 180px 0 0 600px;
             max-width: 600px;
-            height: 641px;
-            padding: 70px;
+            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -188,6 +129,49 @@ table.cnsp-table tbody tr td:last-child:not(.cnsp-rblTrangThai tbody tr td:last-
             top: 10px;
             margin-bottom: 10px;
         }
+        .QLHS__box {
+            width: 500px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 21px;
+            padding: 7px;
+        }
+         .QLHS__box-input {
+            float: left;
+            width: 300px;
+            position: relative;
+        }
+         .effect {
+            height: 30px;
+            border: 1px solid #ccc;
+        }
+
+            .effect ~ .focus-border {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: var(--primary-color);
+                transition: 0.3s;
+            }
+
+            .effect:focus ~ .focus-border {
+                width: 100%;
+                transition: 0.4s;
+            }
+         .auto-style1 {
+            float: left;
+            width: 300px;
+            position: relative;
+            left: 0px;
+            top: 0px;
+        }
+         .auto-style3 {
+             width: max-content;
+             margin-left: 25px 50px 75px 100px;
+         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -196,50 +180,49 @@ table.cnsp-table tbody tr td:last-child:not(.cnsp-rblTrangThai tbody tr td:last-
             <a href="QuanLyAdmin.aspx" class="head-container"><i class="fas fa-long-arrow-alt-left"></i>Back</a>
             <h3>QUẢN LÝ ADMIN CHI TIẾT</h3>
         </div>
-        <div class="div">
-          <h5>Tên đăng nhập</h5>
-          <div class="auto-style1">
-            &nbsp;<asp:Label ID="lbdangnhap" runat="server"></asp:Label>
-            <span class="focus-border"></span>
-          </div>
+        <div class="QLHS__box">
+            <h5>Tên đăng nhập</h5>
+            <div class="auto-style1">
+                 <asp:Label ID="lbdangnhap" class="effect" runat="server" Width="300px"></asp:Label>
+            </div>
         </div>
 
-        <div class="div">
-          <h5>Họ tên</h5>
-          <div class="input">
-              <asp:TextBox ID="txthoten" runat="server"></asp:TextBox>
+        <div class="QLHS__box">
+            <h5>Họ tên</h5>
+            <div class="QLHS__box-input">
+                <asp:TextBox ID="txthoten" class="effect" runat="server" Width="300px"></asp:TextBox>
             <span class="focus-border"></span>
-          </div>
+            </div>
         </div>
 
-        <div class="div">
-          <h5>Email</h5>
-          <div class="input">
-              <asp:TextBox ID="txtemail" runat="server"></asp:TextBox>
+        <div class="QLHS__box">
+            <h5>Email</h5>
+            <div class="QLHS__box-input">
+                 <asp:TextBox ID="txtemail" class="effect" runat="server" Width="300px"></asp:TextBox>
             <span class="focus-border"></span>
-          </div>
+            </div>
         </div>
 
-        <div class="div">
-          <h5>Địa chỉ</h5>
-          <div class="input">
-              <asp:TextBox ID="txtdiachi" runat="server"></asp:TextBox>
+        <div class="QLHS__box">
+            <h5>Địa chỉ</h5>
+            <div class="QLHS__box-input">
+                <asp:TextBox ID="txtdiachi" class="effect" runat="server" Width="300px"></asp:TextBox>
             <span class="focus-border"></span>
-          </div>
+            </div>
         </div>
 
-        <div class="div">
-          <h5>Số điện thoại</h5>
-          <div class="input">
-              <asp:TextBox ID="txtsdt" runat="server"></asp:TextBox>
+        <div class="QLHS__box">
+            <h5>Số điện thoại</h5>
+            <div class="QLHS__box-input">
+                <asp:TextBox ID="txtsdt" class="effect" runat="server" Width="300px"></asp:TextBox>
             <span class="focus-border"></span>
-          </div>
+            </div>
         </div>
         <asp:Label ID="lbThongBao" runat="server" Text="" CssClass="txterror"></asp:Label>
-        <div>
+        <div class="auto-style3">
           <asp:button class="btn btn_update" runat="server" Text="Cập nhật" Height="30px" OnClick="btn_CapNhap_Click"></asp:button>
           <asp:button class="btn btn_add" runat="server" Text="Xóa" Height="30px" OnClick="btn_Xoa_Click"></asp:button>
-          <asp:button class="btn btnKhoa " runat="server" Text="Khoá tài khoản" Height="30px" OnClick="btn_Khoa_Click" ID="Khoa"></asp:button>
+          <asp:button class="btn btnKhoa" runat="server" Text="Khoá tài khoản" Height="30px" OnClick="btn_Khoa_Click" ID="Khoa"></asp:button>
            <asp:button class="btn btnMo" runat="server" Text="Mở Tài Khoản" Height="30px" OnClick="btn_Mo_Click" ID="Mo"></asp:button>
         </div>
     </div>

@@ -79,5 +79,10 @@ namespace ETech.WebApp.ADMIN
                 }
             }
         }
+
+        protected void txtCaptcha_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

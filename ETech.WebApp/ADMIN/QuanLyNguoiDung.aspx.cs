@@ -16,7 +16,7 @@ namespace ETech.WebApp.ADMIN
         {
             if (Session["userKH"] == null)
             {
-                Response.Redirect("DangNhap.aspx");
+                //Response.Redirect("DangNhap.aspx");
             }
 
             StringBuilder table = new StringBuilder();
@@ -32,15 +32,15 @@ namespace ETech.WebApp.ADMIN
             {
                 while (rd.Read())
                 {
-                    table.Append("<tr class=\"table-tr\">");
-                    table.Append("<td class=\"table-td table-item\">" + rd[0] + "</td>");
-                    table.Append("<td class=\"table-td table-item\">" + rd[1] + "</td>");
-                    table.Append("<td class=\"table-td table-item\">" + rd[2] + "</td>");
-                    table.Append("<td class=\"table-td table-item\">" + rd[3] + "</td>");
-                    table.Append("<td class=\"table-td table-item\">" + rd[4] + "</td>");
-                    table.Append("<td class=\"table-td table-item\">" + rd[5] + "</td>");
-                    table.Append("<td class=\"table-td table-item\">" + rd[6] + "</td>");
-                    table.Append("<td class=\"table-td table-item\"><a href=\"/ADMIN/QuanLyNguoiDungChiTiet.aspx?id=" + rd["TAIKHOANID"] + "\" class=\"qltk-btnCapNhat\">Xem Chi Tiết</a> </td>");
+                    table.Append("<tr class=\"\">");
+                    table.Append("<td class=\"qldm-column2\" style=\"text-align:center;\">" + rd[0] + "</td>");
+                    table.Append("<td class=\"qldm-column2\">" + rd[1] + "</td>");
+                    table.Append("<td class=\"qldm-column2\">" + rd[2] + "</td>");
+                    table.Append("<td class=\"qldm-column2\">" + rd[3] + "</td>");
+                    table.Append("<td class=\"qldm-column2\">" + rd[4] + "</td>");
+                    table.Append("<td class=\"qldm-column2\">" + rd[5] + "</td>");
+                    table.Append("<td class=\"qldm-column2\">" + rd[6] + "</td>");
+                    table.Append("<td class=\"qldm-column2\"><a href=\"/ADMIN/QuanLyNguoiDungChiTiet.aspx?id=" + rd["TAIKHOANID"] + "\" class=\"qltk-btnCapNhat\">Xem Chi Tiết</a> </td>");
                     table.Append("</tr>");
                 }
                 table.Append("</table>");
