@@ -104,6 +104,13 @@
                 color: #fff;
                 background-color: var(--primary-color);
             }
+        .auto-style1 {
+            float: left;
+            width: 300px;
+            position: relative;
+            left: 0px;
+            top: 0px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -114,55 +121,55 @@
         </div>
         <div class="QLHS__box">
             <h5>Tên đăng nhập</h5>
-            <div class="QLHS__box-input">
-                <input class="effect" type="text">
-                <span class="focus-border"></span>
-            </div>
+            <div class="auto-style1">
+                 <asp:Label ID="lbdangnhap" runat="server"></asp:Label>
+                 &nbsp;<span class="focus-border"></span></div>
         </div>
 
         <div class="QLHS__box">
             <h5>Họ tên</h5>
             <div class="QLHS__box-input">
-                <input class="effect" type="text">
-                <span class="focus-border"></span>
+                <asp:TextBox ID="txthoten" class="effect" runat="server"></asp:TextBox>
+            <span class="focus-border"></span>
             </div>
         </div>
 
         <div class="QLHS__box">
             <h5>Email</h5>
             <div class="QLHS__box-input">
-                <input class="effect" type="text">
-                <span class="focus-border"></span>
+                 <asp:TextBox ID="txtemail" class="effect" runat="server"></asp:TextBox>
+            <span class="focus-border"></span>
             </div>
         </div>
 
         <div class="QLHS__box">
             <h5>Địa chỉ</h5>
             <div class="QLHS__box-input">
-                <input class="effect" type="text">
-                <span class="focus-border"></span>
+                <asp:TextBox ID="txtdiachi" class="effect" runat="server"></asp:TextBox>
+            <span class="focus-border"></span>
             </div>
         </div>
 
         <div class="QLHS__box">
             <h5>Số điện thoại</h5>
             <div class="QLHS__box-input">
-                <input class="effect" type="text">
-                <span class="focus-border"></span>
+                <asp:TextBox ID="txtsdt" class="effect" runat="server"></asp:TextBox>
+            <span class="focus-border"></span>
             </div>
         </div>
 
-        <div class="QLHS__box">
+        <%--<div class="QLHS__box">
             <h5>Trạng thái</h5>
             <div class="QLHS__box-input">
                 <input name="status" type="radio">Mở
             <input name="status" type="radio">Đóng
             </div>
-        </div>
-
+        </div>--%>
+        <asp:Label ID="lbThongBao" runat="server" Text="" CssClass="txterror"></asp:Label>
         <div>
-            <button class="QLHS__btn QLHS__btn-save"><a href="#">Lưu</a></button>
-            <button class="QLHS__btn QLHS__btn-changePW"><a href="#">Đổi mật khẩu</a></button>
+            <asp:Button ID="Button1" runat="server" CssClass="QLHS__btn QLHS__btn-save" Text="Lưu" OnClick="Button1_Click" CausesValidation="False" />
+            <asp:Button ID="Button2" runat="server" CssClass="QLHS__btn QLHS__btn-changePW" Text="Đổi Mật Khẩu" OnClick="Button2_Click" CausesValidation="False" />
+            
         </div>
     </div>
 
