@@ -43,6 +43,7 @@ namespace ETech.WebApp.ADMIN
                     table.Append("<tr class=\"\">");
                     table.Append("<td class=\"qldm-column2\" style=\"text-align:center;\">" + dr[0] + "</td>");
                     table.Append("<td class=\"qldm-column2\">" + dr[1] + "</td>");
+                    table.Append("<td class=\"qldm-column2\">" + dr[2] + "</td>");
                     table.Append("<td class=\"qldm-column2\" style=\"text-align:center;\">");
                     table.Append("<a href=\"QuanLyChiTietDanhMuc1.aspx?idDM=" + dr[0] +"\" class=\"cell_xem\">Chỉnh sửa</a>");
                     table.Append("</td>");
@@ -80,7 +81,7 @@ namespace ETech.WebApp.ADMIN
             dataAccess.MoKetNoiCSDL();
 
             SqlParameter[] p = { };
-            DataTable dt = dataAccess.TableFill("PROC_VIEW_LOAISP2", p);
+            DataTable dt = dataAccess.TableFill("PROC_VIEW_LOAISP3", p);
 
             StringBuilder table = new StringBuilder();
             if (dt != null && dt.Rows.Count > 0)
@@ -90,6 +91,7 @@ namespace ETech.WebApp.ADMIN
                     table.Append("<tr class=\"\">");
                     table.Append("<td class=\"qldm-column2\" style=\"text-align:center;\">" + dr[0] + "</td>");
                     table.Append("<td class=\"qldm-column2\">" + dr[1] + "</td>");
+                    table.Append("<td class=\"qldm-column2\">" + dr[2] + "</td>");
                     table.Append("<td class=\"qldm-column2\" style=\"text-align:center;\">");
                     table.Append("<a href=\"QuanLyChiTietDanhMuc2.aspx?idDM=" + dr[0] + "\" class=\"cell_xem\">Chỉnh sửa</a>");
                     table.Append("</td>");

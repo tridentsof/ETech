@@ -36,13 +36,6 @@
             text-align: right;
         }
 
-        .QLTKe__selectdiv select {
-            margin-top: 2px;
-            height: 39px;
-            padding: 5px;
-            font-size: 16px;
-        }
-
         .QLTKe__btn {
             font-size: 16px;
             margin: 40px 20px;
@@ -81,7 +74,7 @@
                 background: #e9e9e9;
             }
 
-            .row.header {
+            .row-header {
                 font-weight: 900;
                 color: #ffffff;
                 background: var(--primary-color);
@@ -92,73 +85,47 @@
             padding: 6px 10px;
             display: table-cell;
         }
+        .qltn-column2{
+        padding: 10px;
+       border: 1px solid black;  
+       line-height:1.3;
+       text-align: left;
+       color: #2f3542;
+       font-weight:500;
+}
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="QLTKe__container">
-        <h2>THỐNG KÊ</h2>
+        <h2>THỐNG KÊ DOANH THU</h2>
         <div class="QLTKe__container-item">
             <div class="QLTKe__select-date">
                 <p>Từ ngày</p>
-                <input type="date">
+                 <asp:TextBox ID="txtNgayBD"  TextMode="Date" runat="server"></asp:TextBox>
             </div>
             <div class="QLTKe__select-date">
                 <p>Đến ngày</p>
-                <input type="date">
-            </div>
-            <div class="QLTKe__selectdiv">
-                <select>
-                    <option selected disabled>Chọn nhà cung cấp</option>
-                    <option>ABC</option>
-                    <option>XYZ</option>
-                </select>
+                <asp:TextBox ID="txtNgayKT"  TextMode="Date" runat="server"></asp:TextBox>
             </div>
         </div>
         <div class="QLTKe__divbtn">
-            <button class="QLTKe__btn">Tìm kiếm</button>
-            <button class="QLTKe__btn">Hủy</button>
+            <asp:Button ID="btnTim" runat="server" Text="Tìm kiếm"  class="QLTKe__btn" OnClick="btnTim_Click"  />
+            <asp:Button ID="btnHuy" runat="server" Text="Hủy"  class="QLTKe__btn" OnClick="btnHuy_Click"  />
         </div>
-        <div class="table">
-            <div class="row header">
-                <div class="cell">
-                    Mã sản phẩm
-                </div>
-                <div class="cell">
-                    Tên sản phẩm
-                </div>
-                <div class="cell">
-                    Giá bán
-                </div>
-                <div class="cell">
-                    SL bán ra
-                </div>
-                <div class="cell">
-                    SL tồn kho
-                </div>
-                <div class="cell">
-                    Doanh thu
-                </div>
-            </div>
-            <div class="row">
-                <div class="cell">
-                    01
-                </div>
-                <div class="cell">
-                    Iphone 12
-                </div>
-                <div class="cell">
-                    2.000.000
-                </div>
-                <div class="cell">
-                    3
-                </div>
-                <div class="cell">
-                    5
-                </div>
-                <div class="cell">
-                    14.000.000
-                </div>
-            </div>
-        </div>
+       <table class="table" cellpadding="0" cellspacing="0">
+            <thead class="row-header">
+                <tr>
+                    <th class="cell" style="min-width: 200px">Mã Sản Phẩm</th>   
+                    <th class="cell" style="min-width: 300px">Tên Sản Phẩm</th>
+                    <th class="cell" style="min-width: 200px">SL Tồn Kho</th>
+                    <th class="cell" style="min-width: 200px">SL Bán ra</th>
+                    <th class="cell" style="min-width: 200px">Doanh thu</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                    <asp:Panel ID="Panel1" runat="server"></asp:Panel>
+            </tbody>
+        </table>
     </div>
 </asp:Content>

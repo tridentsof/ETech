@@ -8,47 +8,26 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace ETech.WebApp.ADMIN
+namespace ETech.WebApp.NCC
 {
-    public partial class QuanLyChiTietDanhMuc2 : System.Web.UI.Page
+    public partial class QuanLyXoaDM : System.Web.UI.Page
     {
         DataAccess dataAccess = new DataAccess();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["userKH"] == null)
-            {
-                Response.Redirect("DangNhap.aspx");
-            }
             if (!IsPostBack)
             {
                 string idDM = Request.QueryString.Get("idDM").ToString();
-                string sqlDM = "SELECT * FROM LOAISP WHERE LOAISPID=" + idDM;
+                string sqlDM = "SELECT a.TENLOAI FROM LOAISP a, CHITIETDANHMUC b WHERE a.LOAISPID = b.LOAISPID and b.ID_CHITIETDM =" + idDM;
                 dataAccess.MoKetNoiCSDL();
                 DataTable dtDM = dataAccess.LayBangDuLieu(sqlDM);
                 if (dtDM != null && dtDM.Rows.Count > 0)
                 {
-                    lblTen.Text = dtDM.Rows[0]["TENLOAI"].ToString();
+                    lblDM.Text = dtDM.Rows[0]["TENLOAI"].ToString();
                     SqlCommand cmd = new SqlCommand(sqlDM, dataAccess.getConnection());
+                    dataAccess.DongKetNoiCSDL();
                 }
-                dataAccess.DongKetNoiCSDL();
             }
-        }
-
-        protected void btnDuyet_Click(object sender, EventArgs e)
-        {
-            string idDM = Request.QueryString.Get("idDM").ToString();
-            SqlParameter[] p = {
-                new SqlParameter("@LOAISPID",SqlDbType.Int)
-            };
-            p[0].Value = int.Parse(idDM);
-
-            int i = dataAccess.ExecuteNonQuery("PROC_DUYETDANHMUC", p);
-
-            if (i > 0)
-            {
-                Response.Redirect("QuanLyDanhMuc.aspx");
-            }
-
         }
 
         protected void btnXoa_Click(object sender, EventArgs e)
@@ -61,11 +40,15 @@ namespace ETech.WebApp.ADMIN
 
             int i = dataAccess.ExecuteNonQuery("PROC_DELETE_DANHMUC2", p);
 
-            if (i > 0)
+            if(i>0)
             {
-                Response.Redirect("QuanLyDanhMuc.aspx");
-            }
+                Response.Redirect("YeuCauDanhMuc.aspx");
+            }    
+        }
 
+        protected void btnHuy_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("YeuCauDanhMuc.aspx");
         }
     }
 }

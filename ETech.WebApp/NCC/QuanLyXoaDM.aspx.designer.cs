@@ -11,25 +11,34 @@ namespace ETech.WebApp.NCC
 {
 
 
-    public partial class QuanLySanPham
+    public partial class QuanLyXoaDM
     {
 
         /// <summary>
-        /// btnThem control.
+        /// lblDM control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnThem;
+        protected global::System.Web.UI.WebControls.Label lblDM;
 
         /// <summary>
-        /// Panel1 control.
+        /// btnXoa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.Button btnXoa;
+
+        /// <summary>
+        /// btnHuy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnHuy;
     }
 }

@@ -6,16 +6,6 @@
             --text-color: #333;
             --primary-color: #f15f1b;
         }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            font-size: 18px;
-            line-height: 20px;
-            font-weight: 400;
-            color: #3b3b3b;
-            background-color: #eee;
-        }
-
         .QLSP__title {
             text-align: center;
             padding: 10px;
@@ -43,18 +33,14 @@
                 transform: scale(0.8);
             }
 
-            .QLSP__btn-add i {
-                margin-right: 5px;
-            }
-
         .QLSP__container {
-            margin: 180px 0 0 450px;
+            margin: 180px 0 0 320px;
             padding: 0;
-            max-width: 950px;
+            max-width: 1100px;
         }
 
         .table {
-            width: 100%;
+            width: 1100px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
             display: table;
         }
@@ -68,7 +54,7 @@
                 background: #e9e9e9;
             }
 
-            .row.header {
+            .row-header {
                 font-weight: 900;
                 color: #ffffff;
                 background: var(--primary-color);
@@ -89,64 +75,38 @@
             .QLSP__link:hover {
                 color: var(--primary-color);
             }
+            .qldm-column2{
+                padding: 10px;
+                border: 1px solid black;  
+                line-height:1.3;
+                 text-align: left;
+                color: #2f3542;
+                font-weight:500;
+                font-size:15px;
+            }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="QLSP__container">
         <div>
             <h2 class="QLSP__title">QUẢN LÝ SẢN PHẨM</h2>
-            <button class="QLSP__btn-add"><i class="fas fa-plus"></i>Thêm sản phẩm</button>
+            <asp:Button ID="btnThem"  class="QLSP__btn-add" runat="server" Text="+ Thêm sản phẩm" OnClick="btnThem_Click" />
+         <table class="table" cellpadding="0" cellspacing="0">
+            <thead class="row-header">
+                <tr>
+                    <th class="cell" style="min-width: 50px">STT</th>   
+                    <th class="cell" style="min-width: 400px">Tên Sản Phẩm</th>
+                    <th class="cell" style="min-width: 150px">Giá</th>
+                    <th class="cell" style="min-width: 50px">Số lượng</th>
+                    <th class="cell" style="min-width: 100px">Thương hiệu</th>
+                    <th class="cell" style="min-width: 100px">Nổi bật</th>
+                    <th class="cell" style="min-width: 100px">Chỉnh sửa</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <asp:Panel ID="Panel1" runat="server"></asp:Panel>
+            </tbody>
+        </table>  
+      </div>
         </div>
-        <div class="table">
-
-            <div class="row header">
-                <div class="cell">
-                    STT
-                </div>
-                <div class="cell">
-                    Tên sản phẩm
-                </div>
-                <div class="cell">
-                    Giá
-                </div>
-                <div class="cell">
-                    Số lượng
-                </div>
-                <div class="cell">
-                    Thương hiệu
-                </div>
-                <div class="cell">
-                    Nổi bật
-                </div>
-                <div class="cell">
-                    Tính năng
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="cell">
-                    1
-                </div>
-                <div class="cell">
-                    Iphone 11
-                </div>
-                <div class="cell">
-                    15.000.000
-                </div>
-                <div class="cell">
-                    5
-                </div>
-                <div class="cell">
-                    Apple
-                </div>
-                <div class="cell">
-                    Nổi bật
-                </div>
-                <div class="cell">
-                    <a class="QLSP__link" href="#">Sửa</a>
-                    <a class="QLSP__link" href="#">Xoá</a>
-                </div>
-            </div>
-        </div>
-    </div>
 </asp:Content>

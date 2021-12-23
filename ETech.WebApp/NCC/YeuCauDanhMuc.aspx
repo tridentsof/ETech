@@ -111,10 +111,10 @@
                 background: #e9e9e9;
             }
 
-            .YCDM__row.header {
+            .row_header {
                 font-weight: 900;
                 color: #ffffff;
-                background: var(--primary-color);
+                background:var(--primary-color);
             }
 
         .cell {
@@ -142,7 +142,9 @@
         .tab-content {
             margin-top: 10px;
         }
-
+        .tab-content-item h2{
+            margin:15px 0px
+        }
         .YCDM__box {
             width: 400px;
             display: flex;
@@ -150,12 +152,22 @@
             align-items: center;
             font-size: 18px;
             margin-bottom: 30px;
+            margin-top:30px;
         }
 
-            .YCDM__box input {
+            .input-them {
+                background:none;
                 height: 35px;
+                outline:none;
+                border:none;
+                border-bottom:2px solid var(--primary-color);
+                
             }
-
+            .input-them:focus,.input-them:hover{
+                border-bottom:2px solid var(--primary-color);
+                transform: translateY(-13%);
+                transition:0.5s;
+            }
         .YCDM__btn {
             background-color: var(--primary-color);
             width: auto;
@@ -188,279 +200,99 @@
             height: 230px;
             margin: 0 0 20px;
         }
-
-        #file-input1 {
-            display: none;
+        .qldm-column2{
+        padding: 10px;
+       border: 1px solid black;  
+       line-height:1.3;
+       text-align: left;
+       font-weight:600;
         }
-
-        #file-input2 {
-            display: none;
+    h3{
+        margin-bottom:10px;
+    }
+     .cnsp-error {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom:10px;
         }
-
-        .preview {
+      .edit-container {
             display: flex;
             align-items: center;
-            justify-content: space-around;
-            flex-direction: column;
-            width: 100%;
-            max-width: 250px;
-            height: 200px;
-            margin: 0 30px;
-        }
-
-            .preview img {
-                width: 200px;
-                height: 170px;
-                object-fit: fill;
-            }
-
-            .preview label {
-                font-size: 15px;
-                font-weight: 600;
-                cursor: pointer;
-                color: var(--text-color);
-                border-radius: 8px;
-                padding: 10px 20px;
-                background-color: var(--white-color);
-                box-shadow: var(--box-shadow);
-                margin-top: 20px;
-            }
+            justify-content: space-between;
+            width: 150px;
+            color:#1e272e;
+            height:30px;
+  }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="YCDM__container">
+     <div class="YCDM__container">
         <h2 class="YCDM__title">DANH SÁCH DANH MỤC</h2>
         <div class="tabs">
             <ul class="nav-tabs">
-                <li class="YCDM__active"><a href="#menu_1">YÊU CẦU XOÁ</a></li>
-                <li><a href="#menu_2">YÊU CẦU SỬA</a></li>
-                <li><a href="#menu_3">YÊU CẦU THÊM</a></li>
+                <li class="YCDM__active"><a href="#menu_1">YÊU CẦU THÊM</a></li>
+                <li><a href="#menu_2">DANH MỤC CHỜ DUYỆT</a></li>
+                <li><a href="#menu_3">DANH MỤC CỦA ETCH</a></li>
             </ul>
             <div class="tab-content">
                 <div id="menu_1" class="tab-content-item">
-                    <div class="YCDM__box">
-                        <p>Tên danh mục</p>
-                        <input type="text">
-                    </div>
-                    <button class="YCDM__btn">Gửi yêu cầu xoá</button>
-                    <div class="table">
-                        <div class="YCDM__row header">
-                            <div class="cell">
-                                ID
-                            </div>
-                            <div class="cell">
-                                Tên danh mục
-                            </div>
-                            <div class="cell">
-                                Hình ảnh
-                            </div>
-                            <div class="cell">
-                                Tính năng
-                            </div>
-                        </div>
 
-                        <div class="YCDM__row">
-                            <div class="cell">
-                                1
-                            </div>
-                            <div class="cell">
-                                Apple
-                            </div>
-                            <div class="cell">
-                                <img class="YCDM__img" src="../wwwroot/img/icon/apple.png">
-                            </div>
-                            <div class="cell">
-                                <a class="YCDM__link" href="#">Xem chi tiết</a>
-                            </div>
+                        <div class="YCDM__box">
+                            <p>Chọn danh mục cần thêm:</p>
+                            <asp:DropDownList CssClass="edit-container" ID="ddDM" runat="server"></asp:DropDownList>
                         </div>
-                        <div class="YCDM__row">
-                            <div class="cell">
-                                123
-                            </div>
-                            <div class="cell">
-                                Apple
-                            </div>
-                            <div class="cell">
-                                <img class="YCDM__img" src="../wwwroot/img/icon/apple.png">
-                            </div>
-                            <div class="cell">
-                                <a class="YCDM__link" href="#">Xem chi tiết</a>
-                            </div>
-                        </div>
-                        <div class="YCDM__row">
-                            <div class="cell">
-                                1
-                            </div>
-                            <div class="cell">
-                                Apple
-                            </div>
-                            <div class="cell">
-                                <img class="YCDM__img" src="../wwwroot/img/icon/apple.png">
-                            </div>
-                            <div class="cell">
-                                <a class="YCDM__link" href="#">Xem chi tiết</a>
-                            </div>
-                        </div>
-                    </div>
+         <asp:Button ID="btnThem" runat="server" Text="Gởi yêu cầu thêm" CssClass="YCDM__btn" OnClick="btnThem_Click"  />
+                    <asp:Label ID="lblThongBao" runat="server" Text="" CssClass="cnsp-error"></asp:Label>
+                    <h3>DANH MỤC CÓ SẴN</h3>
+                    <table class="table" cellpadding="0" cellspacing="0">
+                        <thead class="row_header">
+                            <tr>
+                              <th class="cell" style="min-width: 100px">ID</th>   
+                              <th class="cell" style="min-width: 350px">Tên Danh Mục</th>
+                                <th class="cell" style="min-width: 150px">Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                             <asp:Panel ID="Panel1" runat="server"></asp:Panel>
+                        </tbody>
+                     </table>  
                 </div>
 
                 <div id="menu_2" class="tab-content-item">
-                    <div class="YCDM__wrapper-chooseimg">
-                        <div class="YCDM__box">
-                            <p>Tên danh mục</p>
-                            <input type="text">
-                        </div>
-                        <div class="preview">
-                            <img id="img-preview1" />
-                            <label for="file-input1">Choose Image</label>
-                            <input accept="image/*" type="file" id="file-input1" />
-                        </div>
-                    </div>
-                    <button class="YCDM__btn">Gửi yêu cầu sửa</button>
-                    <div class="table">
-                        <div class="YCDM__row header">
-                            <div class="cell">
-                                ID
-                            </div>
-                            <div class="cell">
-                                Tên danh mục
-                            </div>
-                            <div class="cell">
-                                Hình ảnh
-                            </div>
-                            <div class="cell">
-                                Tính năng
-                            </div>
-                        </div>
-
-                        <div class="YCDM__row">
-                            <div class="cell">
-                                1
-                            </div>
-                            <div class="cell">
-                                Apple
-                            </div>
-                            <div class="cell">
-                                <img class="YCDM__img" src="../wwwroot/img/icon/apple.png">
-                            </div>
-                            <div class="cell">
-                                <a class="YCDM__link" href="#">Xem chi tiết</a>
-                            </div>
-                        </div>
-                        <div class="YCDM__row">
-                            <div class="cell">
-                                123
-                            </div>
-                            <div class="cell">
-                                Apple
-                            </div>
-                            <div class="cell">
-                                <img class="YCDM__img" src="../wwwroot/img/icon/apple.png">
-                            </div>
-                            <div class="cell">
-                                <a class="YCDM__link" href="#">Xem chi tiết</a>
-                            </div>
-                        </div>
-                        <div class="YCDM__row">
-                            <div class="cell">
-                                1
-                            </div>
-                            <div class="cell">
-                                Apple
-                            </div>
-                            <div class="cell">
-                                <img class="YCDM__img" src="../wwwroot/img/icon/apple.png">
-                            </div>
-                            <div class="cell">
-                                <a class="YCDM__link" href="#">Xem chi tiết</a>
-                            </div>
-                        </div>
-                    </div>
+                    <h2>DANH MỤC CHỜ DUYỆT</h2>
+                   <table class="table" cellpadding="0" cellspacing="0">
+                        <thead class="row_header">
+                            <tr>
+                              <th class="cell" style="min-width: 100px">ID</th>   
+                              <th class="cell" style="min-width: 350px">Tên Danh Mục</th>
+                                <th class="cell" style="min-width: 150px">Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                             <asp:Panel ID="Panel2" runat="server"></asp:Panel>
+                        </tbody>
+                     </table>  
                 </div>
 
-                <div id="menu_3" class="tab-content-item">
-
-                    <div class="YCDM__wrapper-chooseimg">
-                        <div class="YCDM__box">
-                            <p>Tên danh mục</p>
-                            <input type="text">
-                        </div>
-                        <div class="preview">
-                            <img id="img-preview2" />
-                            <label for="file-input2">Choose Image</label>
-                            <input accept="image/*" type="file" id="file-input2" />
-                        </div>
-                    </div>
-                    <button class="YCDM__btn">Gửi yêu cầu thêm</button>
-                    <div class="table">
-                        <div class="YCDM__row header">
-                            <div class="cell">
-                                ID
-                            </div>
-                            <div class="cell">
-                                Tên danh mục
-                            </div>
-                            <div class="cell">
-                                Hình ảnh
-                            </div>
-                            <div class="cell">
-                                Tính năng
-                            </div>
-                        </div>
-
-                        <div class="YCDM__row">
-                            <div class="cell">
-                                1
-                            </div>
-                            <div class="cell">
-                                Apple
-                            </div>
-                            <div class="cell">
-                                <img class="YCDM__img" src="../wwwroot/img/icon/apple.png">
-                            </div>
-                            <div class="cell">
-                                <a class="YCDM__link" href="#">Xem chi tiết</a>
-                            </div>
-                        </div>
-                        <div class="YCDM__row">
-                            <div class="cell">
-                                123
-                            </div>
-                            <div class="cell">
-                                Apple
-                            </div>
-                            <div class="cell">
-                                <img class="YCDM__img" src="../wwwroot/img/icon/apple.png">
-                            </div>
-                            <div class="cell">
-                                <a class="YCDM__link" href="#">Xem chi tiết</a>
-                            </div>
-                        </div>
-                    </div>
+                  <div id="menu_3" class="tab-content-item">
+                      <h2>DANH MỤC CỦA ETECH</h2>
+                    <table class="table" cellpadding="0" cellspacing="0">
+                        <thead class="row_header">
+                            <tr>
+                              <th class="cell" style="min-width: 100px">ID</th>   
+                              <th class="cell" style="min-width: 350px">Tên Danh Mục</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                             <asp:Panel ID="Panel3" runat="server"></asp:Panel>
+                        </tbody>
+                     </table>   
                 </div>
+                
             </div>
         </div>
     </div>
     <script>
-        const input1 = document.getElementById('file-input1');
-        const image1 = document.getElementById('img-preview1');
-        const input2 = document.getElementById('file-input2');
-        const image2 = document.getElementById('img-preview2');
-
-        input1.addEventListener('change', (e) => {
-            if (e.target.files.length) {
-                const src = URL.createObjectURL(e.target.files[0]);
-                image1.src = src;
-            }
-        });
-
-        input2.addEventListener('change', (e) => {
-            if (e.target.files.length) {
-                const src = URL.createObjectURL(e.target.files[0]);
-                image2.src = src;
-            }
-        });
-
         $(document).ready(function () {
             $('.tab-content-item').hide();
             $('.tab-content-item:first-child').fadeIn();
