@@ -158,7 +158,8 @@ body {
             <thead class="row-header">
                 <tr>
                     <th class="qldm-column" style="min-width: 100px">ID</th>   
-                    <th class="qldm-column" style="min-width: 500px">Tên Danh Mục</th>
+                    <th class="qldm-column" style="min-width: 300px">Tên Danh Mục</th>
+                    <th class="qldm-column" style="min-width: 300px">Tên Nhà Cung Cấp</th>
                     <th class="qldm-column" style="min-width: 100px">Chức năng</th>
                 </tr>
             </thead>
@@ -188,9 +189,10 @@ body {
           <table class="table"  cellpadding="0" cellspacing="0">
             <thead class="row-header">
                 <tr >
-                    <th  class="qldm-column" style="min-width: 100px" >ID</th>   
-                    <th  class="qldm-column" style="min-width: 500px">Tên Danh Mục</th>
-                    <th  class="qldm-column"" style="min-width: 100px">Chức năng</th>
+                    <th class="qldm-column" style="min-width: 100px">ID</th>   
+                    <th class="qldm-column" style="min-width: 300px">Tên Danh Mục</th>
+                    <th class="qldm-column" style="min-width: 300px">Tên Nhà Cung Cấp</th>
+                    <th class="qldm-column" style="min-width: 100px">Chức năng</th>
                 </tr>
             </thead>
             <tbody>

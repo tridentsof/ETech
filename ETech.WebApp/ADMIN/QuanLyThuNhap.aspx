@@ -165,7 +165,7 @@ input[type="date"i] {
             width: 150px;
             color:rgb(131, 131, 131);
             height:30px;
-        }
+  }
 .qltn-column2{
         padding: 10px;
        border: 1px solid black;  

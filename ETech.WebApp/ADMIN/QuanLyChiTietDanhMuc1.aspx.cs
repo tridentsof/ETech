@@ -39,7 +39,7 @@ namespace ETech.WebApp.ADMIN
         {
             string idDM = Request.QueryString.Get("idDM").ToString();
             SqlParameter[] p = { 
-                new SqlParameter("@LOAISPID",SqlDbType.Int)
+                new SqlParameter("@ID",SqlDbType.Int)
             };
             p[0].Value = int.Parse(idDM);
 
@@ -56,7 +56,7 @@ namespace ETech.WebApp.ADMIN
         {
             string idDM = Request.QueryString.Get("idDM").ToString();
             SqlParameter[] p = {
-                new SqlParameter("@LOAISPID",SqlDbType.Int)
+                new SqlParameter("@ID",SqlDbType.Int)
             };
             p[0].Value = int.Parse(idDM);
 
