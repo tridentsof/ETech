@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NCC/MasterPage.Master" AutoEventWireup="true" CodeFile="QuanLySanPhamChiTiet.aspx.cs" Inherits="ETech.WebApp.NCC.QuanLySanPhamChiTiet" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NCC/MasterPage.Master" AutoEventWireup="true" CodeBehind="ThemSanPhamChiTiet.aspx.cs" Inherits="ETech.WebApp.NCC.ThemSanPhamChiTiet" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
@@ -169,7 +169,7 @@
             </div>
         </div>
         <div class="QLSPchitiet__btn">
-            <button>LƯU SẢN PHẨM</button>
+            <button>THÊM SẢN PHẨM</button>
         </div>
     </div>
 
