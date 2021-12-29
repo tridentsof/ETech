@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CaptchaImage.aspx.cs" Inherits="ETech.WebApp.NCC.CaptchaImage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CaptchaImage.aspx.cs" Inherits="ETech.WebApp.NCC.CaptchaImage" %>
 
 <!DOCTYPE html>
 

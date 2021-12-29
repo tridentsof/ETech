@@ -14,13 +14,13 @@ namespace ETech.WebApp.NCC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Label1.Text = Request.QueryString["emailadd"];
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
             DataAccess dataAccess = new DataAccess();
             dataAccess.MoKetNoiCSDL();
-            SqlCommand cmd = new SqlCommand("GET_EMAIL", dataAccess.getConnection());
+            SqlCommand cmd = new SqlCommand("PROC_GET_EMAIL", dataAccess.getConnection());
             cmd.Parameters.AddWithValue("@EMAIL", Request.QueryString["emailadd"]);
             cmd.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -35,7 +35,7 @@ namespace ETech.WebApp.NCC
             if (ds.Tables[0].Rows.Count > 0)
             {
                 String activationcode;
-                activationcode = ds.Tables[0].Rows[0]["1"].ToString();
+                activationcode = ds.Tables[0].Rows[0]["MAXACNHAN"].ToString();
                 if (activationcode == TextBox1.Text)
                 {
                     changestatus();
