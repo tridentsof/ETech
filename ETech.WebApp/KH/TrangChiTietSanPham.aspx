@@ -34,29 +34,21 @@
             border-radius: 5px;
             padding: 30px 0;
         }
+        .img-showcase {
+            margin-bottom: 5px;
+            display: flex;
+            transition: all 0.5s ease;
+        }
 
-        img {
+        .img-showcase img {
+                width:100%;
+                object-fit:cover;
+        }
+      /*  img {
             width: 100%;
             display: block;
             object-fit: cover;
-        }
-
-        .img-display {
-            overflow: hidden;
-        }
-
-        .img-item {
-            margin: 0.3rem;
-            width: 80px;
-            height: 80px;
-        }
-
-        .img-cover {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
+        }*/
         .product-title {
             font-size: 28px;
             color: var(--primary-color);
@@ -382,13 +374,9 @@
         <div class="card-wrapper">
             <div class="card">
                 <!-- card left -->
-                <div class="product-imgs">
-                    <div class="img-display">
                         <div class="img-showcase">
-                             <asp:Image ID="imgSP" runat="server" />
+                            <asp:Image ID="imgSP" runat="server" />
                         </div>
-                    </div>
-                </div>
                 <!-- card right -->
                 <div class="product-content">
                     <asp:Label ID="lblTenSP" runat="server" Text="" CssClass="product-title"></asp:Label>  
