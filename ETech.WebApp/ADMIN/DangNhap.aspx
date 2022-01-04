@@ -336,6 +336,7 @@ a:hover {
                         <asp:Button ID="btnLogin" CssClass="btn" runat="server" Text="Đăng nhập" OnClick="btnLogin_Click" />
                         <asp:CheckBox ID="cbReLogin" CssClass="cbReLogin" runat="server" /><span class="textRelogin">Ghi nhớ đăng nhập</span>
                     <a class="forgetPass" href="#">Quên mật khẩu?</a>
+                        <asp:Label ID="txtTB" runat="server" Text="Label"></asp:Label>
                     </div>
                 </div>
             </div>

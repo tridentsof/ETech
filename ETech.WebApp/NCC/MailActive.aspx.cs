@@ -34,12 +34,12 @@ namespace ETech.WebApp.NCC
 
             if (ds.Tables[0].Rows.Count > 0)
             {
-                String activationcode;
-                activationcode = ds.Tables[0].Rows[0]["MAXACNHAN"].ToString();
-                if (activationcode == TextBox1.Text)
+                String maxacnhan;
+                maxacnhan = ds.Tables[0].Rows[0]["MAXACNHAN"].ToString();
+                if (maxacnhan == TextBox1.Text)
                 {
                     changestatus();
-                    Response.Redirect("MailActiveDone.aspx");
+                    Response.Redirect("MailActive_Done.aspx");
                 }
                 else
                 {

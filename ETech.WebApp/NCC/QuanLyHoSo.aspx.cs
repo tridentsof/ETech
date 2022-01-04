@@ -74,9 +74,74 @@ namespace ETech.WebApp.NCC
         }
         protected void Button2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("TrangDoiMatKhau.aspx");
+            Response.Redirect("TrangDoiMatKhau.aspx?user=" + lbdangnhap.Text);
+
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            string tenNCC = Request.QueryString.Get("userNCC");
+            DataAccess dataAccess = new DataAccess();
+            dataAccess.MoKetNoiCSDL();
+            SqlCommand cmd;
+            if (txtMKC.Text == "" || txtMKM.Text == null)
+            {                
+                SqlParameter[] p =
+               {   new SqlParameter("@TENDANGNHAP",SqlDbType.NVarChar),
+                new SqlParameter("@TENNHACUNGCAP",SqlDbType.NVarChar),
+                new SqlParameter("@EMAIL", SqlDbType.NVarChar),
+                new SqlParameter("@DIACHI", SqlDbType.NVarChar),
+                new SqlParameter("@SDT", SqlDbType.NVarChar),
+            };
+                p[0].Value = lbdangnhap.Text;
+                p[1].Value = txthoten.Text;
+                p[2].Value = txtemail.Text;
+                p[3].Value = txtdiachi.Text;
+                p[4].Value = txtsdt.Text;
+                int i = dataAccess.ExecuteNonQuery("PROC_UPDATEACCOUNT_NCC", p);
+                if (i > 0)
+                {
+                    //Response.Redirect("QuanLyHoSo.aspx");
+                    lbThongBao.Text = "Cập nhật thành công";
+                }
+                else
+                {
+                    lbThongBao.Text = "Cập nhật không thành công";
+
+                }
+            }
+            else if (txtMKC.Text != "" && txtMKM.Text == "")
+            {
+                lbThongBao.Text = "Bạn chưa nhập mật khẩu mới";
+
+            }
+            else
+            {
+                cmd = new SqlCommand("PROC_CHANGEPASSNCC", dataAccess.getConnection());
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@MATKHAUCU", txtMKC);
+                cmd.Parameters.AddWithValue("@TENNHACUNGCAP", txthoten);
+                cmd.Parameters.AddWithValue("@EMAIL", txtemail);
+                cmd.Parameters.AddWithValue("@DIACHI", txtdiachi);
+                cmd.Parameters.AddWithValue("@SDT", txtsdt);
+                cmd.Parameters.AddWithValue("@MATKHAUMOI", txtMKM);
+
+                cmd.Parameters.Add("@ERROR",SqlDbType.NVarChar,500);
+                cmd.Parameters["@ERROR"].Direction= ParameterDirection.Output;
+                int a = cmd.ExecuteNonQuery();
+
+                if (a > 0)
+                {
+                    lbThongBao.Text = "Cập Nhập Thành Công";
+                    dataAccess.DongKetNoiCSDL();
+                    Response.Write("<script>alert(\"Cập nhập thành công\")</script>");
+                }
+                else{
+                    lbThongBao.Text = cmd.Parameters["@ERROR"].Value.ToString();
+                }
+            }
 
         }
     }
-}
 }

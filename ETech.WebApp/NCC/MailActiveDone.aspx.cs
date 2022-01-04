@@ -15,7 +15,7 @@ namespace ETech.WebApp.NCC
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("DangKyDangNhapNCC.aspx");
+            Response.Redirect("~/KH/TrangChu.aspx");
         }
     }
 }

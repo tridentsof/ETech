@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TrangDoiMatKhau.aspx.cs" Inherits="ETech.WebApp.NCC.TrangDoiMatKhau" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TrangDangKyDangNhapKH.aspx.cs" Inherits="ETech.WebApp.KH.TrangDangKyDangNhap" %>
 
 <!DOCTYPE html>
 
@@ -12,10 +12,10 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet"/>
-    <title>Change Password</title>
+    <title>Sign in & Sign up</title>
     <style>
         :root {
-            --primary-color: #3e67b9;
+            --primary-color: #2d21ff;
             --text-color: rgb(36, 36, 36);
             --text-shadown: rgb(138, 138, 138);
         }
@@ -427,59 +427,88 @@
             text-align: center;
             border-color: yellowgreen;
         }
-.effect {
-            height: 30px;
-            border: 1px solid #ccc;
-            font-family: 'Roboto', sans-serif;
-        }
-
-            .effect ~ .focus-border {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 0;
-                height: 2px;
-                background-color: var(--primary-color);
-                transition: 0.3s;
-            }
-
-            .effect:focus ~ .focus-border {
-                width: 100%;
-                transition: 0.4s;
-            }
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
+     <form id="form1" runat="server">
         <div class="container">
             <div class="forms-container">
                 <div class="signin-signup">
                     <div class="sign-in-form form" aria-autocomplete="inline">
-                        <h2 class="title">Change Password</h2>
-                         <div class="input-field">                           
+                        <h2 class="title">Sign in</h2>
+                        <div class="input-field">
                             <i class="fas fa-user"></i>
                             <%--<input type="text" placeholder="Username" class="input" />--%>
-                            <asp:Label ID="lbid" CssClass="input" runat="server"></asp:Label>
-                        </div>
-                        <div class="input-field">                           
-                            <i class="fas fa-lock"></i>
-                            <%--<input type="text" placeholder="Username" class="input" />--%>
-                            <asp:TextBox ID="txtmkcu" CssClass="input" runat="server" placeholder="Old Password"></asp:TextBox>
+                            <asp:TextBox ID="txtdangnhap" CssClass="input" runat="server" placeholder="Username"></asp:TextBox>
                         </div>
                         <div class="input-field">
                             <i class="fas fa-lock"></i>
                             <%--<input type="password" placeholder="Password" class="input" />--%>
-                             <asp:TextBox ID="txtmkm" CssClass="input" runat="server" placeholder="New Password" TextMode="Password"></asp:TextBox>
+                             <asp:TextBox ID="txtmk" CssClass="input" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
                         </div>
-                        <div class="input-field">
-                            <i class="fas fa-lock"></i>
-                            <%--<input type="password" placeholder="Password" class="input" />--%>
-                             <asp:TextBox ID="txtrmk" CssClass="input" runat="server" placeholder="Confirm Password" TextMode="Password"></asp:TextBox>
+                        <div class="captcha-container">
+                            <div class="input-captcha">
+                                <asp:Image ID="Image1" CssClass="content-txt" runat="server" ImageUrl="~/NCC/CaptchaImage.aspx" />
+                                <asp:TextBox ID="txtcaptcha1" CssClass="txtCaptcha content-txt"  runat="server" Width="100px" />
+                            </div>
                         </div>
-                        
                         <asp:Label ID="lbTB1" runat="server" Text="" CssClass="txterror lbThongBao"></asp:Label>
                         
                         <asp:Button  ID="btnLogin" CssClass="btn" runat="server" Text="sign in " OnClick="btnLogin1_Click" CausesValidation="False"/>
+                        <asp:CheckBox ID="cbReLogin" CssClass="cbReLogin" runat="server" /><span class="textRelogin">Ghi nhớ đăng nhập</span>
+                        <a href="#" class="forget_pass">Quên mật khẩu?</a>
+                    </div>
+                    <div class="sign-up-form form">
+                        <h2 class="title">Sign up</h2>
+                        <div class="input-field">
+                            <i class="fas fa-user"></i>
+                            <asp:TextBox ID="txtTenDangNhap" CssClass="input" runat="server" placeholder="Tên đăng nhập"></asp:TextBox>
+                            <%--<input type="text" placeholder="Username" class="input" />--%>
+                        </div>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Bạn chưa nhập tên đăng nhập" ControlToValidate="txtTenDangNhap" CssClass="txterror" Display="Dynamic"></asp:RequiredFieldValidator>
+                            <div class="input-field">
+                            <i class="fas fa-user"></i>
+                            <asp:TextBox ID="txtHoTen" CssClass="input" runat="server" placeholder="Họ Tên"></asp:TextBox>
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-lock"></i>
+                           <asp:TextBox ID="txtMatKhau" CssClass="input" runat="server" placeholder="Mật khẩu (*)" TextMode="Password"></asp:TextBox>
+                            
+                        </div>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Bạn chưa nhập mật khẩu" ControlToValidate="txtMatKhau" CssClass="txterror" Display="Dynamic"></asp:RequiredFieldValidator>
+                        <div class="input-field">
+                            <i class="fas fa-lock"></i>
+                            <asp:TextBox ID="txtNhapLaiMatKhau" CssClass="input" runat="server" placeholder="Nhập lại mật khẩu (*)" TextMode="Password"></asp:TextBox>
+                        </div>
+                            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Mật khẩu không trùng khớp" ControlToValidate="txtNhapLaiMatKhau" ControlToCompare="txtMatKhau" Type="String" CssClass="txterror" Display="Dynamic"></asp:CompareValidator>
+
+                        <div class="input-field">
+                            <i class="fas fa-envelope"></i>
+                            <asp:TextBox ID="txtEmail" CssClass="input" runat="server" placeholder="Email" TextMode="Email"></asp:TextBox>
+                        </div>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="Email không hợp lệ" ValidationExpression="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" CssClass="txterror" Display="Dynamic"></asp:RegularExpressionValidator>
+
+                        <div class="input-field">
+                            <i class="fas fa-phone-alt"></i>
+                            <%--<input type="text" placeholder="Phone number" id="txtphone" class="input" />--%>
+                           <asp:TextBox ID="txtSDT" CssClass="input" runat="server" placeholder="Số điện thoại (*)" TextMode="Number"></asp:TextBox>
+                        </div>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Bạn chưa nhập số điện thoại" ControlToValidate="txtSDT" CssClass="txterror" Display="Dynamic"></asp:RequiredFieldValidator>
+
+                        <div class="input-field">
+                            <i class="fas fa-map-marked"></i>
+                            <%--<input type="text" placeholder="Address" id="txtdiachi" class="input" />--%>
+                             <asp:TextBox ID="txtDiaChi" CssClass="input" runat="server" placeholder="Địa Chỉ" TextMode="MultiLine"></asp:TextBox>
+                        </div>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Bạn phải nhập địa chỉ" ControlToValidate="txtDiaChi" CssClass="txterror" Display="Dynamic"></asp:RequiredFieldValidator>
+                        <div class="captcha-container">
+                            <div class="input-captcha">
+                                <asp:Image ID="imgCaptcha" CssClass="content-txt" runat="server" ImageUrl="~/NCC/CaptchaImage.aspx" />
+                        <asp:TextBox ID="txtCaptchaText" CssClass="txtCaptcha content-txt"  runat="server" Width="100px" />
+                            </div>
+                        </div>
+                        <asp:Label ID="lbThongBao" runat="server" Text="" CssClass="txterror lbThongBao"></asp:Label>                
+                         <asp:Button ID="Button1" runat="server" Css="btn" Text="Sign up" OnClick="Button1_Click" CausesValidation="False" />
                         
                     </div>
                 </div>
@@ -488,10 +517,13 @@
             <div class="panels-container">
                 <div class="panel left-panel">
                     <div class="content">
-                        <h3>Đổi Mật Khẩu</h3>
+                        <h3>New here ?</h3>
                         <p>
-                            Để bảo mật tài khoản, vui lòng không chia sẻ mật khẩu cho người khác
+                            Đăng kí tài khoản để nhận thêm nhiều ưu đãi nhé !!!
                         </p>
+                        <div class="btn transparent" id="sign-up-btn">
+                            Sign up
+                        </div>
                     </div>
                     <img src="../wwwroot/img/icon/BG_SIN_kh.svg" class="image" alt="" />
                 </div>
@@ -509,6 +541,19 @@
                 </div>
             </div>
         </div>
+
+        <script type="text/javascript">
+            const sign_in_btn = document.querySelector("#sign-in-btn");
+            const sign_up_btn = document.querySelector("#sign-up-btn");
+            const container = document.querySelector(".container");
+             var background = document.querySelector('.container-popup');
+            sign_up_btn.addEventListener("click", () => {
+                container.classList.add("sign-up-mode");
+            });
+            sign_in_btn.addEventListener("click", () => {
+                container.classList.remove("sign-up-mode");
+            });
+        </script>
     </form>
 </body>
 </html>

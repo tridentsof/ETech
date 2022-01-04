@@ -111,6 +111,14 @@
             left: 0px;
             top: 0px;
         }
+        .txterror {
+            color: tomato;
+            margin-top: 5px;
+            display: block;
+            position: relative;
+            top: 10px;
+            margin-bottom: 10px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -122,14 +130,14 @@
         <div class="QLHS__box">
             <h5>Tên đăng nhập</h5>
             <div class="auto-style1">
-                 <asp:Label ID="lbdangnhap" runat="server"></asp:Label>
+                 <asp:Label ID="lbdangnhap" runat="server" ></asp:Label>
                  &nbsp;<span class="focus-border"></span></div>
         </div>
 
         <div class="QLHS__box">
             <h5>Họ tên</h5>
             <div class="QLHS__box-input">
-                <asp:TextBox ID="txthoten" class="effect" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txthoten" class="effect" runat="server" ></asp:TextBox>
             <span class="focus-border"></span>
             </div>
         </div>
@@ -157,20 +165,46 @@
             <span class="focus-border"></span>
             </div>
         </div>
-
-        <%--<div class="QLHS__box">
-            <h5>Trạng thái</h5>
-            <div class="QLHS__box-input">
-                <input name="status" type="radio">Mở
-            <input name="status" type="radio">Đóng
-            </div>
-        </div>--%>
         <asp:Label ID="lbThongBao" runat="server" Text="" CssClass="txterror"></asp:Label>
         <div>
             <asp:Button ID="Button1" runat="server" CssClass="QLHS__btn QLHS__btn-save" Text="Lưu" OnClick="Button1_Click" CausesValidation="False" />
-            <asp:Button ID="Button2" runat="server" CssClass="QLHS__btn QLHS__btn-changePW" Text="Đổi Mật Khẩu" OnClick="Button2_Click" CausesValidation="False" />
             
         </div>
+        <div class="QLHS__title">
+            <h3>Đổi Mật Khẩu</h3>
+        </div>            <div class="QLHS__box">
+            <h5>Mật Khẩu Cũ</h5>
+            <div class="QLHS__box-input">
+                <asp:TextBox ID="txtMKC" CssClass="effect" runat="server" placeholder="Old Password" TextMode="Password" Width="300px"></asp:TextBox>
+            <span class="focus-border"></span>
+            </div>
+        </div>
+            <div> 
+            <div class="QLHS__box">
+            <h5>Mật Khẩu Mới</h5>
+            <div class="QLHS__box-input">
+                <asp:TextBox ID="txtMKM" CssClass="effect" runat="server" placeholder="New Password" TextMode="Password" Width="300px"></asp:TextBox>
+            <span class="focus-border"></span>
+            </div>
+        </div>
+                <div> 
+            <div class="QLHS__box">
+            <h5>Nhập Lại Mật Khẩu</h5>
+            <div class="QLHS__box-input">
+                <asp:TextBox ID="TextBox3" CssClass="effect" runat="server" placeholder="Confirm Password" TextMode="Password" Width="300px"></asp:TextBox>
+                
+                <asp:CompareValidator ID="check" runat="server" ErrorMessage="Mật Khẩu không trùng khớp" ControlToValidate="txtMKM" Type="String" CssClass="txterror" Display="Dynamic" ></asp:CompareValidator>
+            <span class="focus-border"></span>
+            </div>
+                
+        </div>
+        </div>
+            <div>
+            <asp:Button ID="Button3" runat="server" CssClass="QLHS__btn QLHS__btn-save" Text="Cập Nhập"  CausesValidation="False" OnClick="Button3_Click" />
+            
+            <asp:Button ID="Button4" runat="server" CssClass="QLHS__btn QLHS__btn-changePW" Text="Hủy" OnClick="Button2_Click" CausesValidation="False" />
+        </div>
     </div>
+        </div>
 
 </asp:Content>

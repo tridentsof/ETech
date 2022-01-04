@@ -37,7 +37,7 @@ namespace ETech.WebApp.ADMIN
             }
             else
             {
-                //code them thong bao sai ma Captcha
+                txtTB.Text = "Sai Ma Captcha";
             }
 
             if (isCaptchaValid)
@@ -75,7 +75,7 @@ namespace ETech.WebApp.ADMIN
                 }
                 else
                 {
-                    //Code them thong bao sai mat khau/tai khoan
+                    txtTB.Text = "Mat Khau hoac Tai Khoan Khong Dung";
                 }
             }
         }
