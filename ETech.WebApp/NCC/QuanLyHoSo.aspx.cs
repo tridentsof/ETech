@@ -39,7 +39,7 @@ namespace ETech.WebApp.NCC
                     txtemail.Text = dtNCC.Rows[0]["EMAIL"].ToString();
                     txtdiachi.Text = dtNCC.Rows[0]["DIACHI"].ToString();
                     txtsdt.Text = dtNCC.Rows[0]["SDT"].ToString();
-                    SqlCommand cmd = new SqlCommand(sqlNCC, dataAccess.getConnection());
+                    //SqlCommand cmd = new SqlCommand(sqlNCC, dataAccess.getConnection());
                 }
 
                 dataAccess.DongKetNoiCSDL();
@@ -119,13 +119,13 @@ namespace ETech.WebApp.NCC
             {
                 cmd = new SqlCommand("PROC_CHANGEPASSNCC", dataAccess.getConnection());
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("@MATKHAUCU", txtMKC);
-                cmd.Parameters.AddWithValue("@TENNHACUNGCAP", txthoten);
-                cmd.Parameters.AddWithValue("@EMAIL", txtemail);
-                cmd.Parameters.AddWithValue("@DIACHI", txtdiachi);
-                cmd.Parameters.AddWithValue("@SDT", txtsdt);
-                cmd.Parameters.AddWithValue("@MATKHAUMOI", txtMKM);
+                cmd.Parameters.AddWithValue("@TENDANGNHAP", lbdangnhap.Text);
+                cmd.Parameters.AddWithValue("@MATKHAUCU", txtMKC.Text);
+                cmd.Parameters.AddWithValue("@TENNHACUNGCAP", txthoten.Text);
+                cmd.Parameters.AddWithValue("@EMAIL", txtemail.Text);
+                cmd.Parameters.AddWithValue("@DIACHI", txtdiachi.Text);
+                cmd.Parameters.AddWithValue("@SDT", txtsdt.Text);
+                cmd.Parameters.AddWithValue("@MATKHAUMOI", txtMKM.Text);
 
                 cmd.Parameters.Add("@ERROR",SqlDbType.NVarChar,500);
                 cmd.Parameters["@ERROR"].Direction= ParameterDirection.Output;

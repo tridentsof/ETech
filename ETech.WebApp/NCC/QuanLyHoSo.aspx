@@ -166,9 +166,6 @@
             </div>
         </div>
         <asp:Label ID="lbThongBao" runat="server" Text="" CssClass="txterror"></asp:Label>
-        <div>
-            <asp:Button ID="Button1" runat="server" CssClass="QLHS__btn QLHS__btn-save" Text="Lưu" OnClick="Button1_Click" CausesValidation="False" />
-            
         </div>
         <div class="QLHS__title">
             <h3>Đổi Mật Khẩu</h3>
