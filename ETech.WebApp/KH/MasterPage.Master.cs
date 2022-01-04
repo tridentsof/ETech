@@ -13,5 +13,10 @@ namespace ETech.WebApp.KH
         {
 
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("TrangTimKiemSanPham.aspx?search=" + txtsr.Text.Trim());
+        }
     }
 }
