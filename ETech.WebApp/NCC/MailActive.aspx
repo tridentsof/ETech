@@ -35,7 +35,7 @@ button{
 }
 .button-active{
     font-size: 18px;
-    background-color: #B2D426;
+    background-color: #2d21ff;
     color: white;
     height: 30px;
     width: 100px;
@@ -55,10 +55,10 @@ button{
     display:block;
     padding-top: 20px;
     text-align: center;
-    color: #B2D426;
+    color: #2d21ff;
 }
 .input-email{
-    border: solid 1px #B2D426;
+    border: solid 1px #2d21ff;
     margin-left: 32%;
     margin-top: 4%;
 }

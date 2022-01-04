@@ -31,7 +31,6 @@ namespace ETech.WebApp.ADMIN
             SqlCommand cmd = new SqlCommand("PROC_THONGKE_KH", dataAccess.getConnection());
             cmd.CommandType = CommandType.StoredProcedure;
             SqlDataReader dr = cmd.ExecuteReader();
-            string a;
             while (dr.Read())
             {
 
@@ -45,7 +44,6 @@ namespace ETech.WebApp.ADMIN
             SqlCommand cmd = new SqlCommand("PROC_THONGKE_ADMIN", dataAccess.getConnection());
             cmd.CommandType = CommandType.StoredProcedure;
             SqlDataReader dr = cmd.ExecuteReader();
-            string a;
             while (dr.Read())
             {
 
@@ -59,7 +57,6 @@ namespace ETech.WebApp.ADMIN
             SqlCommand cmd = new SqlCommand("PROC_THONGKE_DVVC", dataAccess.getConnection());
             cmd.CommandType = CommandType.StoredProcedure;
             SqlDataReader dr = cmd.ExecuteReader();
-            string a;
             while (dr.Read())
             {
 
@@ -73,7 +70,6 @@ namespace ETech.WebApp.ADMIN
             SqlCommand cmd = new SqlCommand("PROC_THONGKE_NCC", dataAccess.getConnection());
             cmd.CommandType = CommandType.StoredProcedure;
             SqlDataReader dr = cmd.ExecuteReader();
-            string a;
             while (dr.Read())
             {
 

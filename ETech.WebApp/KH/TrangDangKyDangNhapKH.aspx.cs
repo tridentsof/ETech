@@ -4,18 +4,17 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Net.Mail;
 
-namespace ETech.WebApp.NCC
+namespace ETech.WebApp.KH
 {
-    public partial class DangKyNCC : System.Web.UI.Page
+    public partial class TrangDangKyDangNhap : System.Web.UI.Page
     {
-        private string maxacnhan;
+        private string activationcode;
         DataAccess dataAccess = new DataAccess();
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -52,7 +51,7 @@ namespace ETech.WebApp.NCC
                 p[0].Value = txtdangnhap.Text;
                 p[1].Value = txtmk.Text;
 
-                int i = dataAccess.ExecuteIntCommand("Func_CheckLogin_NCC", p);
+                int i = dataAccess.ExecuteIntCommand("Func_CheckLogin_KH", p);
 
                 if (i == 1)
                 {
@@ -71,7 +70,7 @@ namespace ETech.WebApp.NCC
                     }
 
                     Session["userNCC"] = txtdangnhap.Text;
-                    Response.Redirect("~/NCC/QuanLyHoSo.aspx?userNCC="+ txtdangnhap.Text);
+                    Response.Redirect("~/KH/TrangChu.aspx?userKH=" + txtdangnhap.Text);
                     Session.RemoveAll();
                 }
                 else
@@ -90,22 +89,22 @@ namespace ETech.WebApp.NCC
             if (isCaptchaValid)
             {
                 Random random = new Random();
-                maxacnhan = random.Next(1001, 9999).ToString().Trim();
+                activationcode = random.Next(1001, 9999).ToString().Trim();
 
                 DataAccess dataAccess = new DataAccess();
                 dataAccess.MoKetNoiCSDL();
 
-                SqlCommand cmd = new SqlCommand("PROC_INSERTACCOUNT_NCC", dataAccess.getConnection());
+                SqlCommand cmd = new SqlCommand("PROC_INSERTACCOUNT_KH", dataAccess.getConnection());
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@TENDANGNHAP", txtTenDangNhap.Text);
-                cmd.Parameters.AddWithValue("@TENNHACUNGCAP", txtHoTen.Text);
-                cmd.Parameters.AddWithValue("@MATKHAU", txtMatKhau.Text);                
+                cmd.Parameters.AddWithValue("@HOTEN", txtHoTen.Text);
+                cmd.Parameters.AddWithValue("@MATKHAU", txtMatKhau.Text);
                 cmd.Parameters.AddWithValue("@EMAIL", txtEmail.Text);
                 cmd.Parameters.AddWithValue("@SDT", txtSDT.Text);
                 cmd.Parameters.AddWithValue("@DIACHI", txtDiaChi.Text);
                 cmd.Parameters.AddWithValue("@TRANGTHAI", "1");
-                cmd.Parameters.AddWithValue("@MAXACNHAN", maxacnhan.Trim());
+                cmd.Parameters.AddWithValue("@MAXACNHAN", activationcode.Trim());
                 //cmd.Parameters.Add("@ERROR", SqlDbType.NVarChar, 500);
                 //cmd.Parameters["@ERROR"].Direction = ParameterDirection.Output;
                 int a = cmd.ExecuteNonQuery();
@@ -131,8 +130,8 @@ namespace ETech.WebApp.NCC
 
         private void sendcode()
         {
-           
-            
+
+
             SmtpClient smtp = new SmtpClient();
             smtp.Host = "smtp.gmail.com";
             smtp.Port = 587;
@@ -140,7 +139,7 @@ namespace ETech.WebApp.NCC
             smtp.EnableSsl = true;
             MailMessage msg = new MailMessage();
             msg.Subject = "Xác nhận email của bạn";
-            msg.Body = "Chào " + txtEmail.Text + ", Mã xác nhận của Nhà Cung Cấp là: " + maxacnhan + " cảm ơn bạn đã đăng ký!";
+            msg.Body = "Chào " + txtEmail.Text + ", Mã xác nhận của Khách Hàng là: " + activationcode + " cảm ơn bạn đã đăng ký!";
             string toaddress = txtEmail.Text;
             msg.To.Add(toaddress);
             string fromaddress = "From ProXGroup <proxgroupcdio4@gmail.com>";
