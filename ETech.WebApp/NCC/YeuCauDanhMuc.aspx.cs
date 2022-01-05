@@ -16,7 +16,10 @@ namespace ETech.WebApp.NCC
         DataAccess dataAccess = new DataAccess();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["userNCC"] == null)
+            {
+                Response.Redirect("DangKyDangNhapNCC.aspx");
+            }
             BANG1();
             BANG2();
             BANG3();
@@ -63,11 +66,11 @@ namespace ETech.WebApp.NCC
             void BANG2()
             {
                 dataAccess.MoKetNoiCSDL();
-
+                int id = int.Parse(Session["id"].ToString());
                 SqlParameter[] p = {
                  new SqlParameter("@NHACUNGCAPID", SqlDbType.Int)
             };
-                p[0].Value = 1;
+                p[0].Value = id;
                 DataTable dt = dataAccess.ExecuteQuery("PROC_VIEW_DM_CHODUYET", p);
 
                 StringBuilder table = new StringBuilder();
@@ -87,11 +90,11 @@ namespace ETech.WebApp.NCC
             void BANG1()
             {
                 dataAccess.MoKetNoiCSDL();
-
+                int id = int.Parse(Session["id"].ToString());
                 SqlParameter[] p = {
                  new SqlParameter("@NHACUNGCAPID", SqlDbType.Int)
             };
-                p[0].Value = 1;
+                p[0].Value = id;
                 DataTable dt = dataAccess.ExecuteQuery("PROC_VIEWDM_DADUYET", p);
 
                 StringBuilder table = new StringBuilder();
@@ -116,10 +119,11 @@ namespace ETech.WebApp.NCC
         protected void btnThem_Click(object sender, EventArgs e)
         {
             dataAccess.MoKetNoiCSDL();
+            int id = int.Parse(Session["id"].ToString());
             SqlCommand cmd = new SqlCommand("PROC_GOIDUYET_DM", dataAccess.getConnection());
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@NHACUNGCAPID", 1);
+            cmd.Parameters.AddWithValue("@NHACUNGCAPID", id);
             cmd.Parameters.AddWithValue("@LOAISPID", ddDM.SelectedValue);
             int a = cmd.ExecuteNonQuery();
             if (a > 0)

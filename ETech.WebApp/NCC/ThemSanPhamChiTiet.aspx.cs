@@ -17,6 +17,10 @@ namespace ETech.WebApp.NCC
         DataAccess dataAccess = new DataAccess();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userNCC"]==null)
+            {
+                Response.Redirect("DangKyDangNhapNCC.aspx");
+            }
             if(!IsPostBack)
             {
                 dataAccess.MoKetNoiCSDL();
@@ -55,6 +59,7 @@ namespace ETech.WebApp.NCC
         protected void btnThem_Click(object sender, EventArgs e)
         {
             dataAccess.MoKetNoiCSDL();
+            int id = int.Parse(Session["id"].ToString());
 
             //khai bao path va file name de luu hinh uploaded
             string path = Server.MapPath("~/wwwroot/img/sp");
@@ -69,7 +74,7 @@ namespace ETech.WebApp.NCC
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@NHASANXUATID", int.Parse(ddlNSX.SelectedValue));
             cmd.Parameters.AddWithValue("@LOAISPID", int.Parse(ddlDM.SelectedValue));
-            cmd.Parameters.AddWithValue("@NHACUNGCAPID", 2);//truyenthamsovaoday
+            cmd.Parameters.AddWithValue("@NHACUNGCAPID", id);//truyenthamsovaoday
             cmd.Parameters.AddWithValue("@DONVIVANCHUYENID", int.Parse(ddlDVVC.SelectedValue));
             cmd.Parameters.AddWithValue("@TENSANPHAM", txtTenSP.Text);
             cmd.Parameters.AddWithValue("@HINHANH", fileName);
