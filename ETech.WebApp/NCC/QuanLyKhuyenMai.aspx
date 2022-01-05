@@ -122,72 +122,58 @@
             .QLKM__details:hover {
                 color: var(--primary-color);
             }
+            .tab-content {
+  margin-top: 30px;
+}
+            .qldm-column2{
+        padding: 10px;
+       border: 1px solid black;  
+       line-height:1.3;
+       text-align: left;
+       font-weight:600;
+        }
+            .qldm-column {
+  font-weight: 900;
+  height:40px;
+  color: #ffffff;
+}
+            .row-header{
+      background: var(--primary-color);
+}
+            .cell_xem {
+  text-decoration: none;
+  color: var(--text-color);
+  margin: 5px;
+  font-weight: bold;
+  text-align:center;
+}
+
+.cell_xem:hover {
+  color: var(--primary-color);
+}
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="QLKM__container">
         <h2>QUẢN LÝ KHUYẾN MÃI</h2>
-        <div class="QLKM__container-item">
-            <div class="QLKM__box">
-                <p>Tên khuyến mãi</p>
-                <div class="QLKMchitiet__box-input">
-                    <input type="text">
-                </div>
-            </div>
-            <div class="QLKM__select-date">
-                <p>Từ ngày</p>
-                <input type="date">
-            </div>
-            <div class="QLKM__select-date">
-                <p>Đến ngày</p>
-                <input type="date">
-            </div>
-        </div>
-        <div class="QLKM__divbtn">
-            <button class="QLKM__btn">Thêm</button>
-            <button class="QLKM__btn">Sửa</button>
-        </div>
-        <div class="table">
-            <div class="row header">
-                <div class="cell">
-                    Mã khuyến mãi
-                </div>
-                <div class="cell">
-                    Tên khuyến mãi
-                </div>
-                <div class="cell">
-                    Từ ngày
-                </div>
-                <div class="cell">
-                    Đến ngày
-                </div>
-                <div class="cell">
-                    Tình trạng
-                </div>
-                <div class="cell">
-                    Tính năng
-                </div>
-            </div>
-            <div class="row">
-                <div class="cell">
-                    1
-                </div>
-                <div class="cell">
-                    Sale cuối năm
-                </div>
-                <div class="cell">
-                    12/11/2021 24:00
-                </div>
-                <div class="cell">
-                    31/12/2021 12:00
-                </div>
-                <div class="cell">
-                    Đang khuyến mãi
-                </div>
-                <div class="cell">
-                    <a class="QLKM__details" href="#">Xem chi tiết</a>
-                </div>
-            </div>
-        </div>
+
+        <div class="tab-content">
+        <div id="menu_1" class="tab-content-item">
+        <table class="table" cellpadding="0" cellspacing="0">
+            <thead class="row-header">
+                <tr>
+                    <th class="qldm-column" style="min-width: 100px">ID</th>   
+                    <th class="qldm-column" style="min-width: 100px">Tên Khuyến Mãi</th>
+                    <th class="qldm-column" style="min-width: 200px">Tên Nhà Cung Cấp</th>
+                    <th class="qldm-column" style="min-width: 150px">Ngày Bắt Đầu</th>
+                    <th class="qldm-column" style="min-width: 150px">Ngày Kết Thúc</th>
+                    <th class="qldm-column" style="min-width: 100px">Chỉnh sửa</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <asp:Panel ID="Panel1" runat="server"></asp:Panel>
+            </tbody>
+        </table>
+    </div>
     </div>
 </asp:Content>

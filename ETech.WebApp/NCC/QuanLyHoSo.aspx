@@ -148,6 +148,7 @@
                  <asp:TextBox ID="txtemail" class="effect" runat="server"></asp:TextBox>
             <span class="focus-border"></span>
             </div>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtemail" ErrorMessage="Email không hợp lệ" ValidationExpression="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" CssClass="txterror" Display="Dynamic"></asp:RegularExpressionValidator>
         </div>
 
         <div class="QLHS__box">
@@ -166,7 +167,7 @@
             </div>
         </div>
         <asp:Label ID="lbThongBao" runat="server" Text="" CssClass="txterror"></asp:Label>
-        </div>
+        
         <div class="QLHS__title">
             <h3>Đổi Mật Khẩu</h3>
         </div>            <div class="QLHS__box">
@@ -188,9 +189,8 @@
             <div class="QLHS__box">
             <h5>Nhập Lại Mật Khẩu</h5>
             <div class="QLHS__box-input">
-                <asp:TextBox ID="TextBox3" CssClass="effect" runat="server" placeholder="Confirm Password" TextMode="Password" Width="300px"></asp:TextBox>
-                
-                <asp:CompareValidator ID="check" runat="server" ErrorMessage="Mật Khẩu không trùng khớp" ControlToValidate="txtMKM" Type="String" CssClass="txterror" Display="Dynamic" ></asp:CompareValidator>
+                <asp:TextBox ID="TextBox3" CssClass="effect" runat="server" placeholder="Confirm Password" TextMode="Password" Width="300px"></asp:TextBox>               
+                <asp:CompareValidator ID="check" runat="server" ErrorMessage="Mật Khẩu không trùng khớp" ControlToValidate="TextBox3" ControlToCompare="txtMKM" Type="String" CssClass="txterror"  Display="Dynamic" ></asp:CompareValidator>
             <span class="focus-border"></span>
             </div>
                 
@@ -202,6 +202,5 @@
             <asp:Button ID="Button4" runat="server" CssClass="QLHS__btn QLHS__btn-changePW" Text="Hủy" OnClick="Button2_Click" CausesValidation="False" />
         </div>
     </div>
-        </div>
-
+    </div>
 </asp:Content>

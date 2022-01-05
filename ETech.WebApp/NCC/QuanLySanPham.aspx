@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NCC/MasterPage.Master" AutoEventWireup="true" CodeBehind="QuanLySanPham.aspx.cs" Inherits="ETech.WebApp.NCC.QuanLySanPham" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NCC/MasterPage.Master" AutoEventWireup="true" CodeFile="QuanLySanPham.aspx.cs" Inherits="ETech.WebApp.NCC.QuanLySanPham" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
@@ -99,7 +99,7 @@
                     <th class="cell" style="min-width: 150px">Giá</th>
                     <th class="cell" style="min-width: 50px">Số lượng</th>
                     <th class="cell" style="min-width: 100px">Thương hiệu</th>
-                    <th class="cell" style="min-width: 100px">Nổi bật</th>
+                    <th class="cell" style="min-width: 100px">Trạng thái</th>
                     <th class="cell" style="min-width: 100px">Chỉnh sửa</th>
                 </tr>
             </thead>

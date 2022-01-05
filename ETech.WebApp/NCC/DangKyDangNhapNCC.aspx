@@ -15,12 +15,11 @@
     <title>Sign in & Sign up</title>
     <style>
         :root {
-            --primary-color: #2d21ff;
-            --text-color: rgb(36, 36, 36);
-            --text-shadown: rgb(138, 138, 138);
+             --primary-color: #f15f1b;
+            --shadown-color: #db4b08;
         }
         * {
-            margin: 0;
+             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
@@ -138,9 +137,6 @@
                 border-color: var(--primary-color);
             }
         .btn {
-            display:flex;
-            align-items:center;
-            justify-content:center;
             width: 150px;
             background-color: var(--primary-color);
             border: none;
@@ -149,7 +145,10 @@
             border-radius: 49px;
             color: #fff;
             text-transform: uppercase;
-            font-weight: 600;
+            font-weight: bold;
+            display:flex;
+            align-items:center;
+            justify-content:center;
             margin: 10px 0;
             cursor: pointer;
             transition: 0.5s;
@@ -509,7 +508,7 @@
                             </div>
                         </div>
                         <asp:Label ID="lbThongBao" runat="server" Text="" CssClass="txterror lbThongBao"></asp:Label>                
-                         <asp:Button ID="Button1" runat="server" Css="btn" Text="Sign up" OnClick="Button1_Click" CausesValidation="False" />
+                         <asp:Button ID="Button1" runat="server" CssClass="btn" Text="Sign up" OnClick="Button1_Click" CausesValidation="False" />
                         
                     </div>
                 </div>
@@ -520,13 +519,13 @@
                     <div class="content">
                         <h3>New here ?</h3>
                         <p>
-                            Đăng kí tài khoản để nhận thêm nhiều ưu đãi nhé !!!
+                            Đăng kí tài khoản để bắt đầu kinh doanh bạn nhé !!!
                         </p>
                         <div class="btn transparent" id="sign-up-btn">
                             Sign up
                         </div>
                     </div>
-                    <img src="../wwwroot/img/icon/BG_SIN_kh.svg" class="image" alt="" />
+                    <img src="../wwwroot/img/icon/BG_SIN_ncc.svg" class="image" alt="" />
                 </div>
                 <div class="panel right-panel">
                     <div class="content">

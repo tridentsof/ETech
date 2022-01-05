@@ -43,7 +43,7 @@ namespace ETech.WebApp.NCC
                     table.Append("<td class=\"qldm-column2\">" + dr[4] + "</td>");
                     table.Append("<td class=\"qldm-column2\">" + dr[5] + "</td>");
                     table.Append("<td class=\"qldm-column2\" style=\"text-align:center;\">");
-                    table.Append("<a href= class=\"cell_xem\">Chỉnh sửa</a>");
+                    table.Append("<a href=\"QuanLySanPhamChiTiet.aspx?idSP=" + dr[6] + "\"  class=\"cell_xem\">Chỉnh sửa</a>");
                     table.Append("</td>");
                     table.Append("</tr>");
                 }
@@ -54,7 +54,7 @@ namespace ETech.WebApp.NCC
 
         protected void btnThem_Click(object sender, EventArgs e)
         {
-            Response.Redirect("");
+            Response.Redirect("ThemSanPhamChiTiet.aspx");
         }
     }
 }

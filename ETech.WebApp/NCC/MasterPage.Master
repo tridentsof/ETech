@@ -20,6 +20,17 @@
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style>
+         .adminName{  
+            color:#B2D426!important;
+        }
+        .adminName2{
+            color:#B2D426!important;
+        }
+         .btn-logout{
+            color:#B2D426!important;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -29,8 +40,7 @@
             <nav class="header__nav-admin">
                 <li class="header__menu-item header__has-child">
                     <div class="header__name-admin">
-                        <h3>Supplier</h3>
-                        <p>ABC123</p>
+                        <asp:Label ID="lbADName" runat="server" Text="Admin" CssClass="adminName adminName2"></asp:Label>
                     </div>
                     <a href="#" class="header__menu-link">
                         <i class="far fa-user-circle fa-2x" style="font-size: 40px"></i>
@@ -38,10 +48,11 @@
                     </a>
                     <ul class="header__menu-child">
                         <li class="header__menu-child-item">
-                            <a href="QuanLyHoSo.aspx" class="header__menu-child-link">Quản lý hồ sơ</a>
+                            <%--<a href="QuanLyHoSo.aspx" class="header__menu-child-link">Quản lý hồ sơ</a>--%>
+                            <asp:HyperLink ID="hlhsnc" class="header__menu-child-link" runat="server">Quản lý hồ sơ</asp:HyperLink>
                         </li>
                         <li class="header__menu-child-item">
-                            <a href="#" class="header__menu-child-link">Đăng xuất<i class="fas fa-sign-out-alt" style="margin-left: 5px;"></i></a>
+                            <asp:LinkButton ID="btnDangXuat" runat="server" CssClass="btn-logout" OnClick="btnDangXuat_Click"> <i class="header__menu-child-link">Đăng xuất</i></asp:LinkButton>
                         </li>
                     </ul>
                 </li>
@@ -52,7 +63,11 @@
             <h4>TÍNH NĂNG QUẢN TRỊ</h4>
             <div class="menu-side-bar">
                 <div class="menu-item">
-                    <a href="QuanLyHoSo.aspx"><i class="fas fa-stream" style="color: #c0c0c0"></i>Quản lý hồ sơ</a>
+                    <%--<a href="QuanLyHoSo.aspx"><i class="fas fa-stream" style="color: #c0c0c0"></i>Quản lý hồ sơ</a>--%>
+                     <asp:HyperLink ID="hlUser" runat="server">
+                        <i class="fas fa-stream"style="color: #c0c0c0"></i>
+                        <asp:Label ID="lbAccount" runat="server" Text="Quản lý hồ sơ"></asp:Label>
+                    </asp:HyperLink>
                 </div>
                 <div class="menu-item">
                     <a href="QuanLyThongKe.aspx"><i class="fas fa-stream" style="color: #c0c0c0"></i>Thống kê báo cáo</a>
@@ -76,7 +91,16 @@
                     <a href="QuanLySanPham.aspx"><i class="fas fa-stream" style="color: #c0c0c0"></i>Quản lý sản phẩm</a>
                 </div>
                 <div class="menu-item">
-                    <a href="QuanLyKhuyenMai.aspx"><i class="fas fa-stream" style="color: #c0c0c0"></i>Quản lý khuyến mãi</a>
+                    <a class="sub-btn">
+                        <i class="fas fa-stream" style="color: #c0c0c0"></i>Quản lý khuyến mãi
+                  <i class="fas fa-chevron-right side-bar_dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                       
+                        <a href="/NCC/QuanLyKhuyenMai.aspx" class="sub-item">Quản Lý Khuyến Mãi</a>
+                        <a href="/NCC/TrangThemKhuyenMai.aspx" class="sub-item">Thêm Khuyến Mãi</a>
+                        
+                    </div>
                 </div>
                 <div class="menu-item">
                     <a href="YeuCauVanChuyen.aspx"><i class="fas fa-stream" style="color: #c0c0c0"></i>Yêu cầu vận chuyển</a>
