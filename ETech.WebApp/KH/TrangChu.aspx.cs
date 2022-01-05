@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,23 +12,25 @@ namespace ETech.WebApp.KH
 {
     public partial class TrangChu : System.Web.UI.Page
     {
+        DataAccess dataAccess = new DataAccess();
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataAccess dataAccess = new DataAccess();
-            dataAccess.MoKetNoiCSDL();
+            //Đổ sản phẩm vào trang chủ
 
-            string sql = "select SANPHAMID,HINHANH,TENSANPHAM,DONGIA,(DONGIA *1.2) as DONGIA2,(DONGIA * 0.2) as DONGIA3 from SANPHAM";
+            SqlParameter[] p = { };
+            DataTable tbAllSP = dataAccess.ExecuteQuery("PROC_GET_SP_KM", p);
 
-            DataTable dt = dataAccess.LayBangDuLieu(sql);
-
-            if (dt != null && dt.Rows.Count > 0)
+            if (tbAllSP != null && tbAllSP.Rows.Count > 0)
             {
-                this.repeaterItem.DataSource = dt;
+                this.repeaterItem.DataSource = tbAllSP;
                 this.repeaterItem.DataBind();
 
             }
 
-            dataAccess.DongKetNoiCSDL();
+            //Đổ sản phẩm bán chạy
+            SqlParameter[] p2 = { };
+
+            DataTable tbBanChay = dataAccess.ExecuteQuery("PROC_GET_SP_BANCHAY", p2);
         }
     }
 }
