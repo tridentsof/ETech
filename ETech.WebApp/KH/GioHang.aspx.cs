@@ -40,7 +40,7 @@ namespace ETech.WebApp.KH
                         };
                         p[0].Value = usernameKH;
 
-                        DataTable dt = dataAccess.TableFill("PROC_GETINFO_KH_BYUSERNAME", p);
+                        DataTable dt = dataAccess.ExecuteQuery("PROC_GETINFO_KH_BYUSERNAME", p);
 
                         if(dt != null && dt.Rows.Count > 0)
                         {

@@ -95,7 +95,7 @@
                 <ItemTemplate>
                     <div class="listsp-item">
                        <a href="TrangChiTietSanPham.aspx?idSP=<%# Eval("SANPHAMID") %>">
-                        <img alt="phone-img" src="<%# Eval("HINHANH") %>" class="listsp-img" />
+                        <img alt="phone-img" src="../wwwroot/img/sp/<%# Eval("HINHANH") %>" class="listsp-img" />
                         <p class="item-ten">
                          <%# Eval("TENSANPHAM") %>
                         </p>
