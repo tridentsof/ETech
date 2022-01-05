@@ -20,10 +20,10 @@ namespace ETech.WebApp.NCC
         {
             if (!IsPostBack)
             {
-                if (Request.Cookies["usernameKH"] != null && Request.Cookies["passwordKH"] != null)
+                if (Request.Cookies["usernameNCC"] != null && Request.Cookies["passwordNCC"] != null)
                 {
-                    txtdangnhap.Text = Request.Cookies["usernameKH"].Value;
-                    txtmk.Text = Request.Cookies["passwordKH"].Value;
+                    txtdangnhap.Text = Request.Cookies["usernameNCC"].Value;
+                    txtmk.Text = Request.Cookies["passwordNCC"].Value;
 
                     cbReLogin.Checked = true;
                 }
@@ -58,16 +58,16 @@ namespace ETech.WebApp.NCC
                 {
                     if (cbReLogin.Checked)
                     {
-                        Response.Cookies["usernameKH"].Value = txtdangnhap.Text;
-                        Response.Cookies["passwordKH"].Value = txtMatKhau.Text;
+                        Response.Cookies["usernameNCC"].Value = txtdangnhap.Text;
+                        Response.Cookies["passwordNNC"].Value = txtMatKhau.Text;
 
-                        Response.Cookies["usernameKH"].Expires = DateTime.Now.AddMinutes(60);
-                        Response.Cookies["passwordKH"].Expires = DateTime.Now.AddMinutes(60);
+                        Response.Cookies["usernameNCC"].Expires = DateTime.Now.AddMinutes(60);
+                        Response.Cookies["passwordNNC"].Expires = DateTime.Now.AddMinutes(60);
                     }
                     else
                     {
-                        Response.Cookies["usernameKH"].Expires = DateTime.Now;
-                        Response.Cookies["passwordKH"].Expires = DateTime.Now;
+                        Response.Cookies["usernameNCC"].Expires = DateTime.Now;
+                        Response.Cookies["passwordNNC"].Expires = DateTime.Now;
                     }
 
                     Session["userNCC"] = txtdangnhap.Text;
