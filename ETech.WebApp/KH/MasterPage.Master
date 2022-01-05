@@ -17,7 +17,7 @@
 
     <link rel="stylesheet" href="../wwwroot/font-awsome/css/all.css">
     <link rel="stylesheet" href="../wwwroot/css/kh_masterpage.css">
-    <title>MasterPage</title>
+    <title>ETech Shop</title>
 
 <asp:ContentPlaceHolder ID="head" runat="server">
 </asp:ContentPlaceHolder>
@@ -27,17 +27,17 @@
         <header class="MP__container">
             <div class="MP__header1">
                 <div class="MP__header-logo">
-                    <img src="../wwwroot/img/icon/logo_text.png" alt="LOGO">
+                    <a href="TrangChu.aspx"><img src="../wwwroot/img/icon/logo_text.png" alt="LOGO"></a>
                 </div>
                 <div class="MP__header-search">
                    
-                    <asp:TextBox ID="txtsr" runat="server" CssClass="form-control" placeholder="Tìm kiếm..."></asp:TextBox>
+                    <asp:TextBox ID="txtsr" runat="server" CssClass="form-control" placeholder=" Tìm kiếm..."></asp:TextBox>
                     
                     <asp:LinkButton ID="LinkButton1" CssClass="btn" runat="server" OnClick="LinkButton1_Click"><i class="fas fa-search" style="color: #000"></i></asp:LinkButton>
                 </div>
 
                 <div class="MP__header-items">
-                    <a href="#"><i class="fas fa-shopping-cart fa-2x" style="color: #3e67b9"></i></a>
+                    <a href="GioHang.aspx"><i class="fas fa-shopping-cart fa-2x" style="color: #3e67b9"></i></a>
                     <div class="MP__giohang">
                         <div>0</div>
                         <p>Giỏ hàng</p>
@@ -45,8 +45,8 @@
                     <a href="#"><i class="far fa-user fa-2x"></i></a>
                     <a href="#"><i class="fi fi-rr-User"></i></a>
                     <div class="MP__header-item">
-                        <a href="#">Đăng Ký</a>
-                        <a href="#">Đăng Nhập</a>
+                        <a href="TrangDangKyDangNhapKH.aspx">Đăng Ký</a>
+                        <a href="TrangDangKyDangNhapKH.aspx">Đăng Nhập</a>
                     </div>
                 </div>
             </div>

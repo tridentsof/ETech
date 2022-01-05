@@ -1,7 +1,4 @@
-﻿/* *{
-  padding: 0;
-  margin: 0;
-} */
+﻿
 :root {
     --primary-color: #3e67b9;
     --background-color: #c5d4fc;
@@ -24,6 +21,7 @@ ul {
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
+    background: #fff;
 }
 
 .MP__header1 {
@@ -66,10 +64,19 @@ body {
     height: 30px;
 }
 
+    .btn i {
+        margin-top: 9px;
+        margin-right: 12px;
+    }
+
 .MP__header-items {
     display: flex;
     align-items: center;
 }
+
+    .MP__header-items a i {
+        margin-bottom: 3px;
+    }
 
     .MP__header-items p {
         margin: 0;
@@ -92,10 +99,14 @@ body {
         border-radius: 10px;
     }
 
+    .MP__giohang + a {
+        margin-left: 13px !important;
+    }
+
 .MP__header-items a {
-    margin-left: 10px;
+    margin-left: 5px;
+    margin-top:2px;
     font-weight: bold;
-    font-size: 14px;
 }
 
 .MP__header-item {
@@ -147,10 +158,13 @@ body {
     color: #333;
     display: flex;
     align-items: center;
+    text-transform: uppercase;
 }
-
+.menu-link:hover{
+    color: var(--primary-color);
+}
     .menu-link i {
-        margin-top: 3px;
+        margin-top: 1px;
     }
 
 .menu-item.has-child {
@@ -211,7 +225,6 @@ body {
     }
 
 .MP__footer {
-    margin-top: 80px;
     display: flex;
     flex-direction: column;
 }
@@ -219,7 +232,7 @@ body {
 .MP__footer-1 {
     display: flex;
     flex-direction: column;
-    height: 250px;
+    height: 200px;
     width: 400px;
     margin: 0 auto;
     border-radius: 18px;
@@ -249,12 +262,17 @@ body {
     align-items: flex-start;
     justify-content: space-evenly;
     padding: 10px;
+    padding-bottom: 8px;
     font-size: 13px;
 }
 
-    .MP__footer-1-item2 p i {
-        margin-left: 5px;
+    .MP__footer-1-item2 p {
+        margin-bottom: 10px;
     }
+
+        .MP__footer-1-item2 p i {
+            margin-left: 5px;
+        }
 
 .MP__footer-2 {
     height: 80px;
@@ -268,6 +286,14 @@ body {
     align-items: center;
     padding: 0 50px;
 }
+    .MP__footer-2-item1 div:first-child i:hover{
+        color: var(--primary-color);
+        cursor:pointer;
+    }
+
+    .MP__footer-2-item1 div:last-child p {
+        padding: 5px;
+    }
 
     .MP__footer-2-item1 div h3 {
         margin-left: 120px;
