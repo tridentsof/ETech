@@ -17,9 +17,10 @@
 
         .QLTKe__container-item {
             width: 100%;
-            display: flex;
-            justify-content: space-around;
+            display:flex;
+            justify-content: center;
             align-items: center;
+            margin-top: 50px;
         }
 
         .QLTKe__select-date {
@@ -28,11 +29,11 @@
         }
 
         input[type="date"i] {
-            margin: 8px 0 0 10px;
+            margin: 0px 0 0 0px;
             height: 35px;
             padding: 0;
             font-size: 16px;
-            text-align: right;
+            text-align: left;
         }
 
         .QLTKe__btn {
@@ -56,18 +57,71 @@
             .QLTKe__btn:active {
                 transform: scale(0.8);
             }
-        
+            .QLTKe__title {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .discount-wrapper{
+            background-color: white;
+       
+            height: 450px;
+            justify-content:center;
+            width: 700px;
+            margin-left: 30px;
+            margin-top: 4%;
+            box-shadow: 0 3px 10px 0 rgb(0 0 0 / 14%);
+            border-radius: 3px;
+            border: none;
+            transition: 0.25s;      
+            cursor: pointer;          
+        }
+        .discount-wrapper:hover{
+            box-shadow: 2px 4px 10px #B2D426;
+        }
+        .input-percent{
+            height: 30px;
+            width: 50%;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="QLTKe__container-item">
-            <div class="QLTKe__select-date">
-                <p>Từ ngày</p>
-                 <asp:TextBox ID="txtNgayBD"  TextMode="Date" runat="server"></asp:TextBox>
+  
+        <div class="QLTKe__container-item">
+        <h3 class="header-discount">Thêm mới khuyến mãi</h3>
+            
+        <div class="discount-wrapper">
+            <div class="quang1">
+                <p class="p-discount p-type">Nhập tên khuyến mãi:</p>
+                <asp:TextBox ID="txtTenKM" CssClass="input-percent" runat="server"></asp:TextBox>
             </div>
-            <div class="QLTKe__select-date">
-                <p>Đến ngày</p>
-                <asp:TextBox ID="txtNgayKT"  TextMode="Date" runat="server"></asp:TextBox>
+            <div>
+                <p class="p-discount p-percent">Chọn ngày bắt đầu</p>
+            <asp:TextBox ID="txtNgayBD" CssClass="input-percent" TextMode="Date" runat="server"></asp:TextBox>
             </div>
+            <div >
+                <p class="p-discount p-percent">Chọn ngày kết thúc</p>
+            <asp:TextBox ID="txtNgayKT" CssClass="input-percent" TextMode="Date" runat="server"></asp:TextBox>
+            </div>
+            <%--<div class="quang1">
+                <p class="p-discount p-type">Nhà Cung Cấp ID:</p>
+                <asp:TextBox ID="txtncc" CssClass="input-percent" runat="server"></asp:TextBox>
+            </div>--%>
+            <div class="quang1">
+                <p class="p-discount p-type">Tỷ Lệ Khuyến Mãi:</p>
+                <asp:TextBox ID="txttl" CssClass="input-percent" runat="server"></asp:TextBox>
+            </div>
+            <div class="quang1">
+                <p class="p-discount p-type">Loại Sản Phẩm ID:</p>
+                <asp:TextBox ID="txtlsp" CssClass="input-percent" runat="server"></asp:TextBox>
+            </div>
+            <asp:Button ID="Button1" CssClass="btn btn_update" runat="server" OnClick="Button1_Click" Text="Cập nhật" />
+          
+          
+            <asp:Button ID="Button2" CssClass="btn" runat="server" OnClick="Button2_Click" Text="Hủy" />
+            
+            
+            <br />
+            <asp:Label ID="Label1" CssClass="lbSuccess" runat="server" Text=""></asp:Label>
+        </div>
         </div>
 </asp:Content>

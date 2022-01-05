@@ -16,18 +16,23 @@ namespace ETech.WebApp.NCC
         DataAccess dataAccess = new DataAccess();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (Session["userNCC"] == null)
+            {
+                Response.Redirect("DangKyDangNhapNCC.aspx");
+            }
+            if (!IsPostBack)
             {
                 SHOWSANPHAM();
             }    
         }
         protected void SHOWSANPHAM()
-        {
+        { 
             dataAccess.MoKetNoiCSDL();
+            int id = int.Parse(Session["id"].ToString());
             SqlParameter[] p = {
                  new SqlParameter("@NHACUNGCAPID", SqlDbType.Int)
             };
-            p[0].Value = 2;
+            p[0].Value = id;
             DataTable dt = dataAccess.ExecuteQuery("PROC_VIEWSP_NCC", p);
 
             StringBuilder table = new StringBuilder();
