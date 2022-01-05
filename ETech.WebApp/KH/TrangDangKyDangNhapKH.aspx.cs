@@ -37,6 +37,7 @@ namespace ETech.WebApp.KH
             }
             else
             {
+                txtcaptcha1.Text = "";
                 lbTB1.Text = "Mã Captcha Sai";
             }
 
@@ -69,12 +70,13 @@ namespace ETech.WebApp.KH
                         Response.Cookies["passwordKH"].Expires = DateTime.Now;
                     }
 
-                    Session["userNCC"] = txtdangnhap.Text;
+                    Session["userKH"] = txtdangnhap.Text;
                     Response.Redirect("~/KH/TrangChu.aspx?userKH=" + txtdangnhap.Text);
                     Session.RemoveAll();
                 }
                 else
                 {
+                    txtcaptcha1.Text = "";
                     lbTB1.Text = "Sai Tài Khoản hoặc Mật Khẩu";
                 }
             }

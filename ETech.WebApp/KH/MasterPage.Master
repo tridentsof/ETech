@@ -39,15 +39,24 @@
                 <div class="MP__header-items">
                     <a href="GioHang.aspx"><i class="fas fa-shopping-cart fa-2x" style="color: #3e67b9"></i></a>
                     <div class="MP__giohang">
-                        <div>0</div>
+                        <asp:Label ID="lbSL" runat="server" Text=""></asp:Label>
                         <p>Giỏ hàng</p>
                     </div>
-                    <a href="#"><i class="far fa-user fa-2x"></i></a>
-                    <a href="#"><i class="fi fi-rr-User"></i></a>
-                    <div class="MP__header-item">
+                    <asp:HyperLink ID="hlUser" runat="server">
+                        <i class="far fa-user fa-2x"></i>
+                        <i class="fi fi-rr-User"></i>
+                        
+                    </asp:HyperLink>
+                    <div class="label-user" style="margin-left:10px">
+                            <asp:Label ID="lbTaiKhoan" runat="server" Text=""></asp:Label>
+                        </div>
+                    <asp:Panel ID="panelDangNhap" runat="server">
+                        <div class="MP__header-item">
                         <a href="TrangDangKyDangNhapKH.aspx">Đăng Ký</a>
                         <a href="TrangDangKyDangNhapKH.aspx">Đăng Nhập</a>
-                    </div>
+                        </div>
+                    </asp:Panel>
+                    
                 </div>
             </div>
 
@@ -62,15 +71,11 @@
                             <i class="fa fa-angle-down fa-fw"></i>
                         </a>
                         <ul class="menu-child">
-                            <li class="menu-child-item">
-                                <a href="#" class="menu-child-link">Apple</a>
-                            </li>
-                            <li class="menu-child-item">
-                                <a href="#" class="menu-child-link">Samsung</a>
-                            </li>
-                            <li class="menu-child-item">
-                                <a href="#" class="menu-child-link">Oppo</a>
-                            </li>
+                            <asp:Repeater ID="Repeater1" runat="server">
+                                <ItemTemplate>
+                                    <a href="SPTHEODANHMUC.aspx?idDM=<%# Eval("LOAISPID") %>"><li class="menu-child-item "><%# Eval("TENLOAI") %></li></a>
+                                </ItemTemplate>
+                            </asp:Repeater>
                         </ul>
                     </li>
                     <li class="menu-item">
