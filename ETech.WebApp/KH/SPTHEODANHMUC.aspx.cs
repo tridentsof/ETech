@@ -17,13 +17,13 @@ namespace ETech.WebApp.KH
         {
             int idDM = int.Parse(Request.QueryString.Get("idDM"));
             dataAccess.MoKetNoiCSDL();
-            SqlParameter[] p =
-            {
-                new SqlParameter("@LOAISPID",SqlDbType.Int)
-            };
-            p[0].Value = idDM;
-            DataTable dt = dataAccess.ExecuteQuery("PROC_VIEWSP_THEODANHMUC", p);
-            if(dt != null && dt.Rows.Count > 0)
+            SqlCommand cmd = new SqlCommand("PROC_VIEWSP_THEODANHMUC", dataAccess.getConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@LOAISPID", idDM);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            if (dt != null && dt.Rows.Count > 0)
             {
                 lblDM.Text = dt.Rows[0]["TENLOAI"].ToString();
                 this.rptItem.DataSource = dt;
@@ -35,11 +35,11 @@ namespace ETech.WebApp.KH
                 lblThongBao.Text = "SẢN PHẨM HIỆN KHÔNG CÓ";
                 lblDM.Text = "Mời bạn xem các sản phẩm khác";
                 dataAccess.MoKetNoiCSDL();
-                SqlCommand cmd = new SqlCommand("SP", dataAccess.getConnection());
-                cmd.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                SqlCommand cmd2 = new SqlCommand("PROC_VIEWSP_THEODANHMUC2", dataAccess.getConnection());
+                cmd2.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
                 DataTable dt2 = new DataTable();
-                da.Fill(dt2);
+                da2.Fill(dt2);
                 if (dt2 != null && dt2.Rows.Count > 0)
                 {
                     this.rptItem.DataSource = dt2;
