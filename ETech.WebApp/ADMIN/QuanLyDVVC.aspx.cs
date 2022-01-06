@@ -31,7 +31,7 @@ namespace ETech.WebApp.ADMIN
             dataAccess.MoKetNoiCSDL();
 
             SqlParameter[] p = { };
-            DataTable dt = dataAccess.TableFill("PROC_VIEW_DVVC_CHODUYET", p);
+            DataTable dt = dataAccess.ExecuteQuery("PROC_VIEW_DVVC_CHODUYET", p);
 
             StringBuilder table = new StringBuilder();
             if (dt != null && dt.Rows.Count > 0)
@@ -56,7 +56,7 @@ namespace ETech.WebApp.ADMIN
             dataAccess.MoKetNoiCSDL();
 
             SqlParameter[] p = { };
-            DataTable dt = dataAccess.TableFill("PROC_VIEW_DONVIVANCHUYEN", p);
+            DataTable dt = dataAccess.ExecuteQuery("PROC_VIEW_DONVIVANCHUYEN", p);
 
             StringBuilder table = new StringBuilder();
             if (dt != null && dt.Rows.Count > 0)

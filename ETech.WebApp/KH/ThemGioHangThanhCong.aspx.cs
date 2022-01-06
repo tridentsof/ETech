@@ -25,7 +25,7 @@ namespace ETech.WebApp.KH
                 dataAccess.MoKetNoiCSDL();
 
                 dataAccess.MoKetNoiCSDL();
-                SqlCommand cmd = new SqlCommand("SP", dataAccess.getConnection());
+                SqlCommand cmd = new SqlCommand("PROC_VIEWSP_THEODANHMUC2", dataAccess.getConnection());
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();

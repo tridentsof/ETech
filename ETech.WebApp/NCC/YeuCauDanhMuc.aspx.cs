@@ -28,7 +28,7 @@ namespace ETech.WebApp.NCC
                 try
                 {
                     SqlParameter[] p = { };
-                    DataTable dt = dataAccess.TableFill("PROC_VIEW_LOAISP", p);
+                    DataTable dt = dataAccess.ExecuteQuery("PROC_VIEW_LOAISP", p);
 
                     if (dt != null && dt.Rows.Count > 0)
                     {
@@ -48,7 +48,7 @@ namespace ETech.WebApp.NCC
                 dataAccess.MoKetNoiCSDL();
 
                 SqlParameter[] p = { };
-                DataTable dt = dataAccess.TableFill("PROC_VIEW_LOAISP", p);
+                DataTable dt = dataAccess.ExecuteQuery("PROC_VIEW_LOAISP", p);
 
                 StringBuilder table = new StringBuilder();
                 if (dt != null && dt.Rows.Count > 0)

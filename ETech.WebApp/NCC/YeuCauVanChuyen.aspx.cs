@@ -26,7 +26,7 @@ namespace ETech.WebApp.NCC
                 try
                 {
                     SqlParameter[] p = { };
-                    DataTable dt = dataAccess.TableFill("PROC_VIEW_DVVC", p);
+                    DataTable dt = dataAccess.ExecuteQuery("PROC_VIEW_DVVC", p);
 
                     if (dt != null && dt.Rows.Count > 0)
                     {
