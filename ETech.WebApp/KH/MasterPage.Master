@@ -18,7 +18,11 @@
     <link rel="stylesheet" href="../wwwroot/font-awsome/css/all.css">
     <link rel="stylesheet" href="../wwwroot/css/kh_masterpage.css">
     <title>ETech Shop</title>
-
+     <style>
+        .menu-child-link {
+            margin-left: 0 !important;
+        }
+    </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -48,7 +52,36 @@
 
                 </div>
             </div>
+            <a href="#"><i class="far fa-user fa-2x fa-fw"></i></a>
 
+                    <asp:Panel ID="panelUser" runat="server">
+                        <li class="menu-item has-child MP__header-item" style="margin-left: 0!important">
+                            <a href="#" class="menu-link">
+                                <p>
+                                    <asp:Label ID="lbTaiKhoan" runat="server" Text=""></asp:Label></p>
+                                <i class="fa fa-angle-down fa-fw"></i>
+                            </a>
+                            <ul class="menu-child">
+                                <li class="menu-child-item">
+                                    <asp:HyperLink ID="HyperLink1" CssClass="menu-child-link" runat="server">Quản lý tài khoản</asp:HyperLink>
+                                </li>
+                                <li class="menu-child-item">
+                                    <asp:HyperLink ID="HyperLink2" CssClass="menu-child-link" runat="server">Đổi mật khẩu</asp:HyperLink>
+                                </li>
+                                <li class="menu-child-item">
+                                    <asp:LinkButton ID="LinkButton2" CssClass="menu-child-link" runat="server" OnClick="LinkButton2_Click">Đăng xuất<i class="fas fa-sign-out-alt"
+                                    style="margin-left: 5px;"></i></asp:LinkButton>
+                                </li>
+                            </ul>
+                        </li>
+                    </asp:Panel>
+
+                    <asp:Panel ID="panelDangNhap" runat="server">
+                        <div class="MP__header-item">
+                            <a href="TrangDangKyDangNhapKH.aspx">Đăng Ký</a>
+                            <a href="TrangDangKyDangNhapKH.aspx">Đăng Nhập</a>
+                        </div>
+                    </asp:Panel>
             <div class="MP__header2">
                 <ul class="menu">
                     <li class="menu-item">
