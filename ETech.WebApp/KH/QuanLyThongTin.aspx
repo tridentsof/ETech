@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/KH/MasterPage.Master" AutoEventWireup="true" CodeFile="QuanLyThongTin.aspx.cs" Inherits="ETech.WebApp.KH.QuanLyThongTin" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/KH/MasterPage.Master" AutoEventWireup="true" CodeBehind="QuanLyThongTin.aspx.cs" Inherits="ETech.WebApp.KH.QuanLyThongTin" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
      <style>
 :root {
