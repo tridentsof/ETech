@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/KH/MasterPage.Master" AutoEventWireup="true" CodeBehind="TrangChu.aspx.cs" Inherits="ETech.WebApp.KH.TrangChu" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/KH/MasterPage.Master" AutoEventWireup="true" CodeFile="TrangChu.aspx.cs" Inherits="ETech.WebApp.KH.TrangChu" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta charset="UTF-8">
@@ -32,7 +32,6 @@
         body {
             font-family: 'Roboto', sans-serif;
             font-size: 15px;
-            background-color: var(--lightgray);
         }
 
         /* BTN GO TO TOP */
@@ -334,6 +333,10 @@
             text-align: center;
             color: #ffffff;
             background-color: var(--primary-color);
+            padding-top:8px;
+            padding-bottom: 8px;
+            border-radius:3px;
+            font-size:18px;
         }
 
         .content_items {
@@ -394,6 +397,11 @@
                 position: absolute;
                 opacity: 0;
                 z-index: 1;
+            }
+            .content_title_banchay{
+                color:rgb(62, 103, 185);
+                border: 2px solid rgb(62, 103, 185);
+                background-color:white!important;
             }
 
             .content_item:after {
@@ -472,12 +480,13 @@
 
         .content_item-upload a {
             box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-            font-size: 18px;
-            border-radius: 5px;
-            padding: 5px;
+            font-size: 14px;
+            border-radius: 2px;
+            padding: 10px 10px 10px 10px;
             text-decoration: none;
             color: #ffffff;
-            background-image: linear-gradient(180deg, #439cfb, #1a6fc9);
+            background-color: #3E67B9;
+            margin-top:5px;
         }
 
         .content_item-star {
@@ -492,6 +501,10 @@
             .content_item-star i {
                 width: 30px;
                 height: 30px;
+            }
+
+            .hot-brand h2{
+                margin-left:20px;
             }
     </style>
 </asp:Content>
@@ -640,479 +653,121 @@
     </div>
 
     <div class="content">
-        <h2 class="content_title">SẢN PHẨM MỚI</h2>
+        <h2 class="content_title content_title_banchay">TOP SẢN PHẨM BÁN CHẠY</h2>
         <div class="content_items">
-            <div class="content_item">
-                <img
-                    src="https://lh3.googleusercontent.com/nrYOo1LSoCcHmqx5RaEfbGxo3eOnrnCulYrJSC5QrY9uB729Vf27fmM1MHwFkuwQuMbvGKe-9mwZdqvaNVXXfdMkpp-UgN4=rw-w300"
-                    alt="sq-sample26" />
-                <h5>Điện Thoại Di Động iPhone 11 64GB (YELLOW) (MHDE3VN/A)</h5>
-                <div class="content_item-info">
-                    <div class="content_item-cash">
-                        <p>17,890,000 đ</p>
-                        <p>25,900,000 đ</p>
+            <asp:Repeater ID="repeater1" runat="server">
+                <ItemTemplate>
+                    <div class="content_item">
+                        <img
+                            src="../wwwroot/img/sp/<%# Eval("HINHANH") %>"
+                            alt="sq-sample26" />
+                        <h5><%# Eval("TENSANPHAM") %></h5>
+                        <div class="content_item-info">
+                            <div class="content_item-cash">
+                                <p><%# Eval("DONGIA","{0:n0}") %></p>
+                                <p><%# Eval("DONGIA2", "{0:n0}") %></p>
+                            </div>
+                            <div class="content_item-btnprepay">
+                                <p>Hoặc trả trước</p>
+                                <p><%# Eval("DONGIA3","{0:n0}") %></p>
+                            </div>
+                        </div>
+                        <div class="content_item-star">
+                            <i class="fas fa-star fa-lg"></i>
+                            <i class="fas fa-star fa-lg"></i>
+                            <i class="fas fa-star fa-lg"></i>
+                            <i class="fas fa-star fa-lg"></i>
+                            <i class="far fa-star fa-lg"></i>
+                        </div>
+                        <div class="content_item-upload">
+                            <img
+                                src="../wwwroot/img/sp/<%# Eval("HINHANH") %>"
+                                alt="">
+                            <div><a href="TrangChiTietSanPham.aspx?idSP=<%# Eval("SANPHAMID") %>">Xem chi tiết</a></div>
+                        </div>
                     </div>
-                    <div class="content_item-btnprepay">
-                        <p>Hoặc trả trước</p>
-                        <p>2,580,000 đ</p>
-                    </div>
-                </div>
-                <div class="content_item-star">
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="far fa-star fa-lg"></i>
-                </div>
-                <div class="content_item-upload">
-                    <img
-                        src="https://lh3.googleusercontent.com/nrYOo1LSoCcHmqx5RaEfbGxo3eOnrnCulYrJSC5QrY9uB729Vf27fmM1MHwFkuwQuMbvGKe-9mwZdqvaNVXXfdMkpp-UgN4=rw-w300"
-                        alt="">
-                    <div><a href="#">Xem chi tiết</a></div>
-                </div>
-            </div>
-            <div class="content_item">
-                <img
-                    src="https://lh3.googleusercontent.com/0u7SrJvZl4ny-KmM4c_jALU9P4pQCLwRV_HEJzJYhWdleAnpEW_bX7QnA4fNnUfPxUeJwtmgl8CKVfsHTRKE9dvB2sWM7cRU=rw-w300"
-                    alt="sq-sample26" />
-                <h5>Điện thoại di động Samsung Galaxy S21 Ultra 5G (12+128GB) SM-G998BZSDXXV (Silver)</h5>
-                <div class="content_item-info">
-                    <div class="content_item-cash">
-                        <p>12,890,000 đ</p>
-                        <p>24,760,000 đ</p>
-                    </div>
-                    <div class="content_item-btnprepay">
-                        <p>Hoặc trả trước</p>
-                        <p>4,280,000 đ</p>
-                    </div>
-                </div>
-                <div class="content_item-star">
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star-half-alt fa-lg"></i>
-                    <i class="far fa-star fa-lg"></i>
-                </div>
-                <div class="content_item-upload">
-                    <img
-                        src="https://lh3.googleusercontent.com/0u7SrJvZl4ny-KmM4c_jALU9P4pQCLwRV_HEJzJYhWdleAnpEW_bX7QnA4fNnUfPxUeJwtmgl8CKVfsHTRKE9dvB2sWM7cRU=rw-w300"
-                        alt="">
-                    <div><a href="#">Xem chi tiết</a></div>
-                </div>
-            </div>
-            <div class="content_item">
-                <img
-                    src="https://lh3.googleusercontent.com/VLThRMTuJib3m6gUbhLW09FCHO_c6wQoHpRBqck6T7z72iVHX639frPuDtdj6e4dHD8AzVJM8fRtZGucCY-cb1p1_dzlHrHI_w=rw-w300"
-                    alt="sq-sample26" />
-                <h5>Điện thoại di động Xiaomi Redmi 10 (4GB/128GB) (Xanh dương) (Blue)</h5>
-                <div class="content_item-info">
-                    <div class="content_item-cash">
-                        <p>19,890,000 đ</p>
-                        <p>23,578,000 đ</p>
-                    </div>
-                    <div class="content_item-btnprepay">
-                        <p>Hoặc trả trước</p>
-                        <p>3,590,000 đ</p>
-                    </div>
-                </div>
-                <div class="content_item-star">
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="far fa-star fa-lg"></i>
-                </div>
-                <div class="content_item-upload">
-                    <img
-                        src="https://lh3.googleusercontent.com/VLThRMTuJib3m6gUbhLW09FCHO_c6wQoHpRBqck6T7z72iVHX639frPuDtdj6e4dHD8AzVJM8fRtZGucCY-cb1p1_dzlHrHI_w=rw-w300"
-                        alt="">
-                    <div><a href="#">Xem chi tiết</a></div>
-                </div>
-            </div>
-            <div class="content_item">
-                <img
-                    src="https://lh3.googleusercontent.com/sL3QCe77PBRGp6yamZGSAdwzaK73Jca6jo86U0aIrexUAWAqZhc-qjdNpyl7cubUh2DGqU_6Yhu70g9OZkE=rw-w300" />
-                <h5>Điện Thoại Di Động iPhone 11 Pro Max 64GB (Silver)</h5>
-                <div class="content_item-info">
-                    <div class="content_item-cash">
-                        <p>12,890,000 đ</p>
-                        <p>18,178,000 đ</p>
-                    </div>
-                    <div class="content_item-btnprepay">
-                        <p>Hoặc trả trước</p>
-                        <p>2,580,000 đ</p>
-                    </div>
-                </div>
-                <div class="content_item-star">
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                </div>
-                <div class="content_item-upload">
-                    <img
-                        src="https://lh3.googleusercontent.com/sL3QCe77PBRGp6yamZGSAdwzaK73Jca6jo86U0aIrexUAWAqZhc-qjdNpyl7cubUh2DGqU_6Yhu70g9OZkE=rw-w300"
-                        alt="">
-                    <div><a href="#">Xem chi tiết</a></div>
-                </div>
-            </div>
+                </ItemTemplate>
+            </asp:Repeater>
         </div>
     </div>
 
     <div class="content">
-        <h2 class="content_title">DÀNH CHO BẠN</h2>
+        <h2 class="content_title">DANH MỤC MÁY TÍNH</h2>
         <div class="content_items">
-            <div class="content_item">
-                <img
-                    src="https://lh3.googleusercontent.com/g1K1zNStrA7chN3zbeRX-uJD0-zCaeCnpd4ZuYn9SmM2NMXMfySMpI9D0IqP5uYG1Q0GrDXuqzNMWd6taY8h=rw-w300"
-                    alt="sq-sample26" />
-                <h5>Điện Thoại Di Động iPhone 11 Pro Max 512GB (Midnight Green)</h5>
-                <div class="content_item-info">
-                    <div class="content_item-cash">
-                        <p>17,890,000 đ</p>
-                        <p>25,900,000 đ</p>
+            <asp:Repeater ID="repeater2" runat="server">
+                <ItemTemplate>
+                    <div class="content_item">
+                        <img
+                            src="../wwwroot/img/sp/<%# Eval("HINHANH") %>"
+                            alt="sq-sample26" />
+                        <h5><%# Eval("TENSANPHAM") %></h5>
+                        <div class="content_item-info">
+                            <div class="content_item-cash">
+                                <p><%# Eval("DONGIA","{0:n0}") %></p>
+                                <p><%# Eval("DONGIA2", "{0:n0}") %></p>
+                            </div>
+                            <div class="content_item-btnprepay">
+                                <p>Hoặc trả trước</p>
+                                <p><%# Eval("DONGIA3","{0:n0}") %></p>
+                            </div>
+                        </div>
+                        <div class="content_item-star">
+                            <i class="fas fa-star fa-lg"></i>
+                            <i class="fas fa-star fa-lg"></i>
+                            <i class="fas fa-star fa-lg"></i>
+                            <i class="fas fa-star fa-lg"></i>
+                            <i class="far fa-star fa-lg"></i>
+                        </div>
+                        <div class="content_item-upload">
+                            <img
+                                src="../wwwroot/img/sp/<%# Eval("HINHANH") %>"
+                                alt="">
+                            <div><a href="TrangChiTietSanPham.aspx?idSP=<%# Eval("SANPHAMID") %>">Xem chi tiết</a></div>
+                        </div>
                     </div>
-                    <div class="content_item-btnprepay">
-                        <p>Hoặc trả trước</p>
-                        <p>2,580,000 đ</p>
-                    </div>
-                </div>
-                <div class="content_item-star">
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="far fa-star fa-lg"></i>
-                </div>
-                <div class="content_item-upload">
-                    <img
-                        src="https://lh3.googleusercontent.com/g1K1zNStrA7chN3zbeRX-uJD0-zCaeCnpd4ZuYn9SmM2NMXMfySMpI9D0IqP5uYG1Q0GrDXuqzNMWd6taY8h=rw-w300"
-                        alt="">
-                    <div><a href="#">Xem chi tiết</a></div>
-                </div>
-            </div>
-            <div class="content_item">
-                <img
-                    src="https://lh3.googleusercontent.com/nlNWdqQ6aV2m3sg081DJdY4AXO5t0JIxkMQL3-3zKXrCFpUburLSGSjsl0nO8B61wxFfAkWi1zdLISNjUoU=rw-w300"
-                    alt="sq-sample26" />
-                <h5>Điện Thoại Di Động Samsung Galaxy Z Flip, 256GB (SM-F700FZKDXEV) (Đen)</h5>
-                <div class="content_item-info">
-                    <div class="content_item-cash">
-                        <p>17,890,000 đ</p>
-                        <p>25,900,000 đ</p>
-                    </div>
-                    <div class="content_item-btnprepay">
-                        <p>Hoặc trả trước</p>
-                        <p>2,580,000 đ</p>
-                    </div>
-                </div>
-                <div class="content_item-star">
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="far fa-star fa-lg"></i>
-                </div>
-                <div class="content_item-upload">
-                    <img
-                        src="https://lh3.googleusercontent.com/nlNWdqQ6aV2m3sg081DJdY4AXO5t0JIxkMQL3-3zKXrCFpUburLSGSjsl0nO8B61wxFfAkWi1zdLISNjUoU=rw-w300"
-                        alt="">
-                    <div><a href="#">Xem chi tiết</a></div>
-                </div>
-            </div>
-            <div class="content_item">
-                <img
-                    src="https://lh3.googleusercontent.com/u1QKIvDUVTjpUp70egzO_UCNtwZTtQOV3jdaTSr_xe8h36pXxGBlPypF6o00d6JGD-wpYrxK79gvxieYxE7hbotc-N-uhYUT=rw-w300"
-                    alt="sq-sample26" />
-                <h5>Điện thoại di động Samsung Galaxy S21+ 5G (8+128GB) SM-G996BZVDXXV (Phantom Violet)</h5>
-                <div class="content_item-info">
-                    <div class="content_item-cash">
-                        <p>17,890,000 đ</p>
-                        <p>25,900,000 đ</p>
-                    </div>
-                    <div class="content_item-btnprepay">
-                        <p>Hoặc trả trước</p>
-                        <p>2,580,000 đ</p>
-                    </div>
-                </div>
-                <div class="content_item-star">
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="far fa-star fa-lg"></i>
-                </div>
-                <div class="content_item-upload">
-                    <img
-                        src="https://lh3.googleusercontent.com/u1QKIvDUVTjpUp70egzO_UCNtwZTtQOV3jdaTSr_xe8h36pXxGBlPypF6o00d6JGD-wpYrxK79gvxieYxE7hbotc-N-uhYUT=rw-w300"
-                        alt="">
-                    <div><a href="#">Xem chi tiết</a></div>
-                </div>
-            </div>
-            <div class="content_item">
-                <img
-                    src="https://lh3.googleusercontent.com/o8FLozSpltnqAzG8OhICmFD-HoP4bRrJoGgw5LTWr1pn27mcYYkHg1MN4ja_h_1EPL03AX2t612sMgLdwQ=rw-w300"
-                    alt="sq-sample26" />
-                <h5>Điện Thoại Di Động Samsung Galaxy Z Flip, 256GB (SM-F700FZPDXEV) (Tím)</h5>
-                <div class="content_item-info">
-                    <div class="content_item-cash">
-                        <p>19,890,000 đ</p>
-                        <p>23,578,000 đ</p>
-                    </div>
-                    <div class="content_item-btnprepay">
-                        <p>Hoặc trả trước</p>
-                        <p>3,590,000 đ</p>
-                    </div>
-                </div>
-                <div class="content_item-star">
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="far fa-star fa-lg"></i>
-                </div>
-                <div class="content_item-upload">
-                    <img
-                        src="https://lh3.googleusercontent.com/o8FLozSpltnqAzG8OhICmFD-HoP4bRrJoGgw5LTWr1pn27mcYYkHg1MN4ja_h_1EPL03AX2t612sMgLdwQ=rw-w300"
-                        alt="">
-                    <div><a href="#">Xem chi tiết</a></div>
-                </div>
-            </div>
-            <div class="content_item">
-                <img
-                    src="https://lh3.googleusercontent.com/oHrawfIEEvx9mZumGbLQOvayQxdO6-QtER1kGFpu7IIscw4wn8HN2Kee5g8J0VvaKW71kOnb8o1JMBAmG_iy=rw-w300"
-                    alt="sq-sample26" />
-                <h5>Điện Thoại Di Động iPhone 11 Pro Max 64GB (Gold)</h5>
-                <div class="content_item-info">
-                    <div class="content_item-cash">
-                        <p>12,890,000 đ</p>
-                        <p>24,760,000 đ</p>
-                    </div>
-                    <div class="content_item-btnprepay">
-                        <p>Hoặc trả trước</p>
-                        <p>4,280,000 đ</p>
-                    </div>
-                </div>
-                <div class="content_item-star">
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star-half-alt fa-lg"></i>
-                    <i class="far fa-star fa-lg"></i>
-                </div>
-                <div class="content_item-upload">
-                    <img
-                        src="https://lh3.googleusercontent.com/oHrawfIEEvx9mZumGbLQOvayQxdO6-QtER1kGFpu7IIscw4wn8HN2Kee5g8J0VvaKW71kOnb8o1JMBAmG_iy=rw-w300"
-                        alt="">
-                    <div><a href="#">Xem chi tiết</a></div>
-                </div>
-            </div>
-            <div class="content_item">
-                <img
-                    src="https://lh3.googleusercontent.com/mfZs3jIDpSFV9z9glX4774Rn8ZUxtkxvm_HZpZzg3hh1L9QeVmCvEnJxPjlnDS0sIF-wZsAhRDVPxguqkes=rw-w300"
-                    alt="sq-sample26" />
-                <h5>Điện Thoại Di Động Samsung Galaxy Note 10 (Aura Glow)</h5>
-                <div class="content_item-info">
-                    <div class="content_item-cash">
-                        <p>17,890,000 đ</p>
-                        <p>25,900,000 đ</p>
-                    </div>
-                    <div class="content_item-btnprepay">
-                        <p>Hoặc trả trước</p>
-                        <p>2,580,000 đ</p>
-                    </div>
-                </div>
-                <div class="content_item-star">
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="far fa-star fa-lg"></i>
-                </div>
-                <div class="content_item-upload">
-                    <img
-                        src="https://lh3.googleusercontent.com/mfZs3jIDpSFV9z9glX4774Rn8ZUxtkxvm_HZpZzg3hh1L9QeVmCvEnJxPjlnDS0sIF-wZsAhRDVPxguqkes=rw-w300"
-                        alt="">
-                    <div><a href="#">Xem chi tiết</a></div>
-                </div>
-            </div>
-            <div class="content_item">
-                <img
-                    src="https://lh3.googleusercontent.com/nrYOo1LSoCcHmqx5RaEfbGxo3eOnrnCulYrJSC5QrY9uB729Vf27fmM1MHwFkuwQuMbvGKe-9mwZdqvaNVXXfdMkpp-UgN4=rw-w300"
-                    alt="sq-sample26" />
-                <h5>Điện Thoại Di Động iPhone 11 64GB (YELLOW) (MHDE3VN/A)</h5>
-                <div class="content_item-info">
-                    <div class="content_item-cash">
-                        <p>17,890,000 đ</p>
-                        <p>25,900,000 đ</p>
-                    </div>
-                    <div class="content_item-btnprepay">
-                        <p>Hoặc trả trước</p>
-                        <p>2,580,000 đ</p>
-                    </div>
-                </div>
-                <div class="content_item-star">
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="far fa-star fa-lg"></i>
-                </div>
-                <div class="content_item-upload">
-                    <img
-                        src="https://lh3.googleusercontent.com/nrYOo1LSoCcHmqx5RaEfbGxo3eOnrnCulYrJSC5QrY9uB729Vf27fmM1MHwFkuwQuMbvGKe-9mwZdqvaNVXXfdMkpp-UgN4=rw-w300"
-                        alt="">
-                    <div><a href="#">Xem chi tiết</a></div>
-                </div>
-            </div>
-            <div class="content_item">
-                <img
-                    src="https://lh3.googleusercontent.com/0u7SrJvZl4ny-KmM4c_jALU9P4pQCLwRV_HEJzJYhWdleAnpEW_bX7QnA4fNnUfPxUeJwtmgl8CKVfsHTRKE9dvB2sWM7cRU=rw-w300"
-                    alt="sq-sample26" />
-                <h5>Điện thoại di động Samsung Galaxy S21 Ultra 5G (12+128GB) SM-G998BZSDXXV (Silver)</h5>
-                <div class="content_item-info">
-                    <div class="content_item-cash">
-                        <p>12,890,000 đ</p>
-                        <p>24,760,000 đ</p>
-                    </div>
-                    <div class="content_item-btnprepay">
-                        <p>Hoặc trả trước</p>
-                        <p>4,280,000 đ</p>
-                    </div>
-                </div>
-                <div class="content_item-star">
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star-half-alt fa-lg"></i>
-                    <i class="far fa-star fa-lg"></i>
-                </div>
-                <div class="content_item-upload">
-                    <img
-                        src="https://lh3.googleusercontent.com/0u7SrJvZl4ny-KmM4c_jALU9P4pQCLwRV_HEJzJYhWdleAnpEW_bX7QnA4fNnUfPxUeJwtmgl8CKVfsHTRKE9dvB2sWM7cRU=rw-w300"
-                        alt="">
-                    <div><a href="#">Xem chi tiết</a></div>
-                </div>
-            </div>
-            <div class="content_item">
-                <img
-                    src="https://lh3.googleusercontent.com/tOYCSroTrxfUVxKyLAmKy6udhNGz9lbC5tPbiLebb8xpj33FcedR70TtvUIny9B9pghemh0TWFQscyIsvZzE=rw-w300"
-                    alt="sq-sample26" />
-                <h5>Điện Thoại Di Động iPhone 12 Pro 256GB Graphite MGMP3VN/A</h5>
-                <div class="content_item-info">
-                    <div class="content_item-cash">
-                        <p>17,890,000 đ</p>
-                        <p>25,900,000 đ</p>
-                    </div>
-                    <div class="content_item-btnprepay">
-                        <p>Hoặc trả trước</p>
-                        <p>2,580,000 đ</p>
-                    </div>
-                </div>
-                <div class="content_item-star">
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="far fa-star fa-lg"></i>
-                </div>
-                <div class="content_item-upload">
-                    <img
-                        src="https://lh3.googleusercontent.com/tOYCSroTrxfUVxKyLAmKy6udhNGz9lbC5tPbiLebb8xpj33FcedR70TtvUIny9B9pghemh0TWFQscyIsvZzE=rw-w300"
-                        alt="">
-                    <div><a href="#">Xem chi tiết</a></div>
-                </div>
-            </div>
-            <div class="content_item">
-                <img
-                    src="https://lh3.googleusercontent.com/VLThRMTuJib3m6gUbhLW09FCHO_c6wQoHpRBqck6T7z72iVHX639frPuDtdj6e4dHD8AzVJM8fRtZGucCY-cb1p1_dzlHrHI_w=rw-w300"
-                    alt="sq-sample26" />
-                <h5>Điện thoại di động Xiaomi Redmi 10 (4GB/128GB) (Xanh dương) (Blue)</h5>
-                <div class="content_item-info">
-                    <div class="content_item-cash">
-                        <p>19,890,000 đ</p>
-                        <p>23,578,000 đ</p>
-                    </div>
-                    <div class="content_item-btnprepay">
-                        <p>Hoặc trả trước</p>
-                        <p>3,590,000 đ</p>
-                    </div>
-                </div>
-                <div class="content_item-star">
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="far fa-star fa-lg"></i>
-                </div>
-                <div class="content_item-upload">
-                    <img
-                        src="https://lh3.googleusercontent.com/VLThRMTuJib3m6gUbhLW09FCHO_c6wQoHpRBqck6T7z72iVHX639frPuDtdj6e4dHD8AzVJM8fRtZGucCY-cb1p1_dzlHrHI_w=rw-w300"
-                        alt="">
-                    <div><a href="#">Xem chi tiết</a></div>
-                </div>
-            </div>
-            <div class="content_item">
-                <img
-                    src="https://lh3.googleusercontent.com/sL3QCe77PBRGp6yamZGSAdwzaK73Jca6jo86U0aIrexUAWAqZhc-qjdNpyl7cubUh2DGqU_6Yhu70g9OZkE=rw-w300" />
-                <h5>Điện Thoại Di Động iPhone 11 Pro Max 64GB (Silver)</h5>
-                <div class="content_item-info">
-                    <div class="content_item-cash">
-                        <p>12,890,000 đ</p>
-                        <p>18,178,000 đ</p>
-                    </div>
-                    <div class="content_item-btnprepay">
-                        <p>Hoặc trả trước</p>
-                        <p>2,580,000 đ</p>
-                    </div>
-                </div>
-                <div class="content_item-star">
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                </div>
-                <div class="content_item-upload">
-                    <img
-                        src="https://lh3.googleusercontent.com/sL3QCe77PBRGp6yamZGSAdwzaK73Jca6jo86U0aIrexUAWAqZhc-qjdNpyl7cubUh2DGqU_6Yhu70g9OZkE=rw-w300"
-                        alt="">
-                    <div><a href="#">Xem chi tiết</a></div>
-                </div>
-            </div>
-            <div class="content_item">
-                <img
-                    src="https://lh3.googleusercontent.com/2FmiObbgk0SWsh-K9qXcDyqX5JI8VLZyQsp49m4t7BWePqPD-lrz0zxBeR7NkO3BJ5S0SB76FMk29A16MAtAL38ErN9yOzc=rw-w300"
-                    alt="sq-sample26" />
-                <h5>Điện thoại di động Samsung Galaxy A12 (2021) (4GB/128GB) (Xanh)</h5>
-                <div class="content_item-info">
-                    <div class="content_item-cash">
-                        <p>17,890,000 đ</p>
-                        <p>25,900,000 đ</p>
-                    </div>
-                    <div class="content_item-btnprepay">
-                        <p>Hoặc trả trước</p>
-                        <p>2,580,000 đ</p>
-                    </div>
-                </div>
-                <div class="content_item-star">
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star fa-lg"></i>
-                    <i class="fas fa-star-half-alt fa-lg"></i>
-                    <i class="far fa-star fa-lg"></i>
-                </div>
-                <div class="content_item-upload">
-                    <img
-                        src="https://lh3.googleusercontent.com/2FmiObbgk0SWsh-K9qXcDyqX5JI8VLZyQsp49m4t7BWePqPD-lrz0zxBeR7NkO3BJ5S0SB76FMk29A16MAtAL38ErN9yOzc=rw-w300"
-                        alt="">
-                    <div><a href="#">Xem chi tiết</a></div>
-                </div>
-            </div>
+                </ItemTemplate>
+            </asp:Repeater>
         </div>
     </div>
 
+    <div class="content">
+        <h2 class="content_title">DANH MỤC MÀN HÌNH</h2>
+        <div class="content_items">
+            <asp:Repeater ID="repeater3" runat="server">
+                <ItemTemplate>
+                    <div class="content_item">
+                        <img
+                            src="../wwwroot/img/sp/<%# Eval("HINHANH") %>"
+                            alt="sq-sample26" />
+                        <h5><%# Eval("TENSANPHAM") %></h5>
+                        <div class="content_item-info">
+                            <div class="content_item-cash">
+                                <p><%# Eval("DONGIA","{0:n0}") %></p>
+                                <p><%# Eval("DONGIA2", "{0:n0}") %></p>
+                            </div>
+                            <div class="content_item-btnprepay">
+                                <p>Hoặc trả trước</p>
+                                <p><%# Eval("DONGIA3","{0:n0}") %></p>
+                            </div>
+                        </div>
+                        <div class="content_item-star">
+                            <i class="fas fa-star fa-lg"></i>
+                            <i class="fas fa-star fa-lg"></i>
+                            <i class="fas fa-star fa-lg"></i>
+                            <i class="fas fa-star fa-lg"></i>
+                            <i class="far fa-star fa-lg"></i>
+                        </div>
+                        <div class="content_item-upload">
+                            <img
+                                src="../wwwroot/img/sp/<%# Eval("HINHANH") %>"
+                                alt="">
+                            <div><a href="TrangChiTietSanPham.aspx?idSP=<%# Eval("SANPHAMID") %>">Xem chi tiết</a></div>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
+        </div>
+    </div>
 
 
 

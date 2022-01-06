@@ -33,10 +33,13 @@ namespace ETech.WebApp.NCC
         protected void btnXoa_Click(object sender, EventArgs e)
         {
             string idDM = Request.QueryString.Get("idDM").ToString();
+            int id = int.Parse(Session["id"].ToString());
             SqlParameter[] p = {
+                 new SqlParameter("@NHACUNGCAPID",SqlDbType.Int),
                 new SqlParameter("@ID",SqlDbType.Int)
             };
-            p[0].Value = int.Parse(idDM);
+            p[0].Value =  id ;
+            p[1].Value = int.Parse(idDM);
 
             int i = dataAccess.ExecuteNonQuery("PROC_DELETE_DANHMUC2", p);
 

@@ -37,6 +37,7 @@ namespace ETech.WebApp.KH
             }
             else
             {
+                txtcaptcha1.Text = "";
                 lbTB1.Text = "Mã Captcha Sai";
             }
 
@@ -69,12 +70,13 @@ namespace ETech.WebApp.KH
                         Response.Cookies["passwordKH"].Expires = DateTime.Now;
                     }
 
-                    Session["userNCC"] = txtdangnhap.Text;
+                    Session["userKH"] = txtdangnhap.Text;
                     Response.Redirect("~/KH/TrangChu.aspx?userKH=" + txtdangnhap.Text);
                     Session.RemoveAll();
                 }
                 else
                 {
+                    txtcaptcha1.Text = "";
                     lbTB1.Text = "Sai Tài Khoản hoặc Mật Khẩu";
                 }
             }
@@ -103,7 +105,7 @@ namespace ETech.WebApp.KH
                 cmd.Parameters.AddWithValue("@EMAIL", txtEmail.Text);
                 cmd.Parameters.AddWithValue("@SDT", txtSDT.Text);
                 cmd.Parameters.AddWithValue("@DIACHI", txtDiaChi.Text);
-                cmd.Parameters.AddWithValue("@TRANGTHAI", "1");
+                cmd.Parameters.AddWithValue("@TRANGTHAI", "0");
                 cmd.Parameters.AddWithValue("@MAXACNHAN", activationcode.Trim());
                 //cmd.Parameters.Add("@ERROR", SqlDbType.NVarChar, 500);
                 //cmd.Parameters["@ERROR"].Direction = ParameterDirection.Output;
@@ -114,7 +116,7 @@ namespace ETech.WebApp.KH
                 {
                     sendcode();
                     //lbThongBao.Text = cmd.Parameters["@ERROR"].Value.ToString();
-                    Response.Redirect("~/NCC/MailActive.aspx?emailadd=" + txtEmail.Text);
+                    Response.Redirect("~/KH/MailActive.aspx?emailadd=" + txtEmail.Text);
 
                 }
                 else
@@ -130,12 +132,10 @@ namespace ETech.WebApp.KH
 
         private void sendcode()
         {
-
-
             SmtpClient smtp = new SmtpClient();
             smtp.Host = "smtp.gmail.com";
             smtp.Port = 587;
-            smtp.Credentials = new System.Net.NetworkCredential("proxgroupcdio4@gmail.com", "Prox123456");
+            smtp.Credentials = new System.Net.NetworkCredential("proxgroupcdio4@gmail.com", "ProxTichHop2022");
             smtp.EnableSsl = true;
             MailMessage msg = new MailMessage();
             msg.Subject = "Xác nhận email của bạn";

@@ -25,12 +25,13 @@ namespace ETech.WebApp.NCC
 
         protected void btnTim_Click(object sender, EventArgs e)
         {
+            int id = int.Parse(Session["id"].ToString());
             SqlParameter[] p = {
                  new SqlParameter("@NHACUNGCAPID", SqlDbType.Int),
                  new SqlParameter("@NGAYBATDAU", SqlDbType.NVarChar,50),
                  new SqlParameter("@NGAYKETTHUC", SqlDbType.NVarChar,50)
             };
-            p[0].Value = 2;
+            p[0].Value = id;
             p[1].Value = txtNgayBD.Text;
             p[2].Value = txtNgayKT.Text;
             DataTable dt = dataAccess.ExecuteQuery("PROC_THONGKE_DOANHTHU", p);

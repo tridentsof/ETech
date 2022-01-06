@@ -59,6 +59,7 @@ namespace ETech.WebApp.KH
                     cart.Columns.Add("TENSP");
                     cart.Columns.Add("DONGIA");
                     cart.Columns.Add("SOLUONG");
+                    cart.Columns.Add("NHACUNGCAPID");
 
                     //Sau khi tạo xong thì lưu lại vào session
                     Session["cart"] = cart;
@@ -100,6 +101,7 @@ namespace ETech.WebApp.KH
                                 dr["HINH"] = dt2.Rows[0]["HINHANH"].ToString();
                                 dr["TENSP"] = dt2.Rows[0]["TENSANPHAM"].ToString();
                                 dr["DONGIA"] = dt2.Rows[0]["DONGIA"].ToString();
+                                dr["NHACUNGCAPID"] = dt2.Rows[0]["NHACUNGCAPID"].ToString();
                                 dr["SOLUONG"] = soLuongDatHang;
                                 cart.Rows.Add(dr);
                             }

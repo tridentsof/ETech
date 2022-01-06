@@ -15,6 +15,14 @@ namespace ETech.WebApp.NCC
         DataAccess dataAccess = new DataAccess();
         protected void Page_Load(object sender, EventArgs e)
         {
+            dataAccess.MoKetNoiCSDL();
+            
+            
+            if (Session["userNCC"] == null)
+            {
+                Response.Redirect("DangKyDangNhapNCC.aspx");
+            }
+
             string idSP = Request.QueryString.Get("idSP").ToString();
             if (!IsPostBack)
             {
@@ -82,12 +90,15 @@ namespace ETech.WebApp.NCC
         {
              string idSP = Request.QueryString.Get("idSP").ToString();
             dataAccess.MoKetNoiCSDL();
+            int id = int.Parse(Session["id"].ToString());
+
+            dataAccess.MoKetNoiCSDL();
             SqlCommand cmd = new SqlCommand("PROC_UPDATE_SANPHAM", dataAccess.getConnection());
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@SANPHAMID", int.Parse(idSP));
             cmd.Parameters.AddWithValue("@NHASANXUATID", int.Parse(ddlNSX.SelectedValue));
             cmd.Parameters.AddWithValue("@LOAISPID", int.Parse(ddlDM.SelectedValue));
-            cmd.Parameters.AddWithValue("@NHACUNGCAPID", 2);//truyenthamsovaoday
+            cmd.Parameters.AddWithValue("@NHACUNGCAPID", id);
             cmd.Parameters.AddWithValue("@DONVIVANCHUYENID", int.Parse(ddlDVVC.SelectedValue));
             cmd.Parameters.AddWithValue("@TENSANPHAM", txtTenSP.Text);
             cmd.Parameters.AddWithValue("@CHITIET", txtdetail.Text);
