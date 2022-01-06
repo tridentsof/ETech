@@ -137,7 +137,7 @@ namespace ETech.WebApp.KH
             SmtpClient smtp = new SmtpClient();
             smtp.Host = "smtp.gmail.com";
             smtp.Port = 587;
-            smtp.Credentials = new System.Net.NetworkCredential("proxgroupcdio4@gmail.com", "Prox123456");
+            smtp.Credentials = new System.Net.NetworkCredential("proxgroupcdio4@gmail.com", "ProxTichHop2022");
             smtp.EnableSsl = true;
             MailMessage msg = new MailMessage();
             msg.Subject = "Xác nhận email của bạn";

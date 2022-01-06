@@ -39,7 +39,7 @@ namespace ETech.WebApp.NCC
                 if (maxacnhan == TextBox1.Text)
                 {
                     changestatus();
-                    Response.Redirect("MailActive_Done.aspx");
+                    Response.Redirect("MailActiveDone.aspx");
                 }
                 else
                 {

@@ -4,11 +4,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+
    <style>
         input{
     border: none;
     outline: none;
 }
+        body{
+            font-family:sans-serif;
+        }
 button{
     border: none;
     outline: none;
