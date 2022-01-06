@@ -22,6 +22,8 @@ namespace ETech.WebApp.KH
                 panelDangNhap.Style.Add("display", "none");
             }
 
+            
+
             //..Tiep tuc code xu ly user
 
 
