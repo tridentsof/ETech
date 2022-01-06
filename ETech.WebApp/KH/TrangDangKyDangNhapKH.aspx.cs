@@ -105,7 +105,7 @@ namespace ETech.WebApp.KH
                 cmd.Parameters.AddWithValue("@EMAIL", txtEmail.Text);
                 cmd.Parameters.AddWithValue("@SDT", txtSDT.Text);
                 cmd.Parameters.AddWithValue("@DIACHI", txtDiaChi.Text);
-                cmd.Parameters.AddWithValue("@TRANGTHAI", "1");
+                cmd.Parameters.AddWithValue("@TRANGTHAI", "0");
                 cmd.Parameters.AddWithValue("@MAXACNHAN", activationcode.Trim());
                 //cmd.Parameters.Add("@ERROR", SqlDbType.NVarChar, 500);
                 //cmd.Parameters["@ERROR"].Direction = ParameterDirection.Output;
@@ -116,7 +116,7 @@ namespace ETech.WebApp.KH
                 {
                     sendcode();
                     //lbThongBao.Text = cmd.Parameters["@ERROR"].Value.ToString();
-                    Response.Redirect("~/NCC/MailActive.aspx?emailadd=" + txtEmail.Text);
+                    Response.Redirect("~/KH/MailActive.aspx?emailadd=" + txtEmail.Text);
 
                 }
                 else
@@ -132,8 +132,6 @@ namespace ETech.WebApp.KH
 
         private void sendcode()
         {
-
-
             SmtpClient smtp = new SmtpClient();
             smtp.Host = "smtp.gmail.com";
             smtp.Port = 587;

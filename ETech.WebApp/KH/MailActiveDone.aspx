@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MailActiveDone.aspx.cs" Inherits="ETech.WebApp.NCC.MailActiveDone" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MailActiveDone.aspx.cs" Inherits="ETech.WebApp.KH.MailActiveDone" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Mail Active</title>
+    <title>Active Mail</title>
     <style>
         button {
             border: none;
@@ -52,11 +52,11 @@
     </style>
 </head>
 <body>
-
-    <div class="container-active">
-        <p class="content-active">Xác nhận email thành công!</p>
-        <asp:Button ID="Button1" runat="server" CssClass="button-active" Text="Đăng nhập" OnClick="Button1_Click" />
-    </div>
-
+    <form id="form1" runat="server">
+        <div class="container-active">
+            <p class="content-active">Xác nhận email thành công!</p>
+            <asp:Button ID="Button1" runat="server" CssClass="button-active" Text="Đăng nhập" OnClick="Button1_Click" />
+        </div>
+    </form>
 </body>
 </html>

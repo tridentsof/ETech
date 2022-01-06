@@ -431,6 +431,14 @@
         .check-login-wrapper{
             margin-top: 5px;
         }
+
+        .input-address{
+            padding: 10px 10px 10px 10px;
+            font-family:sans-serif;
+        }
+        .input-signup{
+            font-size:14px!important;
+        }
     </style>
 </head>
 <body>
@@ -466,48 +474,48 @@
                         <h2 class="title">Sign up</h2>
                         <div class="input-field">
                             <i class="fas fa-user"></i>
-                            <asp:TextBox ID="txtTenDangNhap" AutoCompleteType="Disabled" CssClass="input" runat="server" placeholder="Tên đăng nhập"></asp:TextBox>
+                            <asp:TextBox ID="txtTenDangNhap" AutoCompleteType="Disabled" CssClass="input-signup" runat="server" placeholder="Tên đăng nhập"></asp:TextBox>
                             <%--<input type="text" placeholder="Username" class="input" />--%>
                         </div>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Bạn chưa nhập tên đăng nhập" ControlToValidate="txtTenDangNhap" CssClass="txterror" Display="Dynamic"></asp:RequiredFieldValidator>
                             <div class="input-field">
                             <i class="fas fa-user"></i>
-                            <asp:TextBox ID="txtHoTen" AutoCompleteType="Disabled" CssClass="input" runat="server" placeholder="Họ Tên"></asp:TextBox>
+                            <asp:TextBox ID="txtHoTen" AutoCompleteType="Disabled" CssClass="input input-signup" runat="server" placeholder="Họ Tên"></asp:TextBox>
                         </div>
                         <div class="input-field">
                             <i class="fas fa-lock"></i>
-                           <asp:TextBox ID="txtMatKhau"  CssClass="input" runat="server" placeholder="Mật khẩu (*)" TextMode="Password"></asp:TextBox>
+                           <asp:TextBox ID="txtMatKhau"  CssClass="input input-signup" runat="server" placeholder="Mật khẩu (*)" TextMode="Password"></asp:TextBox>
                             
                         </div>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Bạn chưa nhập mật khẩu" ControlToValidate="txtMatKhau" CssClass="txterror" Display="Dynamic"></asp:RequiredFieldValidator>
                         <div class="input-field">
                             <i class="fas fa-lock"></i>
-                            <asp:TextBox ID="txtNhapLaiMatKhau" CssClass="input" runat="server" placeholder="Nhập lại mật khẩu (*)" TextMode="Password"></asp:TextBox>
+                            <asp:TextBox ID="txtNhapLaiMatKhau" CssClass="input input-signup" runat="server" placeholder="Nhập lại mật khẩu (*)" TextMode="Password"></asp:TextBox>
                         </div>
                             <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Mật khẩu không trùng khớp" ControlToValidate="txtNhapLaiMatKhau" ControlToCompare="txtMatKhau" Type="String" CssClass="txterror" Display="Dynamic"></asp:CompareValidator>
 
                         <div class="input-field">
                             <i class="fas fa-envelope"></i>
-                            <asp:TextBox ID="txtEmail" AutoCompleteType="Disabled" CssClass="input" runat="server" placeholder="Email" TextMode="Email"></asp:TextBox>
+                            <asp:TextBox ID="txtEmail" AutoCompleteType="Disabled" CssClass="input input-signup" runat="server" placeholder="Email" TextMode="Email"></asp:TextBox>
                         </div>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="Email không hợp lệ" ValidationExpression="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" CssClass="txterror" Display="Dynamic"></asp:RegularExpressionValidator>
 
                         <div class="input-field">
                             <i class="fas fa-phone-alt"></i>
                             <%--<input type="text" placeholder="Phone number" id="txtphone" class="input" />--%>
-                           <asp:TextBox ID="txtSDT" AutoCompleteType="Disabled" CssClass="input" runat="server" placeholder="Số điện thoại (*)" TextMode="Number"></asp:TextBox>
+                           <asp:TextBox ID="txtSDT" AutoCompleteType="Disabled" CssClass="input input-signup" runat="server" placeholder="Số điện thoại (*)" TextMode="Number"></asp:TextBox>
                         </div>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Bạn chưa nhập số điện thoại" ControlToValidate="txtSDT" CssClass="txterror" Display="Dynamic"></asp:RequiredFieldValidator>
 
                         <div class="input-field">
                             <i class="fas fa-map-marked"></i>
                             <%--<input type="text" placeholder="Address" id="txtdiachi" class="input" />--%>
-                             <asp:TextBox ID="txtDiaChi" AutoCompleteType="Disabled" CssClass="input" runat="server" TextMode="MultiLine"></asp:TextBox>
+                             <asp:TextBox ID="txtDiaChi" AutoCompleteType="Disabled" CssClass="input input-address" runat="server" TextMode="MultiLine"></asp:TextBox>
                         </div>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Bạn phải nhập địa chỉ" ControlToValidate="txtDiaChi" CssClass="txterror" Display="Dynamic"></asp:RequiredFieldValidator>
                         <div class="captcha-container">
                             <div class="input-captcha">
-                                <asp:Image ID="imgCaptcha" CssClass="content-txt" runat="server" ImageUrl="~/NCC/CaptchaImage.aspx" />
+                                <asp:Image ID="imgCaptcha" AutoCompleteType="Disabled" CssClass="content-txt" runat="server" ImageUrl="~/NCC/CaptchaImage.aspx" />
                         <asp:TextBox ID="txtCaptchaText" CssClass="txtCaptcha content-txt"  runat="server" Width="100px" />
                             </div>
                         </div>
