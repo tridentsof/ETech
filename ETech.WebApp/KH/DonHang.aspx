@@ -49,6 +49,7 @@
                 <th>Tổng tiền</th>
                 <th>Tiện ích</th>    
             </tr>
+            <asp:Panel ID="Panel1" runat="server"></asp:Panel>
         </table>
     </div>
     </asp:Panel>

@@ -209,6 +209,12 @@
             justify-content: space-around;
             font-size: 26px;
         }
+        .fa-star{
+            color: yellow!important;
+        }
+        .fa-star-half-alt{
+            color: yellow!important;
+        }
 
             .nav-tabs li {
                 margin-right: 10px;
@@ -366,6 +372,9 @@
             display: block;
             margin-top: 5px;
         }
+          li{
+              padding-left:0!important;
+          }
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -381,7 +390,7 @@
                 <div class="product-content">
                     <asp:Label ID="lblTenSP" runat="server" Text="" CssClass="product-title"></asp:Label>  
                     <br />
-                    <a href="TrangChu.aspx" class="product-link">visit Etech shop</a>
+                    
                     <div class="product-rating">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>

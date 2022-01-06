@@ -58,10 +58,11 @@ namespace ETech.WebApp.KH
                             }
                             if (status == 1 || status == 2 || status == 3)
                             {
-                                table.Append("<td class=\"td-btn-dh\"><a href=\"/KH/ChiTietDonHang.aspx?idDH=" + dr["ID_DONHANG"] + "><button class=\"btn-dh btn-dh-show\">Xem đơn hàng</button><button class=\"btn-dh btn-dh-detail\">Xóa</button></a> </td>");
+                                table.Append("<td class=\"td-btn-dh\"><a href=\"/KH/ChiTietDonHang.aspx?idDH=" + dr["DONHANGID"] + "><button class=\"btn-dh btn-dh-show\">Xem đơn hàng</button><button class=\"btn-dh btn-dh-detail\">Xóa</button></a> </td>");
                             }
                             table.Append("</tr>");
                         }
+                        Panel1.Controls.Add(new Label { Text = table.ToString() });
                     }
                 }
                 if (Session["userKH"] == null)
