@@ -240,8 +240,8 @@
                             src="../wwwroot/img/sp/<%# Eval("HINHANH") %>" alt="sq-sample26" />
                         <h5><%# Eval("TENSANPHAM") %></h5>
                         <div class="content_item-info">
-                            <div class="content_item-cash">
-                                <p><%# Eval("DONGIA3","{0:n0}") %></p>
+                            <div class="content_item-cash"> 
+                                <p><%# Eval("DONGIA3", "{0:n0}") %></p>
                                 <p><%# Eval("DONGIA", "{0:n0}") %></p>
                             </div>
                             <div class="content_item-btnprepay">
