@@ -16,6 +16,10 @@ namespace ETech.WebApp.NCC
         DataAccess dataAccess = new DataAccess();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userNCC"] == null)
+            {
+                Response.Redirect("DangKyDangNhapNCC.aspx");
+            }
             BANG1();
             if (!IsPostBack)
             {
@@ -40,11 +44,13 @@ namespace ETech.WebApp.NCC
             void BANG1()
             {
                 dataAccess.MoKetNoiCSDL();
-
+                dataAccess.MoKetNoiCSDL();
+                int id = int.Parse(Session["id"].ToString());
                 SqlParameter[] p = {
-                 new SqlParameter("@ID", SqlDbType.Int)
+                 new SqlParameter("@NHACUNGCAPID", SqlDbType.Int)
             };
-                p[0].Value = 2;
+                p[0].Value = id;
+                
                 DataTable dt = dataAccess.ExecuteQuery("PROC_VIEWDVVC_CHODUYET_NCC", p);
 
                 StringBuilder table = new StringBuilder();
@@ -68,11 +74,12 @@ namespace ETech.WebApp.NCC
         protected void btnGoi_Click(object sender, EventArgs e)
         {
             dataAccess.MoKetNoiCSDL();
+            int id = int.Parse(Session["id"].ToString());
 
             SqlCommand cmd = new SqlCommand("PROC_GOIDUYET_DVVC", dataAccess.getConnection());
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@ID", 2);
+            cmd.Parameters.AddWithValue("@ID", id);
             cmd.Parameters.AddWithValue("@IDDVVC", ddDVVC.SelectedValue);
             int a = cmd.ExecuteNonQuery();
             if (a > 0)

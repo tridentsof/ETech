@@ -7,21 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ETech.WebApp.KH
+namespace ETech.WebApp.NCC
 {
 
 
-    public partial class SPTHEODANHMUC
+    public partial class TrangXoaKhuyenMai
     {
-
-        /// <summary>
-        /// lblThongBao control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblThongBao;
 
         /// <summary>
         /// lblDM control.
@@ -33,12 +24,21 @@ namespace ETech.WebApp.KH
         protected global::System.Web.UI.WebControls.Label lblDM;
 
         /// <summary>
-        /// rptItem control.
+        /// btnXoa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptItem;
+        protected global::System.Web.UI.WebControls.Button btnXoa;
+
+        /// <summary>
+        /// btnHuy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnHuy;
     }
 }

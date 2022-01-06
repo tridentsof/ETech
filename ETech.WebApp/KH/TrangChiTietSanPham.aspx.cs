@@ -25,15 +25,18 @@ namespace ETech.WebApp.KH
                 SqlCommand cmd = new SqlCommand("PROC_VIEW_PRODUCT_DETAIL", dataAccess.getConnection());
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@IDSP",idSP);
-                SqlDataReader dr = cmd.ExecuteReader();
-                while(dr.Read())
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt != null && dt.Rows.Count>0)
                 {
-                    lblTenSP.Text = dr.GetValue(1).ToString();
-                    lblprice1.Text = String.Format("{0:N0}", dr.GetValue(2)) + "VND";
-                    lblprice2.Text = String.Format("{0:N0}", dr.GetValue(2)) + "VND";
-                    lblNCC.Text = dr.GetValue(3).ToString();
-                    lblCT.Text = dr.GetValue(4).ToString();
-                    lblSL.Text = dr.GetValue(5).ToString();
+                    imgSP.ImageUrl = "~/wwwroot/img/sp/" + dt.Rows[0]["HINHANH"].ToString();
+                    lblTenSP.Text = dt.Rows[0]["TENSANPHAM"].ToString();
+                    lblprice1.Text = String.Format("{0:N0}", dt.Rows[0]["DONGIA"]) + "VND";
+                    lblprice2.Text = String.Format("{0:N0}", dt.Rows[0]["DONGIA"] )+ "VND";
+                    lblNCC.Text = dt.Rows[0]["TENNHACUNGCAP"].ToString();
+                    lblCT.Text = dt.Rows[0]["CHITIET"].ToString();
+                    lblSL.Text = dt.Rows[0]["SOLUONGCONLAI"].ToString();
                 }
                 DataTable cart = new DataTable();
                 if (Session["cart"] == null)
@@ -44,6 +47,7 @@ namespace ETech.WebApp.KH
                     cart.Columns.Add("TENSP");
                     cart.Columns.Add("DONGIA");
                     cart.Columns.Add("SOLUONG");
+                    cart.Columns.Add("NHACUNGCAPID");
 
                     //Sau khi tạo xong thì lưu lại vào session
                     Session["cart"] = cart;
