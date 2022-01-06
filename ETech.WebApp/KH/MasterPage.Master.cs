@@ -17,15 +17,15 @@ namespace ETech.WebApp.KH
         {
             if(Session["userKH"] != null)
             {
-                hlUser.NavigateUrl = "QuanLyThongTinKH.aspx?username=" + Session["userKH"].ToString();
+                HyperLink1.NavigateUrl = "QuanLyThongTinKH.aspx?username=" + Session["userKH"].ToString();
+                HyperLink2.NavigateUrl = "TrangDoiMatKhau.aspx?username=" + Session["userKH"].ToString();
                 lbTaiKhoan.Text = Session["userKH"].ToString();
                 panelDangNhap.Style.Add("display", "none");
             }
-
-            
-
-            //..Tiep tuc code xu ly user
-
+            if(Session["userKH"] == null)
+            {
+                panelUser.Style.Add("display", "none");
+            }
 
             if(Session["cart"] != null)
             {
@@ -47,6 +47,16 @@ namespace ETech.WebApp.KH
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
             Response.Redirect("TrangTimKiemSanPham.aspx?search=" + txtsr.Text.Trim());
+        }
+
+        protected void LinkButton2_Click(object sender, EventArgs e)
+        {
+            Session["userKH"] = null;
+            Session.Clear();
+            Response.Cookies.Clear();
+            Response.Cache.SetNoStore();
+            Response.CacheControl = "no-cache";
+            Response.Redirect("TrangDangKyDangNhapKH.aspx");
         }
     }
 }
