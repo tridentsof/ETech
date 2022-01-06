@@ -33,7 +33,7 @@ namespace ETech.WebApp.ADMIN
             dataAccess.MoKetNoiCSDL();
 
             SqlParameter[] p = { };
-            DataTable dt = dataAccess.TableFill("PROC_VIEW_LOAISP2", p);
+            DataTable dt = dataAccess.ExecuteQuery("PROC_VIEW_LOAISP2", p);
 
             StringBuilder table = new StringBuilder();
             if (dt != null && dt.Rows.Count > 0)
@@ -56,7 +56,7 @@ namespace ETech.WebApp.ADMIN
         void BANG2()
         {
             SqlParameter[] p = { };
-            DataTable dt = dataAccess.TableFill("PROC_VIEW_LOAISP", p);
+            DataTable dt = dataAccess.ExecuteQuery("PROC_VIEW_LOAISP", p);
 
             StringBuilder table = new StringBuilder();
             if (dt != null && dt.Rows.Count > 0)
@@ -81,7 +81,7 @@ namespace ETech.WebApp.ADMIN
             dataAccess.MoKetNoiCSDL();
 
             SqlParameter[] p = { };
-            DataTable dt = dataAccess.TableFill("PROC_VIEW_LOAISP3", p);
+            DataTable dt = dataAccess.ExecuteQuery("PROC_VIEW_LOAISP3", p);
 
             StringBuilder table = new StringBuilder();
             if (dt != null && dt.Rows.Count > 0)

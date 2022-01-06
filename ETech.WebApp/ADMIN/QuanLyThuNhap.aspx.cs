@@ -25,7 +25,7 @@ namespace ETech.WebApp.ADMIN
                 try
                 {
                     SqlParameter[] p = { };
-                    DataTable dt = dataAccess.TableFill("PROC_GET_NHACUNGCAP", p);
+                    DataTable dt = dataAccess.ExecuteQuery("PROC_GET_NHACUNGCAP", p);
 
                     if (dt != null && dt.Rows.Count > 0)
                     {
