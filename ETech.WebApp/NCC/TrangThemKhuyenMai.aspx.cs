@@ -15,7 +15,36 @@ namespace ETech.WebApp.NCC
         DataAccess dataAccess = new DataAccess();
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            if (Session["userNCC"] == null)
+            {
+                Response.Redirect("DangKyDangNhapNCC.aspx");
+            }
+            //if (!IsPostBack)
+            //{
+            //    try
+            //    {
+            //        dataAccess.MoKetNoiCSDL();
+            //        //int id = int.Parse(Session["id"].ToString());
+            //        //SqlParameter[] p = {
+            //        //new SqlParameter("@NHACUNGCAPID", SqlDbType.Int)
+            //        //};
+            //        //p[0].Value = id;
+            //        //DataTable dt = dataAccess.TableFill("PROC_VIEW_KM_LOAISP", p);
+            //        SqlParameter[] p = { };
+            //        DataTable dt = dataAccess.TableFill("PROC_VIEW_LOAISP", p);
+            //        if (dt != null && dt.Rows.Count > 0)
+            //        {
+            //            this.ddKM.DataSource = dt;
+            //            this.ddKM.DataTextField = "TENSANPHAM";
+            //            this.ddKM.DataValueField = "LOAISPID";
+            //            this.ddKM.DataBind();
+            //        }
+            //    }
+            //    catch
+            //    {
+
+            //    }
+            //}
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -53,7 +82,7 @@ namespace ETech.WebApp.NCC
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("QuanLyKhuyenMai.aspx");
         }
     }
 }
