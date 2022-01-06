@@ -37,17 +37,19 @@
                 </div>
 
                 <div class="MP__header-items">
-                    <a href="GioHang.aspx"><i class="fas fa-shopping-cart fa-2x" style="color: #3e67b9"></i></a>
+                     <a href="GioHang.aspx"><i class="fas fa-shopping-cart fa-2x" style="color: #3e67b9"></i></a>
                     <div class="MP__giohang">
-                        <asp:Label ID="lbSL" runat="server" Text=""></asp:Label>
-                        <p>Giỏ hàng</p>
+                        <div class="cart-wrapper" style="height: 20px;margin-top:8px;  width: 45px;background-color: #555;border-radius: 10%;background-color:#3e67b9;padding-top:1px">
+                            <asp:Label ID="lbSL" runat="server" Text="0"></asp:Label>
+                        </div>
+                        <p>Cart</p>
                     </div>
+
                     <asp:HyperLink ID="hlUser" runat="server">
                         <i class="far fa-user fa-2x"></i>
-                        <i class="fi fi-rr-User"></i>
-                        
+                        <i class="fi fi-rr-User"></i>     
                     </asp:HyperLink>
-                    <div class="label-user" style="margin-left:10px">
+                    <div class="label-user" style="color:#585858;margin-left:10px;margin-top:17px;font-weight:600!important">
                             <asp:Label ID="lbTaiKhoan" runat="server" Text=""></asp:Label>
                         </div>
                     <asp:Panel ID="panelDangNhap" runat="server">
@@ -63,30 +65,32 @@
             <div class="MP__header2">
                 <ul class="menu">
                     <li class="menu-item">
-                        <a href="#" class="menu-link">Trang chủ</a>
+                        <a href="#" class="menu-link">TRANG CHỦ</a>
                     </li>
                     <li class="menu-item has-child">
                         <a href="#" class="menu-link">
-                            <span>Điện thoại</span>
+                            <span>DANH MỤC SẢN PHẨM</span>
                             <i class="fa fa-angle-down fa-fw"></i>
                         </a>
                         <ul class="menu-child">
                             <asp:Repeater ID="Repeater1" runat="server">
                                 <ItemTemplate>
-                                    <a href="SPTHEODANHMUC.aspx?idDM=<%# Eval("LOAISPID") %>"><li class="menu-child-item "><%# Eval("TENLOAI") %></li></a>
+                                    <li class="menu-child-item">
+                                        <a class="menu-child-link" href="SPTHEODANHMUC.aspx?idDM=<%# Eval("LOAISPID") %>"><%# Eval("TENLOAI") %></a>
+                                    </li>
                                 </ItemTemplate>
                             </asp:Repeater>
                         </ul>
                     </li>
                     <li class="menu-item">
-                        <a href="#" class="menu-link">Laptop</a>
+                        <a href="#" class="menu-link">ĐƠN HÀNG</a>
                     </li>
                     <li class="menu-item">
-                        <a href="#" class="menu-link">Tablet</a>
+                        <a href="#" class="menu-link">TIN TỨC</a>
                     </li>
                     <li class="menu-item has-child">
                         <a href="#" class="menu-link">
-                            <span>Phụ kiện</span>
+                            <span>PHỤ KIỆN</span>
                             <i class="fa fa-angle-down fa-fw"></i>
                         </a>
                         <ul class="menu-child">
