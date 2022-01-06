@@ -20,7 +20,8 @@ namespace ETech.WebApp.KH
             {
                 if(Session["userKH"] != null)
                 {
-                    dhNotLogin.Style.Add("display", "none");
+                    panelNotLogin.Style.Add("display", "none");
+                    
 
                     string userKH = Session["userKH"].ToString();
 
@@ -30,7 +31,7 @@ namespace ETech.WebApp.KH
                     };
                     p[0].Value = userKH;
 
-                    DataTable dtDH = dataAccess.TableFill("PROC_GETINFO_DONHANG_BYTENDANGNHAP", p);
+                    DataTable dtDH = dataAccess.ExecuteQuery("PROC_GETINFO_DONHANG_BYTENDANGNHAP", p);
 
                     StringBuilder table = new StringBuilder();
 
@@ -62,6 +63,10 @@ namespace ETech.WebApp.KH
                             table.Append("</tr>");
                         }
                     }
+                }
+                if (Session["userKH"] == null)
+                {
+                    panelDonHang.Style.Add("display", "none");
                 }
             }
         }

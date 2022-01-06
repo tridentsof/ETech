@@ -38,13 +38,14 @@
                 </div>
 
                 <div class="MP__header-items">
-                     <a href="GioHang.aspx"><i class="fas fa-shopping-cart fa-2x" style="color: #3e67b9"></i></a>
+                    <a href="GioHang.aspx"><i class="fas fa-shopping-cart fa-2x" style="color: #3e67b9"></i></a>
                     <div class="MP__giohang">
-                        <div class="cart-wrapper" style="height: 20px;margin-top:8px;  width: 45px;background-color: #555;border-radius: 10%;background-color:#3e67b9;padding-top:1px">
+                        <div class="cart-wrapper" style="height: 20px; margin-top: 8px; width: 45px; background-color: #555; border-radius: 10%; background-color: #3e67b9; padding-top: 1px">
                             <asp:Label ID="lbSL" runat="server" Text="0"></asp:Label>
                         </div>
                         <p>Cart</p>
                     </div>
+
                 </div>
             </div>
 
