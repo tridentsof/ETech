@@ -15,13 +15,13 @@ namespace ETech.WebApp.KH
     {
 
         /// <summary>
-        /// dhNotLogin control.
+        /// panelNotLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dhNotLogin;
+        protected global::System.Web.UI.WebControls.Panel panelNotLogin;
 
         /// <summary>
         /// HyperLink2 control.
@@ -31,5 +31,14 @@ namespace ETech.WebApp.KH
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
+
+        /// <summary>
+        /// panelDonHang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelDonHang;
     }
 }
