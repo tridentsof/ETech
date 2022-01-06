@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -19,20 +19,21 @@
     <link rel="stylesheet" href="../wwwroot/css/kh_masterpage.css">
     <title>ETech Shop</title>
 
-<asp:ContentPlaceHolder ID="head" runat="server">
-</asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
         <header class="MP__container">
             <div class="MP__header1">
                 <div class="MP__header-logo">
-                    <a href="TrangChu.aspx"><img src="../wwwroot/img/icon/logo_text.png" alt="LOGO"></a>
+                    <a href="TrangChu.aspx">
+                        <img src="../wwwroot/img/icon/logo_text.png" alt="LOGO"></a>
                 </div>
                 <div class="MP__header-search">
-                   
+
                     <asp:TextBox ID="txtsr" runat="server" CssClass="form-control" placeholder=" Tìm kiếm..."></asp:TextBox>
-                    
+
                     <asp:LinkButton ID="LinkButton1" CssClass="btn" runat="server" OnClick="LinkButton1_Click"><i class="fas fa-search" style="color: #000"></i></asp:LinkButton>
                 </div>
 
@@ -44,21 +45,6 @@
                         </div>
                         <p>Cart</p>
                     </div>
-
-                    <asp:HyperLink ID="hlUser" runat="server">
-                        <i class="far fa-user fa-2x"></i>
-                        <i class="fi fi-rr-User"></i>     
-                    </asp:HyperLink>
-                    <div class="label-user" style="color:#585858;margin-left:10px;margin-top:17px;font-weight:600!important">
-                            <asp:Label ID="lbTaiKhoan" runat="server" Text=""></asp:Label>
-                        </div>
-                    <asp:Panel ID="panelDangNhap" runat="server">
-                        <div class="MP__header-item">
-                        <a href="TrangDangKyDangNhapKH.aspx">Đăng Ký</a>
-                        <a href="TrangDangKyDangNhapKH.aspx">Đăng Nhập</a>
-                        </div>
-                    </asp:Panel>
-                    
                 </div>
             </div>
 
@@ -113,7 +99,7 @@
             </asp:ContentPlaceHolder>
         </div>
 
-        <footer class="MP__footer" style="margin-top:20%!important;">
+        <footer class="MP__footer" style="margin-top: 20%!important;">
             <div class="MP__footer-1">
                 <div class="MP__footer-1-item1">ETECH SHOP</div>
                 <div class="MP__footer-1-item2">
@@ -147,7 +133,7 @@
             </div>
         </footer>
 
-        
+
     </form>
 </body>
 </html>
