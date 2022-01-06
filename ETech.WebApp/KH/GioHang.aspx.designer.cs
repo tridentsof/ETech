@@ -69,6 +69,33 @@ namespace ETech.WebApp.KH
         protected global::System.Web.UI.WebControls.Repeater rptSPham;
 
         /// <summary>
+        /// rbOnepay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbOnepay;
+
+        /// <summary>
+        /// rbOnepayQuocTe control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbOnepayQuocTe;
+
+        /// <summary>
+        /// rbTruyenthong control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbTruyenthong;
+
+        /// <summary>
         /// btnContinues control.
         /// </summary>
         /// <remarks>
@@ -94,5 +121,14 @@ namespace ETech.WebApp.KH
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnThanhToan;
+
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

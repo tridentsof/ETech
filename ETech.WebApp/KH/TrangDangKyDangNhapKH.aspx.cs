@@ -69,7 +69,7 @@ namespace ETech.WebApp.KH
                         Response.Cookies["passwordKH"].Expires = DateTime.Now;
                     }
 
-                    Session["userNCC"] = txtdangnhap.Text;
+                    Session["userKH"] = txtdangnhap.Text;
                     Response.Redirect("~/KH/TrangChu.aspx?userKH=" + txtdangnhap.Text);
                     Session.RemoveAll();
                 }

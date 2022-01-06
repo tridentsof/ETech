@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TrangDangKyDangNhapKH.aspx.cs" Inherits="ETech.WebApp.KH.TrangDangKyDangNhap" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="TrangDangKyDangNhapKH.aspx.cs" Inherits="ETech.WebApp.KH.TrangDangKyDangNhap" %>
 
 <!DOCTYPE html>
 
