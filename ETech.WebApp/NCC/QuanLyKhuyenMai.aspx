@@ -167,7 +167,8 @@
                     <th class="qldm-column" style="min-width: 200px">Tên Nhà Cung Cấp</th>
                     <th class="qldm-column" style="min-width: 150px">Ngày Bắt Đầu</th>
                     <th class="qldm-column" style="min-width: 150px">Ngày Kết Thúc</th>
-                    <th class="qldm-column" style="min-width: 100px">Chỉnh sửa</th>
+                    <th class="qldm-column" style="min-width: 100px">Chức Năng</th>
+                    
                 </tr>
             </thead>
             <tbody>

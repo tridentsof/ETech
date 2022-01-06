@@ -49,7 +49,7 @@ namespace ETech.WebApp.NCC
                     table.Append("<td class=\"qldm-column2\">" + dr[3] + "</td>");
                     table.Append("<td class=\"qldm-column2\">" + dr[4] + "</td>");
                     table.Append("<td class=\"qldm-column2\" style=\"text-align:center;\">");
-                    table.Append("<a href=\"QuanLyKhuyenMaiChiTiet.aspx?NHACUNGCAPID=" + dr[0] + "\" class=\"cell_xem\">Chỉnh sửa</a>");
+                    table.Append("<a href=\"TrangXoaKhuyenMai.aspx?KHUYENMAIID=" + dr[0] + "\" class=\"cell_xem\">Xóa</a>");
                     table.Append("</td>");
                     table.Append("</tr>");
                 }
