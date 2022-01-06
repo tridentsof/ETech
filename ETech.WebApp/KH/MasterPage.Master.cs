@@ -17,7 +17,7 @@ namespace ETech.WebApp.KH
         {
             if(Session["userKH"] != null)
             {
-                HyperLink1.NavigateUrl = "QuanLyThongTinKH.aspx?username=" + Session["userKH"].ToString();
+                HyperLink1.NavigateUrl = "QuanLyThongTin.aspx?username=" + Session["userKH"].ToString();
                 HyperLink2.NavigateUrl = "TrangDoiMatKhau.aspx?username=" + Session["userKH"].ToString();
                 lbTaiKhoan.Text = Session["userKH"].ToString();
                 panelDangNhap.Style.Add("display", "none");
