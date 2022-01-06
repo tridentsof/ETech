@@ -19,7 +19,7 @@ namespace ETech.WebApp.KH
             {
                 Response.Redirect("TrangDangKyDangNhapKH.aspx");
             }
-            string tendangnhap = Session["userKH"].ToString();
+            string tendangnhap = Request.QueryString.Get("username");
             if (!IsPostBack)
             {
                 dataAccess.MoKetNoiCSDL();
@@ -42,7 +42,7 @@ namespace ETech.WebApp.KH
             {
                 Response.Redirect("TrangDangKyDangNhapKH.aspx");
             }
-            string tendangnhap = Session["userKH"].ToString();
+            string tendangnhap = Request.QueryString.Get("username");
             dataAccess.MoKetNoiCSDL();
             SqlCommand cmd = new SqlCommand("PROC_KH_DETAIL", dataAccess.getConnection());
             cmd.CommandType = CommandType.StoredProcedure;

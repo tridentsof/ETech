@@ -19,8 +19,8 @@ namespace ETech.WebApp.KH
             if(Session["userKH"]==null)
             {
                 Response.Redirect("TrangDangKyDangNhapKH.aspx");
-            }    
-            string tendangnhap = Session["userKH"].ToString();
+            }
+            string tendangnhap = Request.QueryString.Get("username");
             if (!IsPostBack)
             {
                 dataAccess.MoKetNoiCSDL();
@@ -47,7 +47,7 @@ namespace ETech.WebApp.KH
         protected void btnCapNhat_Click(object sender, EventArgs e)
         {
             dataAccess.MoKetNoiCSDL();
-            string tendangnhap = Session["userKH"].ToString();
+            string tendangnhap = Request.QueryString.Get("username");
             SqlCommand cmd = new SqlCommand("PROC_UPDATE_KH", dataAccess.getConnection());
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@TENDANGNHAP", tendangnhap);
