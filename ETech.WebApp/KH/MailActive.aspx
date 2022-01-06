@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="MailActive.aspx.cs" Inherits="ETech.WebApp.NCC.MailActive" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MailActive.aspx.cs" Inherits="ETech.WebApp.KH.MailActive" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Active Mail</title>
-  <style>
+    <style>
         input {
             border: none;
             outline: none;
@@ -86,14 +86,13 @@
 <body>
     <form id="form1" runat="server">
         <div class="container-active">
-        <p class="content-active">Vui lòng nhập mã xác minh</p>
-        <p class="subcontent-active">Mã xác minh của bạn đã được gửi đến địa chỉ mail</p>
-        <asp:Label ID="Label1" runat="server" Text="Label" CssClass="mail-address">gahanthao@gmail.com</asp:Label>
-        <asp:TextBox ID="TextBox1" runat="server" CssClass="input-email"></asp:TextBox>
-        <asp:Button ID="Button1" runat="server" Text="Xác nhận" OnClick="Button1_Click" CssClass="button-active" />
-        <asp:Label ID="Label2" runat="server" Text="" CssClass="label-thongbao"></asp:Label>
-    </div>
-
+            <p class="content-active">Vui lòng nhập mã xác minh</p>
+            <p class="subcontent-active">Mã xác minh của bạn đã được gửi đến địa chỉ mail</p>
+            <asp:Label ID="Label1" runat="server" Text="Label" CssClass="mail-address">gahanthao@gmail.com</asp:Label>
+            <asp:TextBox ID="TextBox1" runat="server" CssClass="input-email"></asp:TextBox>
+            <asp:Button ID="Button1" runat="server" Text="Xác nhận" OnClick="Button1_Click" CssClass="button-active" />
+            <asp:Label ID="Label2" runat="server" Text="" CssClass="label-thongbao"></asp:Label>
+        </div>
     </form>
 </body>
 </html>
