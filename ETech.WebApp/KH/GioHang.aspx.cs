@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Text;
 using System.Web;
 using System.Web.UI.WebControls;
+using WebApplication2;
 
 namespace ETech.WebApp.KH
 {
@@ -19,7 +20,7 @@ namespace ETech.WebApp.KH
                 HttpContext.Current.Response.Cache.SetNoServerCaching();
                 HttpContext.Current.Response.Cache.SetNoStore();
 
-                if(Session["cart"] != null)
+                if (Session["cart"] != null)
                 {
                     //Code ẩn nút Login 
                     //...
@@ -27,7 +28,7 @@ namespace ETech.WebApp.KH
                     DataTable cart = Session["cart"] as DataTable;
 
                     //Hiển thị dữ liệu khách hàng
-                    if(Session["userKH"] != null)
+                    if (Session["userKH"] != null)
                     {
                         //Code hiển thị nút mua hàng khi khách hàng đã đăng nhập
                         //...
@@ -42,7 +43,7 @@ namespace ETech.WebApp.KH
 
                         DataTable dt = dataAccess.ExecuteQuery("PROC_GETINFO_KH_BYUSERNAME", p);
 
-                        if(dt != null && dt.Rows.Count > 0)
+                        if (dt != null && dt.Rows.Count > 0)
                         {
                             txtTen.Text = dt.Rows[0]["HOTEN"].ToString();
                             txtDiaChi.Text = dt.Rows[0]["DIACHI"].ToString();
@@ -52,16 +53,16 @@ namespace ETech.WebApp.KH
                     }
 
                     //Tính tiền khách hàng khi chưa đăng nhập
-                    if(cart != null && cart.Rows.Count > 0)
+                    if (cart != null && cart.Rows.Count > 0)
                     {
                         this.rptSPham.DataSource = cart;
                         this.rptSPham.DataBind();
 
-                        int tongTien = 0,tongTienTatCaSP = 0;
+                        int tongTien = 0, tongTienTatCaSP = 0;
 
                         StringBuilder sb = new StringBuilder();
 
-                        foreach(DataRow dr in cart.Rows)
+                        foreach (DataRow dr in cart.Rows)
                         {
                             //Số lượng sản phẩm đã dặt
                             foreach (RepeaterItem item in rptSPham.Items)
@@ -91,7 +92,7 @@ namespace ETech.WebApp.KH
                     //Tính tiền khi đã đăng nhập
                     else
                     {
-                        if(cart != null && cart.Rows.Count > 0)
+                        if (cart != null && cart.Rows.Count > 0)
                         {
                             this.rptSPham.DataSource = cart;
                             this.rptSPham.DataBind();
@@ -150,58 +151,161 @@ namespace ETech.WebApp.KH
 
         protected void btnThanhToan_Click(object sender, EventArgs e)
         {
-            if(Session["userKH"] != null)
+            string phuongthucthanhtoan = "";
+            if (rbOnepay.Checked)
+            {
+                phuongthucthanhtoan = "Onepay";
+            }
+            else if (rbOnepayQuocTe.Checked)
+            {
+                phuongthucthanhtoan = "OnepayQuocTe";
+            }
+            else if (rbTruyenthong.Checked)
+            {
+                phuongthucthanhtoan = "Thanhtoantruyenthong";
+            }
+            if (Session["userKH"] != null)
             {
                 //Lấy thông tin khách hàng
                 string userKH = Session["userKH"].ToString();
+                DataAccess dataAccess = new DataAccess();
+                dataAccess.MoKetNoiCSDL();
+                string sqlKH = "select * from TAIKHOAN where TENDANGNHAP = N'" + userKH + "'";
+                DataTable dtKH = dataAccess.LayBangDuLieu(sqlKH);
 
-                SqlParameter[] p =
-                {
-                    new SqlParameter("@USERKH",SqlDbType.NVarChar)
-                };
-
-                p[0].Value = userKH;
-                
-                DataTable dtKH = dataAccess.TableFill("PROC_GETKHBYUSERNAME",p);
 
                 //Insert vào đơn hàng
-                SqlParameter[] p2 =
+                SqlCommand cmdDonHang = new SqlCommand("PROC_INSERT_DONHANG", dataAccess.getConnection());
+
+                cmdDonHang.CommandType = CommandType.StoredProcedure;
+
+                cmdDonHang.Parameters.AddWithValue("@TAIKHOANID", int.Parse(dtKH.Rows[0]["TAIKHOANID"].ToString()));
+                cmdDonHang.Parameters.AddWithValue("@DIACHI", txtDiaChi.Text);
+                cmdDonHang.Parameters.AddWithValue("@SDT", txtSDT.Text);
+                cmdDonHang.Parameters.AddWithValue("@EMAIL", txtEmail.Text);
+                cmdDonHang.Parameters.AddWithValue("@TRANGTHAI",1);
+
+
+                cmdDonHang.ExecuteNonQuery();
+
+                if (Session["cart"] != null)
                 {
-                    new SqlParameter("@TAIKHOANID",SqlDbType.Int),
-                    new SqlParameter("@DIACHI",SqlDbType.NVarChar),
-                    new SqlParameter("@SDT",SqlDbType.NVarChar),
-                    new SqlParameter("@EMAIL",SqlDbType.NVarChar)
-                };
-                p2[0].Value = int.Parse(dtKH.Rows[0]["TAIKHOANID"].ToString());
-                p2[1].Value = txtDiaChi.Text;
-                p2[2].Value = txtSDT.Text;
-                p2[3].Value = txtEmail.Text;
-
-                dataAccess.ExecuteNonQuery("PROC_INSERTDONHANG", p2);
-
-                if(Session["cart"] != null)
-                {
-                    DataTable cart = Session["cart"] as DataTable;
-
-                    if(cart != null && cart.Rows.Count > 0)
+                    DataTable cart1 = Session["cart"] as DataTable;
+                    int tongtien = 0;
+                    string mathanhtoantructuyen = DateTime.Now.Ticks.ToString();
+                    if (cart1 != null && cart1.Rows.Count > 0)
                     {
-                        foreach (DataRow dr in cart.Rows)
+                        foreach (DataRow dr in cart1.Rows)
                         {
-                            SqlParameter[] p3 =
+                            using (SqlCommand cmdCTDonHang = new SqlCommand("PROC_INSERT_CHITIETDONHANG"))
                             {
-                                new SqlParameter("@SANPHAMID",dr["ID"]),
-                                new SqlParameter("@SOLUONG",dr["SOLUONG"]),
-                                new SqlParameter("@DONGIA",dr["DONGIA"])
-                            };
+                                cmdCTDonHang.CommandType = CommandType.StoredProcedure;
+                                cmdCTDonHang.Parameters.AddWithValue("@SANPHAMID", dr["ID"]);
+                                cmdCTDonHang.Parameters.AddWithValue("@SOLUONG", dr["SOLUONG"]);
+                                cmdCTDonHang.Parameters.AddWithValue("@DONGIA", dr["DONGIA"]);
+                                cmdCTDonHang.Parameters.AddWithValue("@NHACUNGCAPID", dr["NHACUNGCAPID"]);
+                                cmdCTDonHang.Parameters.AddWithValue("@PHUONGTHUCTHANHTOAN", phuongthucthanhtoan);
+                                cmdCTDonHang.Parameters.AddWithValue("@MATHANHTOANTRUCTUYEN", mathanhtoantructuyen);
+                                cmdCTDonHang.Connection = dataAccess.getConnection();
 
-                            dataAccess.ExecuteNonQuery("PROC_INSERT_CHITIETDONHANG_THEODH", p3);
+                                if (dataAccess.getConnection().State == ConnectionState.Closed)
+                                    dataAccess.getConnection().Open();
+                                cmdCTDonHang.ExecuteNonQuery();
+
+                                dataAccess.DongKetNoiCSDL();
+                            }
+                            tongtien += (int.Parse(dr["DONGIA"].ToString()) * int.Parse(dr["SOLUONG"].ToString()));
                         }
                     }
+
+                    string ketQua = "";
+
+                    switch (phuongthucthanhtoan)
+                    {
+                        case "Thanhtoantruyenthong":
+                            Response.Redirect("TrangChu.aspx");
+                            break;
+                        case "Onepay":
+                            #region 
+                            string SECURE_SECRET = OnepayCode.SECURE_SECRET;//Hòa: cần thanh bằng mã thật cấu hình trong app_code
+                                                                            // Khoi tao lop thu vien va gan gia tri cac tham so gui sang cong thanh toan
+                            VPCRequest conn = new VPCRequest(OnepayCode.VPCRequest);//Hòa: Cần thay bằng cổng thật cấu hình trong app_code
+                            conn.SetSecureSecret(SECURE_SECRET);
+                            // Add the Digital Order Fields for the functionality you wish to use
+                            // Core Transaction Fields
+                            conn.AddDigitalOrderField("Title", "onepay paygate");
+                            conn.AddDigitalOrderField("vpc_Locale", "vn");//Chon ngon ngu hien thi tren cong thanh toan (vn/en)
+                            conn.AddDigitalOrderField("vpc_Version", "2");
+                            conn.AddDigitalOrderField("vpc_Command", "pay");
+                            conn.AddDigitalOrderField("vpc_Merchant", OnepayCode.Merchant);//Hòa: cần thanh bằng mã thật cấu hình trong app_code
+                            conn.AddDigitalOrderField("vpc_AccessCode", OnepayCode.AccessCode);//Hòa: cần thanh bằng mã thật cấu hình trong app_code
+                            conn.AddDigitalOrderField("vpc_MerchTxnRef", mathanhtoantructuyen);//Hòa: mã thanh toán
+                            conn.AddDigitalOrderField("vpc_OrderInfo", mathanhtoantructuyen);//Hòa: thông tin đơn hàng
+                            conn.AddDigitalOrderField("vpc_Amount", (tongtien * 100).ToString());//Hòa: chi phí cần nhân 100 theo yêu cầu của onepay
+                            conn.AddDigitalOrderField("vpc_Currency", "VND");
+                            conn.AddDigitalOrderField("vpc_ReturnURL", OnepayCode.ReturnURL);//Hòa: địa chỉ nhận kết quả trả về
+                                                                                             // Thong tin them ve khach hang. De trong neu khong co thong tin
+                            conn.AddDigitalOrderField("vpc_SHIP_Street01", "");
+                            conn.AddDigitalOrderField("vpc_SHIP_Provice", "");
+                            conn.AddDigitalOrderField("vpc_SHIP_City", "");
+                            conn.AddDigitalOrderField("vpc_SHIP_Country", "");
+                            conn.AddDigitalOrderField("vpc_Customer_Phone", "");
+                            conn.AddDigitalOrderField("vpc_Customer_Email", "");
+                            conn.AddDigitalOrderField("vpc_Customer_Id", "");
+                            // Dia chi IP cua khach hang
+                            conn.AddDigitalOrderField("vpc_TicketNo", Request.UserHostAddress);
+                            // Chuyen huong trinh duyet sang cong thanh toan
+                            String url = conn.Create3PartyQueryString();
+                            #endregion
+
+                            ketQua = url;
+
+                            break;
+                        case "OnepayQuocTe":
+                            string SECURE_SECRET1 = OnepayQuocTeCode.SECURE_SECRET;//Hòa: cần thanh bằng mã thật cấu hình trong app_code; 
+                                                                                   // Khoi tao lop thu vien va gan gia tri cac tham so gui sang cong thanh toan
+                            VPCRequest conn1 = new VPCRequest(OnepayQuocTeCode.VPCRequest);//Hòa: Cần thay bằng cổng thật
+                            conn1.SetSecureSecret(SECURE_SECRET1);
+                            // Add the Digital Order Fields for the functionality you wish to use
+                            // Core Transaction Fields
+                            conn1.AddDigitalOrderField("AgainLink", "http://onepay.vn");
+                            conn1.AddDigitalOrderField("Title", "onepay paygate");
+                            conn1.AddDigitalOrderField("vpc_Locale", "en");//Chon ngon ngu hien thi tren cong thanh toan (vn/en)
+                            conn1.AddDigitalOrderField("vpc_Version", "2");
+                            conn1.AddDigitalOrderField("vpc_Command", "pay");
+                            conn1.AddDigitalOrderField("vpc_Merchant", OnepayQuocTeCode.Merchant);//Hòa: cần thanh bằng mã thật cấu hình trong app_code
+                            conn1.AddDigitalOrderField("vpc_AccessCode", OnepayQuocTeCode.AccessCode);//Hòa: cần thanh bằng mã thật cấu hình trong app_code
+                            conn1.AddDigitalOrderField("vpc_MerchTxnRef", mathanhtoantructuyen);//Hòa: mã thanh toán
+                            conn1.AddDigitalOrderField("vpc_OrderInfo", mathanhtoantructuyen);//Hòa: mã thanh toán
+                            conn1.AddDigitalOrderField("vpc_Amount", (tongtien * 100).ToString());//Hòa: chi phí cần nhân 100 theo yêu cầu của onepay
+
+                            conn1.AddDigitalOrderField("vpc_ReturnURL", OnepayQuocTeCode.ReturnURL);//Hòa: địa chỉ nhận kết quả trả về
+                                                                                                    // Thong tin them ve khach hang. De trong neu khong co thong tin
+                            conn1.AddDigitalOrderField("vpc_SHIP_Street01", "");
+                            conn1.AddDigitalOrderField("vpc_SHIP_Provice", "");
+                            conn1.AddDigitalOrderField("vpc_SHIP_City", "");
+                            conn1.AddDigitalOrderField("vpc_SHIP_Country", "");
+                            conn1.AddDigitalOrderField("vpc_Customer_Phone", "");
+                            conn1.AddDigitalOrderField("vpc_Customer_Email", "");
+                            conn1.AddDigitalOrderField("vpc_Customer_Id", "");
+                            // Dia chi IP cua khach hang
+                            conn1.AddDigitalOrderField("vpc_TicketNo", Request.UserHostAddress);
+                            // Chuyen huong trinh duyet sang cong thanh toan
+                            String url1 = conn1.Create3PartyQueryString();
+                            ketQua = url1;
+
+                            break;
+                    }
+                    Response.Write($"<script>alert(\"Duong link  {ketQua} thanh toan onl\")</script>");
+                    Response.Redirect(ketQua);
                 }
 
-                Session.Remove("cart");
-                Response.Redirect("DonHang.aspx");
             }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

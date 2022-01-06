@@ -47,6 +47,7 @@ namespace ETech.WebApp.KH
                     cart.Columns.Add("TENSP");
                     cart.Columns.Add("DONGIA");
                     cart.Columns.Add("SOLUONG");
+                    cart.Columns.Add("NHACUNGCAPID");
 
                     //Sau khi tạo xong thì lưu lại vào session
                     Session["cart"] = cart;
