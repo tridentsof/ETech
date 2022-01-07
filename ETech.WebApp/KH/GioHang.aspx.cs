@@ -32,6 +32,7 @@ namespace ETech.WebApp.KH
                     {
                         //Code hiển thị nút mua hàng khi khách hàng đã đăng nhập
                         //...
+                        Button1.Style.Add("display", "none");
 
                         String usernameKH = Session["userKH"].ToString();
 
@@ -51,40 +52,24 @@ namespace ETech.WebApp.KH
                             txtEmail.Text = dt.Rows[0]["EMAIL"].ToString();
                         }
                     }
-
+                    else
+                    {
+                        btnThanhToan.Style.Add("display", "none");
+                    }
                     //Tính tiền khách hàng khi chưa đăng nhập
                     if (cart != null && cart.Rows.Count > 0)
                     {
                         this.rptSPham.DataSource = cart;
                         this.rptSPham.DataBind();
 
-                        int tongTien = 0, tongTienTatCaSP = 0;
+                        int  tongTienTatCaSP = 0;
 
                         StringBuilder sb = new StringBuilder();
 
                         foreach (DataRow dr in cart.Rows)
                         {
-                            //Số lượng sản phẩm đã dặt
-                            foreach (RepeaterItem item in rptSPham.Items)
-                            {
-                                TextBox txtSoLuong = (TextBox)item.FindControl("txtSoLuong");
-                                Label lbTongTien = (Label)item.FindControl("lbTongTien");
-                                if (!String.IsNullOrEmpty(txtSoLuong.Text))
-                                {
-                                    break;
-                                }
-                                else
-                                {
-                                    txtSoLuong.Text = dr["SOLUONG"].ToString();
-                                }
-
-                                //Tính tổng tiền từng sản phẩm
-                                tongTien += (int.Parse(dr["DONGIA"].ToString()) * int.Parse(dr["SOLUONG"].ToString()));
-                                lbTongTien.Text = String.Format("{0:n0}", int.Parse(tongTien.ToString()));
-                            }
-
                             //Tính tổng tiền tất cả đơn hàng             
-                            tongTienTatCaSP = tongTien + tongTienTatCaSP;
+                            tongTienTatCaSP =  tongTienTatCaSP + int.Parse(dr["TIENMUA"].ToString());
                             lbTongTatCaSP.Text = String.Format("{0:n0}", int.Parse(tongTienTatCaSP.ToString()));
 
                         }
@@ -97,32 +82,12 @@ namespace ETech.WebApp.KH
                             this.rptSPham.DataSource = cart;
                             this.rptSPham.DataBind();
 
-                            int tongTien = 0, tongTienTatCaSP = 0;
+                            int tongTienTatCaSP = 0;
 
                             foreach (DataRow dr in cart.Rows)
                             {
-                                //Số lượng sản phẩm đã dặt
-                                foreach (RepeaterItem item in rptSPham.Items)
-                                {
-                                    TextBox txtSoLuong = (TextBox)item.FindControl("txtSoLuong");
-                                    Label lbTongTien = (Label)item.FindControl("lbTongTien");
-                                    if (!String.IsNullOrEmpty(txtSoLuong.Text))
-                                    {
-                                        continue;
-                                    }
-                                    else
-                                    {
-                                        txtSoLuong.Text = dr["SOLUONG"].ToString();
-                                        break;
-                                    }
-
-                                    //Tính tổng tiền từng sản phẩm
-                                    tongTien += (int.Parse(dr["DONGIA"].ToString()) * int.Parse(dr["SOLUONG"].ToString()));
-                                    lbTongTien.Text = String.Format("{0:n0}", int.Parse(tongTien.ToString()));
-                                }
-
                                 //Tính tổng tiền tất cả đơn hàng             
-                                tongTienTatCaSP = tongTien + tongTienTatCaSP;
+                                tongTienTatCaSP = tongTienTatCaSP + int.Parse(dr["TIENMUA"].ToString());
                                 lbTongTatCaSP.Text = String.Format("{0:n0}", int.Parse(tongTienTatCaSP.ToString()));
 
                             }
@@ -135,18 +100,23 @@ namespace ETech.WebApp.KH
                 {
                     //Code ẩn table và show một div thông báo "Mời bạn thêm sản phẩm"
                     //...
+                    pnHaveCart.Style.Add("display", "none");
+                    Label1.Style.Add("display", "block");
+                    
                 }
             }
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-
+            Session.Remove("cart");
+            Response.Redirect("TrangChu.aspx");
         }
 
         protected void btnContinues_Click(object sender, EventArgs e)
         {
             Response.Redirect("TrangChu.aspx");
+
         }
 
         protected void btnThanhToan_Click(object sender, EventArgs e)
@@ -191,7 +161,7 @@ namespace ETech.WebApp.KH
                 if (Session["cart"] != null)
                 {
                     DataTable cart1 = Session["cart"] as DataTable;
-                    int tongtien = 0;
+                    int tongTienTatCaSP = 0;
                     string mathanhtoantructuyen = DateTime.Now.Ticks.ToString();
                     if (cart1 != null && cart1.Rows.Count > 0)
                     {
@@ -214,7 +184,7 @@ namespace ETech.WebApp.KH
 
                                 dataAccess.DongKetNoiCSDL();
                             }
-                            tongtien += (int.Parse(dr["DONGIA"].ToString()) * int.Parse(dr["SOLUONG"].ToString()));
+                            tongTienTatCaSP = tongTienTatCaSP + int.Parse(dr["TIENMUA"].ToString());
                         }
                     }
 
@@ -223,7 +193,7 @@ namespace ETech.WebApp.KH
                     switch (phuongthucthanhtoan)
                     {
                         case "Thanhtoantruyenthong":
-                            Response.Redirect("TrangChu.aspx");
+                            Response.Redirect("DonHang.aspx");
                             break;
                         case "Onepay":
                             #region 
@@ -241,7 +211,7 @@ namespace ETech.WebApp.KH
                             conn.AddDigitalOrderField("vpc_AccessCode", OnepayCode.AccessCode);//Hòa: cần thanh bằng mã thật cấu hình trong app_code
                             conn.AddDigitalOrderField("vpc_MerchTxnRef", mathanhtoantructuyen);//Hòa: mã thanh toán
                             conn.AddDigitalOrderField("vpc_OrderInfo", mathanhtoantructuyen);//Hòa: thông tin đơn hàng
-                            conn.AddDigitalOrderField("vpc_Amount", (tongtien * 100).ToString());//Hòa: chi phí cần nhân 100 theo yêu cầu của onepay
+                            conn.AddDigitalOrderField("vpc_Amount", (tongTienTatCaSP * 100).ToString());//Hòa: chi phí cần nhân 100 theo yêu cầu của onepay
                             conn.AddDigitalOrderField("vpc_Currency", "VND");
                             conn.AddDigitalOrderField("vpc_ReturnURL", OnepayCode.ReturnURL);//Hòa: địa chỉ nhận kết quả trả về
                                                                                              // Thong tin them ve khach hang. De trong neu khong co thong tin
@@ -277,7 +247,7 @@ namespace ETech.WebApp.KH
                             conn1.AddDigitalOrderField("vpc_AccessCode", OnepayQuocTeCode.AccessCode);//Hòa: cần thanh bằng mã thật cấu hình trong app_code
                             conn1.AddDigitalOrderField("vpc_MerchTxnRef", mathanhtoantructuyen);//Hòa: mã thanh toán
                             conn1.AddDigitalOrderField("vpc_OrderInfo", mathanhtoantructuyen);//Hòa: mã thanh toán
-                            conn1.AddDigitalOrderField("vpc_Amount", (tongtien * 100).ToString());//Hòa: chi phí cần nhân 100 theo yêu cầu của onepay
+                            conn1.AddDigitalOrderField("vpc_Amount", (tongTienTatCaSP * 100).ToString());//Hòa: chi phí cần nhân 100 theo yêu cầu của onepay
 
                             conn1.AddDigitalOrderField("vpc_ReturnURL", OnepayQuocTeCode.ReturnURL);//Hòa: địa chỉ nhận kết quả trả về
                                                                                                     // Thong tin them ve khach hang. De trong neu khong co thong tin
@@ -305,7 +275,7 @@ namespace ETech.WebApp.KH
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            
+            Response.Redirect("TrangDangKyDangNhapKH.aspx");
         }
     }
 }

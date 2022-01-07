@@ -1,6 +1,7 @@
-﻿using System;
+﻿using ETech.WebApp.AppCode;
+using System;
 using System.Data;
-
+using System.Data.SqlClient;
 using WebApplication2;
 
 public partial class onepay_vpc_dr_quocte : System.Web.UI.Page
@@ -40,8 +41,18 @@ public partial class onepay_vpc_dr_quocte : System.Web.UI.Page
             //vpc_Result.Text = "Transaction was paid successful";
 
             #region Cập nhật vào db theo mã đơn hàng
+            DataAccess dataAccess = new DataAccess();
+            try
+            {
+                SqlParameter[] p =
+               {
+                    new SqlParameter("@MATHANHTOANTRUCTUYEN",SqlDbType.NVarChar)
+                };
+                p[0].Value = mathanhtoantructuyen;
+                int a = dataAccess.ExecuteNonQuery("UPDATE_DONHANG_THANHCONG", p);
+            }
+            catch { }
 
-           
             #endregion
 
             Response.Write("<div class='result'>Đã thanh toán thành công</div>");
@@ -50,7 +61,18 @@ public partial class onepay_vpc_dr_quocte : System.Web.UI.Page
         {
             #region Cập nhật vào db theo mã đơn hàng
 
-           
+            DataAccess dataAccess = new DataAccess();
+            try
+            {
+                SqlParameter[] p =
+               {
+                    new SqlParameter("@MATHANHTOANTRUCTUYEN",SqlDbType.NVarChar)
+                };
+                p[0].Value = mathanhtoantructuyen;
+                int a = dataAccess.ExecuteNonQuery("PROC_UPDATE_DONHANG_DANGCHO", p);
+            }
+            catch { }
+
             #endregion
 
             //vpc_Result.Text = "Transaction is pending";
@@ -60,8 +82,8 @@ public partial class onepay_vpc_dr_quocte : System.Web.UI.Page
         else
         {
             #region Cập nhật vào db theo mã đơn hàng
+         
 
-          
             #endregion
 
             //vpc_Result.Text = "Transaction was not paid successful";

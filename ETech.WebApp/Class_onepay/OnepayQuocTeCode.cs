@@ -4,12 +4,12 @@
 /// </summary>
 public class OnepayQuocTeCode
 {
-    public const string VPCRequest = "http://mtf.onepay.vn/vpcpay/vpcpay.op";//Url payment thật: https://onepay.vn/onecomm-pay/vpc.op 
+    public const string VPCRequest = "https://mtf.onepay.vn/vpcpay/vpcpay.op";//Url payment thật: https://onepay.vn/onecomm-pay/vpc.op 
     public const string Merchant = "TESTONEPAY";    
     public const string AccessCode = "6BEB2546";
     public const string SECURE_SECRET = "6D0870CDE5F24F34F3915FB0045120DB";
 
-    public static string ReturnURL = "http://localhost:44303/Onepay/vpc_dr_quocte.aspx";
+    public static string ReturnURL = "https://localhost:44303/Onepay/vpc_dr_quocte.aspx";
 
     /*
 Thông tin kết nối Môi trường Test cổng thanh toán Quốc tế:
