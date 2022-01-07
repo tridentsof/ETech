@@ -167,11 +167,12 @@
                         <thead class="row_header">
                             <tr>
                               <th class="cell" style="min-width: auto">Mã Đơn Hàng</th>   
-                              <th class="cell" style="min-width: auto">Ngày</th>
-                                <th class="cell" style="min-width: auto">Số Lượng</th>
-                                <th class="cell" style="min-width: auto">Địa Chỉ</th>
-                                <th class="cell" style="min-width: auto">Đơn Giá</th>
+                                <th class="cell" style="min-width: auto">Tên Sản phẩm</th>
+                                <th class="cell" style="min-width: auto">Địa chỉ</th>
+                                <th class="cell" style="min-width: auto">SDT</th>
+                                 <th class="cell" style="min-width: auto">Ngày</th>
                                 <th class="cell" style="min-width: auto">Chức năng</th>
+                                
                             </tr>
                            
                         </thead>
@@ -190,12 +191,11 @@
                     <table class="table" cellpadding="0" cellspacing="0">
                         <thead class="row_header">
                             <tr>
-                              <th class="cell" style="min-width: auto">Mã Đơn Hàng</th>   
-                              <th class="cell" style="min-width: auto">Ngày</th>
-                                <th class="cell" style="min-width: auto">Số Lượng</th>
-                                <th class="cell" style="min-width: auto">Địa Chỉ</th>
-                                <th class="cell" style="min-width: auto">Đơn Giá</th>
-                                <th class="cell" style="min-width: auto">Chức năng</th>
+                             <th class="cell" style="min-width: auto">Mã Đơn Hàng</th>   
+                                <th class="cell" style="min-width: auto">Tên Sản phẩm</th>
+                                <th class="cell" style="min-width: auto">Địa chỉ</th>
+                                <th class="cell" style="min-width: auto">SDT</th>
+                                 <th class="cell" style="min-width: auto">Ngày</th>
                             </tr>
                            
                         </thead>
@@ -213,12 +213,11 @@
                     <table class="table" cellpadding="0" cellspacing="0">
                         <thead class="row_header">
                             <tr>
-                              <th class="cell" style="min-width: auto">Mã Đơn Hàng</th>   
-                              <th class="cell" style="min-width: auto">Ngày</th>
-                                <th class="cell" style="min-width: auto">Số Lượng</th>
-                                <th class="cell" style="min-width: auto">Địa Chỉ</th>
-                                <th class="cell" style="min-width: auto">Đơn Giá</th>
-                                <th class="cell" style="min-width: auto">Chức năng</th>
+                        <th class="cell" style="min-width: auto">Mã Đơn Hàng</th>   
+                                <th class="cell" style="min-width: auto">Tên Sản phẩm</th>
+                                <th class="cell" style="min-width: auto">Địa chỉ</th>
+                                <th class="cell" style="min-width: auto">SDT</th>
+                                 <th class="cell" style="min-width: auto">Ngày</th>
                             </tr>
                            
                         </thead>
@@ -232,16 +231,15 @@
 
                 <div id="menu_4" class="tab-content-item">
                     <div class="table">
-                       <h3 >ĐƠN HÀNG ĐÃ THANH TOÁN</h3>
+                       <h3 >ĐƠN HÀNG ĐÃ HỦY</h3>
                     <table class="table" cellpadding="0" cellspacing="0">
                         <thead class="row_header">
                             <tr>
-                              <th class="cell" style="min-width: auto">Mã Đơn Hàng</th>   
-                              <th class="cell" style="min-width: auto">Ngày</th>
-                                <th class="cell" style="min-width: auto">Số Lượng</th>
-                                <th class="cell" style="min-width: auto">Địa Chỉ</th>
-                                <th class="cell" style="min-width: auto">Đơn Giá</th>
-                                <th class="cell" style="min-width: auto">Chức năng</th>
+                    <th class="cell" style="min-width: auto">Mã Đơn Hàng</th>   
+                                <th class="cell" style="min-width: auto">Tên Sản phẩm</th>
+                                <th class="cell" style="min-width: auto">Địa chỉ</th>
+                                <th class="cell" style="min-width: auto">SDT</th>
+                                 <th class="cell" style="min-width: auto">Ngày</th>
                             </tr>
                         </thead>
 
