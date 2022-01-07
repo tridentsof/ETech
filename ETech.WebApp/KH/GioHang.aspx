@@ -4,11 +4,14 @@
     <title>Giỏ hàng</title>
     <style>
         .hinhthucgiaohang{
-            width: 60%;
+            padding-bottom: 30px!important;
+            width: 80%;
             padding: 15px;
             display:flex;
             justify-content:center;
-           
+           border: solid 1px #3e67b9;
+           margin: 0 auto;
+           margin-top:30px;
             
         }
         .paymentInfo{
@@ -29,6 +32,7 @@
         .quangngu{
             margin-top: 10px;
         }
+        
     </style>
     <link rel="stylesheet" href="../wwwroot/css/kh_giohang.css" />
 </asp:Content>
@@ -94,7 +98,7 @@
                     <asp:RadioButton ID="rbTruyenthong" runat="server" GroupName="Group1"  /><label for="rbTruyenthong">Thanh toán khi nhận hàng</label> 
                 </div>
                 </div>
-            </div>
+
     <div class="cart-footer">
         <asp:Button ID="btnContinues" CssClass="btn-cart-cotinues" runat="server" Text="Tiếp tục mua sắm" OnClick="btnContinues_Click" />
         <div class="sum-cart">

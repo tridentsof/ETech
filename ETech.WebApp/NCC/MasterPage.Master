@@ -112,8 +112,8 @@
                     </a>
                     <div class="sub-menu">
                         <a href="YeuCauDanhMuc.aspx" class="sub-item">Yêu cầu xoá</a>
-                        <a href="#" class="sub-item">Yêu cầu sửa</a>
-                        <a href="#" class="sub-item">Yêu cầu thêm</a>
+                        <a href="YeuCauDanhMuc.aspx" class="sub-item">Yêu cầu sửa</a>
+                        <a href="YeuCauDanhMuc.aspx" class="sub-item">Yêu cầu thêm</a>
                     </div>
                 </div>
             </div>

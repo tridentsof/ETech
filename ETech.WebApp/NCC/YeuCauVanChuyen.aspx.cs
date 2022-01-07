@@ -47,7 +47,7 @@ namespace ETech.WebApp.NCC
                 dataAccess.MoKetNoiCSDL();
                 int id = int.Parse(Session["id"].ToString());
                 SqlParameter[] p = {
-                 new SqlParameter("@NHACUNGCAPID", SqlDbType.Int)
+                 new SqlParameter("@ID", SqlDbType.Int)
             };
                 p[0].Value = id;
                 

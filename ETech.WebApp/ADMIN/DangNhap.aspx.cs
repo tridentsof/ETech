@@ -37,7 +37,9 @@ namespace ETech.WebApp.ADMIN
             }
             else
             {
-                txtTB.Text = "Sai Ma Captcha";
+                txtTB.Text = "Sai mã Captcha";
+                txtTB.Style.Add("color", "red");
+                txtTB.Style.Add("margin-left", "33%!important");
             }
 
             if (isCaptchaValid)
@@ -75,7 +77,9 @@ namespace ETech.WebApp.ADMIN
                 }
                 else
                 {
-                    txtTB.Text = "Mat Khau hoac Tai Khoan Khong Dung";
+                    txtTB.Text = "Sai tài khoản, mật khẩu";
+                    txtTB.Style.Add("Color", "red");
+                    txtTB.Style.Add("margin-left", "33%!important");
                 }
             }
         }

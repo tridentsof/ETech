@@ -293,6 +293,10 @@ a:hover {
       height:70px;
       width:100px;
   }
+  .text-tb{
+      text-align:center!important;
+      color:orangered!important;
+  }
 }
     </style>
 </head>
@@ -314,7 +318,7 @@ a:hover {
                         </div>
                         <div class="div">
                             <h5>Username</h5>
-                            <asp:TextBox ID="txtUser" CssClass="input" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtUser" AutoCompleteType="Disabled" CssClass="input" runat="server"></asp:TextBox>
                         </div>
                     </div>
                         <div class="input-div pass">
@@ -323,20 +327,20 @@ a:hover {
                         </div>
                         <div class="div">
                             <h5>Password</h5>
-                            <asp:TextBox ID="txtPass" CssClass="input" runat="server" TextMode="Password"></asp:TextBox>
+                            <asp:TextBox ID="txtPass" AutoCompleteType="Disabled" CssClass="input" runat="server" TextMode="Password"></asp:TextBox>
                         </div>
                     </div>
                         <div class="captcha-container">
                         <asp:Image ID="imgCaptcha" CssClass="captcha-size" runat="server" ImageUrl="~/ADMIN/CaptchaImage.aspx" />
                         <div class="input-captcha">
                             <p class="text-captcha">Vui lòng nhập mã Captcha</p>
-                            <asp:TextBox ID="txtCaptcha" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtCaptcha" AutoCompleteType="Disabled" runat="server"></asp:TextBox>
                         </div>
                     </div>
                         <asp:Button ID="btnLogin" CssClass="btn" runat="server" Text="Đăng nhập" OnClick="btnLogin_Click" />
                         <asp:CheckBox ID="cbReLogin" CssClass="cbReLogin" runat="server" /><span class="textRelogin">Ghi nhớ đăng nhập</span>
                     <a class="forgetPass" href="#">Quên mật khẩu?</a>
-                        <asp:Label ID="txtTB" runat="server" Text="Label"></asp:Label>
+                        <asp:Label ID="txtTB" CssClass="text-tb" runat="server" Text=""></asp:Label>
                     </div>
                 </div>
             </div>

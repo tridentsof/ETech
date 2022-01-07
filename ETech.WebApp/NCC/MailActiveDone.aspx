@@ -53,10 +53,12 @@
 </head>
 <body>
 
-    <div class="container-active">
+    <form runat ="server">
+        <div class="container-active">
         <p class="content-active">Xác nhận email thành công!</p>
         <asp:Button ID="Button1" runat="server" CssClass="button-active" Text="Đăng nhập" OnClick="Button1_Click" />
     </div>
+    </form>
 
 </body>
 </html>
