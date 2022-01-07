@@ -224,7 +224,7 @@
          <div class="QLSPchitiet__description2">
             <p>Tình Trạng</p>
            <div class="tmsp-rblTrangThai">
-              <asp:RadioButton ID="rdb_open" GroupName="Group1" Text="Mở" runat="server" class="tmsp-rblTrangThai-item"/>
+              <asp:RadioButton ID="rdb_open" GroupName="Group1" Text="Mở" Checked="true" runat="server" class="tmsp-rblTrangThai-item"/>
               <asp:RadioButton ID="rdb_close" GroupName="Group1" Text="Đóng" class="tmsp-rblTrangThai-item" style="margin-left: 30px" runat="server" />    
              </div>
         </div>

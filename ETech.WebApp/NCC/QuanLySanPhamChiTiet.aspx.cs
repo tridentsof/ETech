@@ -22,14 +22,14 @@ namespace ETech.WebApp.NCC
             {
                 Response.Redirect("DangKyDangNhapNCC.aspx");
             }
-
+            int id = int.Parse(Session["id"].ToString());
             string idSP = Request.QueryString.Get("idSP").ToString();
             if (!IsPostBack)
             {
                 dataAccess.MoKetNoiCSDL();
 
                 string sqlNSX = "SELECT * FROM NSX";
-                string sqlLoai = "SELECT * FROM LOAISP";
+                string sqlLoai = "SELECT * FROM LOAISP a,CHITIETDANHMUC b WHERE a.LOAISPID=b.LOAISPID AND b.TRANGTHAI=1 AND b.NHACUNGCAPID=" + id;
                 string sqlDVVC = "SELECT * FROM DONVIVANCHUYEN";
                 SqlCommand cmdNSX = new SqlCommand(sqlNSX, dataAccess.getConnection());
                 SqlCommand cmdLoai = new SqlCommand(sqlLoai, dataAccess.getConnection());
@@ -46,7 +46,7 @@ namespace ETech.WebApp.NCC
                 ddlDM.DataTextField = "TENLOAI";
                 ddlDM.DataValueField = "LOAISPID";
                 ddlDM.DataBind();
-
+                
                 ddlDM.Items.Insert(0, new ListItem("---Chọn loại sản phẩm---", "-1"));
 
                 ddlDVVC.DataSource = cmdDVVC.ExecuteReader();

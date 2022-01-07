@@ -506,6 +506,59 @@
             .hot-brand h2{
                 margin-left:20px;
             }
+            * {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.container-banner {
+  margin: auto;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  width: 75%;
+  height: auto;
+  padding: 15px 5px;
+}
+
+.banner-items {
+  background: #fff;
+  padding: 10px 25px;
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  display: flex;
+  transition: .3s;
+  margin:auto;
+}
+
+.banner-items:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.banner-items img {
+  margin-right: 15px;
+  width: 50px;
+  height: 50px;
+}
+.body-title{
+    width:100%;
+    margin-left:35%;
+    margin-top:30px;
+    margin-bottom:20px;
+    text-align:center;
+    display:flex;
+}
+.body-title h3{
+    color:var(--primary-color);
+    font-size:30px;
+    font-weight:600;
+    font-family:sans-serif;
+}
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -582,7 +635,28 @@
             </div>
         </div>
     </div>
-
+    <div class="body-title">
+            <h3>VÌ SA0 NÊN MUA HÀNG TẠI ETECH</h3>
+    </div>
+ <div class="container-banner">
+     
+    <div class="banner-items">
+      <img src="../wwwroot/img/icon/earth.png" alt="" />
+      <p>Sản phẩm chính hãng<br>Đầy đủ mẫu mã<br />Xuất xứ rõ ràng</p>
+    </div>
+    <div class="banner-items">
+      <img src="../wwwroot/img/icon/customer-service.png" alt="" />
+      <p>Hỗ trợ nhanh chóng<br />Trade-in dễ dàng<br>Hậu mãi chu đáo</p>
+    </div>
+    <div class="banner-items">
+      <img src="../wwwroot/img/icon/cashless-payment.png" alt="" />
+      <p>Thanh toán linh hoạt<br>Trả góp đơn giản<br>Mua sắm dễ dàng</p>
+    </div>
+    <div class="banner-items">
+      <img src="../wwwroot/img/icon/shipping.png" alt="" />
+      <p>Giao hàng nhanh chóng<br>Nội thành giao trong 60p<br>Miễn phí giao hàng toàn quốc</p>
+    </div>
+   </div>
     <div class="content">
         <h2 class="content_title">SẢN PHẨM NỔI BẬT</h2>
         <div class="content_items">
