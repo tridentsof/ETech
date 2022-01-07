@@ -51,6 +51,7 @@
                 <th>Hình Ảnh</th>
                 <th>Tên Sản Phẩm</th>
                 <th>Tên shop</th>
+                <th>Trạng thái</th>
                 <th>Giá</th>
                 <th>Số Lượng</th> 
                 <th>Tổng Tiền</th>
@@ -68,6 +69,9 @@
                     </a>
                         <td>
                             <%# Eval("TENNHACUNGCAP") %>
+                        </td>
+                        <td>
+                            <%# Eval("TRANGTHAI") %>
                         </td>
                         <td>
                            <%# Eval("DONGIA") %>
