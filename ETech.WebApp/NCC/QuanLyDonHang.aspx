@@ -90,6 +90,7 @@
             width: 100%;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
             display: table;
+            text-align: center;
         }
 
         .row {
@@ -101,16 +102,15 @@
                 background: #e9e9e9;
             }
 
-            .row.header {
+            .row_header {
                 font-weight: 900;
                 color: #ffffff;
-                background: var(--primary-color);
+                background:var(--primary-color);
             }
 
         .cell {
-            text-align: center;
-            padding: 6px 12px;
             display: table-cell;
+            padding: 6px 12px;
         }
 
         .QLDH__link {
@@ -124,9 +124,29 @@
                 color: var(--primary-color);
             }
 
-        .tab-content {
-            margin-top: 30px;
+       .tab-content-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
+
+        .tab-content {
+            margin-top: 10px;
+        }
+        .tab-content-item h2{
+            margin:15px 0px
+        }
+        .qldm-column2{
+        padding: 10px;
+       border: 1px solid black;  
+       line-height:1.3;
+       text-align: left;
+       font-weight:600;
+        }
+    h3{
+        margin-bottom:10px;
+       
+    }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -142,159 +162,102 @@
             <div class="tab-content">
                 <div id="menu_1" class="tab-content-item">
                     <div class="table">
-                        <div class="row header">
-                            <div class="cell">
-                                ID
-                            </div>
-                            <div class="cell">
-                                Khách hàng
-                            </div>
-                            <div class="cell">
-                                Thời gian
-                            </div>
-                            <div class="cell">
-                                Tổng tiền hàng
-                            </div>
-                            <div class="cell">
-                                Tính năng
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="cell">
-                                1
-                            </div>
-                            <div class="cell">
-                                ABC98674
-                            </div>
-                            <div class="cell">
-                                20/6/2012 13:25
-                            </div>
-                            <div class="cell">
-                                2.040.000
-                            </div>
-                            <div class="cell">
-                                <a class="QLDH__link" href="#">Xem chi tiết</a>
-                                <a class="QLDH__link" href="#">Duyệt</a>
-                                <a class="QLDH__link" href="#">Huỷ</a>
-                            </div>
+                       <h3 >ĐƠN HÀNG CHỜ DUYỆT</h3>
+                    <table class="table" cellpadding="0" cellspacing="0">
+                        <thead class="row_header">
+                            <tr>
+                              <th class="cell" style="min-width: auto">Mã Đơn Hàng</th>   
+                              <th class="cell" style="min-width: auto">Ngày</th>
+                                <th class="cell" style="min-width: auto">Số Lượng</th>
+                                <th class="cell" style="min-width: auto">Địa Chỉ</th>
+                                <th class="cell" style="min-width: auto">Đơn Giá</th>
+                                <th class="cell" style="min-width: auto">Chức năng</th>
+                            </tr>
+                           
+                        </thead>
+                        <tbody>
+                             <asp:Panel ID="Panel1" runat="server"></asp:Panel>
+                        </tbody>
+                     </table>  
+                            
                         </div>
                     </div>
-                </div>
+                
 
                 <div id="menu_2" class="tab-content-item">
                     <div class="table">
-                        <div class="row header">
-                            <div class="cell">
-                                ID
-                            </div>
-                            <div class="cell">
-                                Khách hàng
-                            </div>
-                            <div class="cell">
-                                Tổng tiền hàng
-                            </div>
-                            <div class="cell">
-                                Tính năng
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="cell">
-                                1
-                            </div>
-                            <div class="cell">
-                                AKH574
-                            </div>
-                            <div class="cell">
-                                1.200.500
-                            </div>
-                            <div class="cell">
-                                <a class="QLDH__link" href="#">Xem chi tiết</a>
-                            </div>
+                       <h3 >ĐƠN HÀNG ĐANG VẬN CHUYỂN</h3>
+                    <table class="table" cellpadding="0" cellspacing="0">
+                        <thead class="row_header">
+                            <tr>
+                              <th class="cell" style="min-width: auto">Mã Đơn Hàng</th>   
+                              <th class="cell" style="min-width: auto">Ngày</th>
+                                <th class="cell" style="min-width: auto">Số Lượng</th>
+                                <th class="cell" style="min-width: auto">Địa Chỉ</th>
+                                <th class="cell" style="min-width: auto">Đơn Giá</th>
+                                <th class="cell" style="min-width: auto">Chức năng</th>
+                            </tr>
+                           
+                        </thead>
+                        <tbody>
+                             <asp:Panel ID="Panel2" runat="server"></asp:Panel>
+                        </tbody>
+                     </table>  
+                            
                         </div>
                     </div>
-                </div>
 
                 <div id="menu_3" class="tab-content-item">
                     <div class="table">
-                        <div class="row header">
-                            <div class="cell">
-                                ID
-                            </div>
-                            <div class="cell">
-                                Khách hàng
-                            </div>
-                            <div class="cell">
-                                Tổng tiền hàng
-                            </div>
-                            <div class="cell">
-                                Tính năng
-                            </div>
+                       <h3 >ĐƠN HÀNG ĐÃ THANH TOÁN</h3>
+                    <table class="table" cellpadding="0" cellspacing="0">
+                        <thead class="row_header">
+                            <tr>
+                              <th class="cell" style="min-width: auto">Mã Đơn Hàng</th>   
+                              <th class="cell" style="min-width: auto">Ngày</th>
+                                <th class="cell" style="min-width: auto">Số Lượng</th>
+                                <th class="cell" style="min-width: auto">Địa Chỉ</th>
+                                <th class="cell" style="min-width: auto">Đơn Giá</th>
+                                <th class="cell" style="min-width: auto">Chức năng</th>
+                            </tr>
+                           
+                        </thead>
+                        <tbody>
+                             <asp:Panel ID="Panel3" runat="server"></asp:Panel>
+                        </tbody>
+                     </table>  
+                            
                         </div>
-
-                        <div class="row">
-                            <div class="cell">
-                                1
-                            </div>
-                            <div class="cell" data-title="Username">
-                                KJHU889
-                            </div>
-                            <div class="cell" data-title="Username">
-                                980.000
-                            </div>
-                            <div class="cell" data-title="Tinh-nang">
-                                <a class="QLDH__link" href="#">Xem chi tiết</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <div id="menu_4" class="tab-content-item">
                     <div class="table">
-                        <div class="row header">
-                            <div class="cell">
-                                ID
-                            </div>
-                            <div class="cell">
-                                Khách hàng
-                            </div>
-                            <div class="cell">
-                                Thời gian
-                            </div>
-                            <div class="cell">
-                                Tổng tiền hàng
-                            </div>
-                            <div class="cell">
-                                Tính năng
-                            </div>
-                        </div>
+                       <h3 >ĐƠN HÀNG ĐÃ THANH TOÁN</h3>
+                    <table class="table" cellpadding="0" cellspacing="0">
+                        <thead class="row_header">
+                            <tr>
+                              <th class="cell" style="min-width: auto">Mã Đơn Hàng</th>   
+                              <th class="cell" style="min-width: auto">Ngày</th>
+                                <th class="cell" style="min-width: auto">Số Lượng</th>
+                                <th class="cell" style="min-width: auto">Địa Chỉ</th>
+                                <th class="cell" style="min-width: auto">Đơn Giá</th>
+                                <th class="cell" style="min-width: auto">Chức năng</th>
+                            </tr>
+                        </thead>
 
-                        <div class="row">
-                            <div class="cell">
-                                1
-                            </div>
-                            <div class="cell">
-                                ABC98674
-                            </div>
-                            <div class="cell">
-                                20/6/2012 13:25
-                            </div>
-                            <div class="cell">
-                                2.040.000
-                            </div>
-                            <div class="cell">
-                                <a class="QLDH__link" href="#">Xem chi tiết</a>
-                                <a class="QLDH__link" href="#">Duyệt</a>
-                                <a class="QLDH__link" href="#">Xoá</a>
-                            </div>
+                        <tbody>
+                             <asp:Panel ID="Panel4" runat="server"></asp:Panel>
+                        </tbody>
+                     </table>  
+                            
+                        </div>
+                            
                         </div>
                     </div>
                 </div>
-
             </div>
-        </div>
-    </div>
+
+
     <script>
         $(document).ready(function () {
             $('.tab-content-item').hide();
