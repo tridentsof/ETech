@@ -60,6 +60,7 @@ namespace ETech.WebApp.KH
                     cart.Columns.Add("DONGIA");
                     cart.Columns.Add("SOLUONG");
                     cart.Columns.Add("NHACUNGCAPID");
+                    cart.Columns.Add("TIENMUA");
 
                     //Sau khi tạo xong thì lưu lại vào session
                     Session["cart"] = cart;
@@ -103,6 +104,8 @@ namespace ETech.WebApp.KH
                                 dr["DONGIA"] = dt2.Rows[0]["DONGIA"].ToString();
                                 dr["NHACUNGCAPID"] = dt2.Rows[0]["NHACUNGCAPID"].ToString();
                                 dr["SOLUONG"] = soLuongDatHang;
+                                dr["TIENMUA"] = int.Parse(dt2.Rows[0]["DONGIA"].ToString()) * soLuongDatHang;
+
                                 cart.Rows.Add(dr);
                             }
                             //Lưu lại thông tin giỏ hàng mới nhất vào session["Cart"]

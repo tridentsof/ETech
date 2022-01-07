@@ -13,7 +13,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <a href="/" class="homepage" title="Về trang chủ">Về trang chủ</a>
+        <a href="https://localhost:44303/KH/TrangChu.aspx" class="homepage" title="Về trang chủ">Về trang chủ</a>
     </form>
 </body>
 </html>
