@@ -287,6 +287,7 @@ h2 {
                 <th class="qldm-column">Email</th>
                 <th class="qldm-column" style="min-width: 80px">Địa chỉ</th>
                 <th class="qldm-column">SĐT</th>
+                <th class="qldm-column">Trạng Thái</th>
                 <%--<th class="table-th">Trạng Thái</th>--%>
                 <th class="qldm-column">Tính Năng</th>
 
