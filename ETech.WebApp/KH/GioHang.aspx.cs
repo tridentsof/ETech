@@ -107,10 +107,24 @@ namespace ETech.WebApp.KH
             }
         }
 
-        protected void btnDelete_Click(object sender, EventArgs e)
+        protected void btnDelete_Click(object sender, CommandEventArgs e)
         {
-            Session.Remove("cart");
-            Response.Redirect("TrangChu.aspx");
+            int index = Convert.ToInt32(e.CommandArgument);
+
+            DataTable cart = Session["cart"] as DataTable;
+
+            cart.Rows[index].Delete();
+            cart.AcceptChanges();
+            if (cart != null && cart.Rows.Count > 0)
+            {
+                this.rptSPham.DataSource = cart;
+                this.rptSPham.DataBind();
+
+            }
+            Response.Redirect("GioHang.aspx");
+            
+     
+
         }
 
         protected void btnContinues_Click(object sender, EventArgs e)
@@ -181,7 +195,6 @@ namespace ETech.WebApp.KH
                                 if (dataAccess.getConnection().State == ConnectionState.Closed)
                                     dataAccess.getConnection().Open();
                                 cmdCTDonHang.ExecuteNonQuery();
-
                                 dataAccess.DongKetNoiCSDL();
                             }
                             tongTienTatCaSP = tongTienTatCaSP + int.Parse(dr["TIENMUA"].ToString());
