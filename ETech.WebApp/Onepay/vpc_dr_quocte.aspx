@@ -7,7 +7,9 @@
     <title>Kết quả thanh toán</title>
     <style type="text/css">
         body{font:normal 12px Tahoma}
-        .result{position:absolute;z-index:2;top:60px;left:0;font-size:60px;width:100%;text-align:center}
+        .result{position:absolute;z-index:2;top:60px;left:0;font-size:60px;width:100%;text-align:center;
+                    border:solid 1px #3e67b9;padding:20px 20px 20px 20px;margin-top:70px;
+        }
         a.homepage{color:blue}
     </style>  
 </head>

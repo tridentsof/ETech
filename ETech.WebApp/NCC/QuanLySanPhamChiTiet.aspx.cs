@@ -127,7 +127,7 @@ namespace ETech.WebApp.NCC
 
         protected void btnHuy_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("QuanLySanPham.aspx");
         }
     }
 }

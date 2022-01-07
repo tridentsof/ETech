@@ -124,6 +124,7 @@ a {
         .tmsp-error{
             color:var(--primary-color);
         }
+        
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -162,8 +163,8 @@ a {
           <h5>Xác nhận mật khẩu</h5>
           <div class="input">
               <asp:TextBox ID="txtpw3" runat="server" type="password"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Vui lòng nhập mật khẩu" ControlToValidate="txtpw3" CssClass="tmsp-error" Display="Dynamic"></asp:RequiredFieldValidator>  
-              <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Không trùng khớp mật khẩu" ControlToValidate="txtpw3" ControlToCompare="txtpw2"></asp:CompareValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Vui lòng nhập mật khẩu" ControlToValidate="txtpw3" CssClass="tmsp-error" Display="Dynamic"></asp:RequiredFieldValidator> <br /> 
+              <asp:CompareValidator ID="CompareValidator1" runat="server" CssClass="dat-ngu" ErrorMessage="Không trùng khớp mật khẩu" ControlToValidate="txtpw3" ControlToCompare="txtpw2"></asp:CompareValidator>
             <span class="focus-border"></span>
           </div>
         </div>

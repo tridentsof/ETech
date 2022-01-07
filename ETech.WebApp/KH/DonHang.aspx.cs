@@ -1,12 +1,8 @@
 ﻿using ETech.WebApp.AppCode;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Text;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace ETech.WebApp.KH
@@ -18,10 +14,10 @@ namespace ETech.WebApp.KH
         {
             if (!IsPostBack)
             {
-                if(Session["userKH"] != null)
+                if (Session["userKH"] != null)
                 {
                     panelNotLogin.Style.Add("display", "none");
-                    
+
 
                     string userKH = Session["userKH"].ToString();
 
@@ -35,22 +31,22 @@ namespace ETech.WebApp.KH
 
                     StringBuilder table = new StringBuilder();
 
-                    if(dtDH != null && dtDH.Rows.Count > 0)
+                    if (dtDH != null && dtDH.Rows.Count > 0)
                     {
                         foreach (DataRow dr in dtDH.Rows)
                         {
                             int status = int.Parse(dr["TRANGTHAI"].ToString());
 
-                            
+
                             table.Append("<tr>");
 
                             table.Append("<td>" + dr["DONHANGID"] + "</td>");
                             table.Append("<td>" + dr["TENNHACUNGCAP"] + "</td>");
                             table.Append("<td>" + dr["NGAY"] + "</td>");
-                            table.Append("<td>" + dr["HIENTHI_TRANGTHAI"] +"</td>");
+                            table.Append("<td>" + dr["HIENTHI_TRANGTHAI"] + "</td>");
                             table.Append("<td>" + dr["TONGSL"] + "</td>");
                             table.Append("<td>" + dr["TONGTIEN"] + "</td>");
-                           
+
                             if (status == 0)
                             {
                                 table.Append("<td><i class=\"fas fa-times-circle x-icon\"></i></td>");

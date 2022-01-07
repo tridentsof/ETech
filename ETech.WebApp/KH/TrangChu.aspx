@@ -559,6 +559,15 @@ body {
     font-weight:600;
     font-family:sans-serif;
 }
+.dat-ngu-1{
+    color:#35576F!important;
+}
+.dat-ngu-1 span{
+    color:#3e67b9;
+}
+.banner-items{
+    font-weight:200;
+}
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -636,7 +645,7 @@ body {
         </div>
     </div>
     <div class="body-title">
-            <h3>VÌ SA0 NÊN MUA HÀNG TẠI ETECH</h3>
+            <h3 class="dat-ngu-1">VÌ SAO NÊN MUA HÀNG TẠI <span class="dat-votrachnhiem">ETECH</span></h3>
     </div>
  <div class="container-banner">
      

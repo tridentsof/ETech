@@ -16,7 +16,7 @@ namespace ETech.WebApp.KH
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/KH/TrangChu.aspx");
+            Response.Redirect("TrangDangKyDangNhapKH.aspx");
         }
     }
 }

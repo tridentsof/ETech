@@ -1,12 +1,7 @@
 ﻿using ETech.WebApp.AppCode;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Net.Mail;
 
 namespace ETech.WebApp.NCC
@@ -104,13 +99,11 @@ namespace ETech.WebApp.NCC
                 cmd.Parameters.AddWithValue("@EMAIL", txtEmail.Text);
                 cmd.Parameters.AddWithValue("@SDT", txtSDT.Text);
                 cmd.Parameters.AddWithValue("@DIACHI", txtDiaChi.Text);
-                cmd.Parameters.AddWithValue("@TRANGTHAI", "1");
+                cmd.Parameters.AddWithValue("@TRANGTHAI", 1);
                 cmd.Parameters.AddWithValue("@MAXACNHAN", maxacnhan.Trim());
-                //cmd.Parameters.Add("@ERROR", SqlDbType.NVarChar, 500);
-                //cmd.Parameters["@ERROR"].Direction = ParameterDirection.Output;
+
                 int a = cmd.ExecuteNonQuery();
 
-                //co the thu int a = cmd.ExecuteNonQuery(); de check so row effected
                 if (a > 0)
                 {
                     sendcode();
@@ -136,7 +129,7 @@ namespace ETech.WebApp.NCC
             SmtpClient smtp = new SmtpClient();
             smtp.Host = "smtp.gmail.com";
             smtp.Port = 587;
-            smtp.Credentials = new System.Net.NetworkCredential("proxgroupcdio4@gmail.com", "Prox123456");
+            smtp.Credentials = new System.Net.NetworkCredential("proxgroupcdio4@gmail.com", "ProxTichHop2022");
             smtp.EnableSsl = true;
             MailMessage msg = new MailMessage();
             msg.Subject = "Xác nhận email của bạn";
