@@ -241,12 +241,12 @@
                         <h5><%# Eval("TENSANPHAM") %></h5>
                         <div class="content_item-info">
                             <div class="content_item-cash"> 
-                                <p><%# Eval("DONGIA3", "{0:n0}") %></p>
                                 <p><%# Eval("DONGIA", "{0:n0}") %></p>
+                                <p><%# Eval("DONGIA2", "{0:n0}") %></p>
                             </div>
                             <div class="content_item-btnprepay">
                                 <p>Hoặc trả trước</p>
-                                <p><%# Eval("DONGIA2","{0:n0}") %></p>
+                                <p><%# Eval("DONGIA3","{0:n0}") %></p>
                             </div>
                         </div>
                         <div class="content_item-star">
