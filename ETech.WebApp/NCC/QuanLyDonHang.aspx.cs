@@ -35,7 +35,7 @@ namespace ETech.WebApp.NCC
                     new SqlParameter("@NHACUNGCAPID", SqlDbType.Int)
                 };
             p[0].Value = id;
-            DataTable dt = dataAccess.ExecuteQuery("PROC_VIEW_DH_CHODUYET_NCC", p);
+            DataTable dt = dataAccess.ExecuteQuery("PROC_DH_CHODUYET", p);
             StringBuilder table = new StringBuilder();
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -44,11 +44,11 @@ namespace ETech.WebApp.NCC
                     table.Append("<tr class=\"row\">");
                     table.Append("<td class=\"qldm-column2\" style=\"text-align:center;\">" + dr[0] + "</td>");
                     table.Append("<td class=\"qldm-column2\">" + dr[1] + "</td>");
-                    table.Append("<td class=\"qldm-column2\">" + dr[2] + "</td>");
                     table.Append("<td class=\"qldm-column2\">" + dr[3] + "</td>");
                     table.Append("<td class=\"qldm-column2\">" + dr[4] + "</td>");
+                    table.Append("<td class=\"qldm-column2\">" + dr[2] + "</td>");
                     table.Append("<td class=\"qldm-column2\" style=\"text-align:center;\">");
-                    //table.Append("<a href=\"QuanLySanPhamChiTiet.aspx?idSP=" + dr[5] + "\"  class=\"cell_xem\">Chỉnh sửa</a>");
+                    table.Append("<a href=\"DuyetDonHang.aspx?idDH=" + dr[0] + "\"  class=\"cell_xem\">Xem chi tiết</a>");
                     table.Append("</td>");
                     table.Append("</tr>");
                 }
@@ -63,7 +63,7 @@ namespace ETech.WebApp.NCC
                     new SqlParameter("@NHACUNGCAPID", SqlDbType.Int)
                 };
             p[0].Value = id;
-            DataTable dt = dataAccess.ExecuteQuery("PROC_VIEW_DH_VANCHUYEN_NCC", p);
+            DataTable dt = dataAccess.ExecuteQuery("PROC_DH_VANCHUYEN", p);
             StringBuilder table = new StringBuilder();
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -72,12 +72,9 @@ namespace ETech.WebApp.NCC
                     table.Append("<tr class=\"row\">");
                     table.Append("<td class=\"qldm-column2\" style=\"text-align:center;\">" + dr[0] + "</td>");
                     table.Append("<td class=\"qldm-column2\">" + dr[1] + "</td>");
-                    table.Append("<td class=\"qldm-column2\">" + dr[2] + "</td>");
                     table.Append("<td class=\"qldm-column2\">" + dr[3] + "</td>");
                     table.Append("<td class=\"qldm-column2\">" + dr[4] + "</td>");
-                    table.Append("<td class=\"qldm-column2\" style=\"text-align:center;\">");
-                    //table.Append("<a href=\"QuanLySanPhamChiTiet.aspx?idSP=" + dr[5] + "\"  class=\"cell_xem\">Chỉnh sửa</a>");
-                    table.Append("</td>");
+                    table.Append("<td class=\"qldm-column2\">" + dr[2] + "</td>");
                     table.Append("</tr>");
                 }
                 Panel2.Controls.Add(new Label { Text = table.ToString() }); ;
@@ -91,7 +88,7 @@ namespace ETech.WebApp.NCC
                     new SqlParameter("@NHACUNGCAPID", SqlDbType.Int)
                 };
             p[0].Value = id;
-            DataTable dt = dataAccess.ExecuteQuery("PROC_VIEW_DH_THANHTOAN_NCC", p);
+            DataTable dt = dataAccess.ExecuteQuery("PROC_DH_THANHTOAN", p);
             StringBuilder table = new StringBuilder();
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -100,12 +97,9 @@ namespace ETech.WebApp.NCC
                     table.Append("<tr class=\"row\">");
                     table.Append("<td class=\"qldm-column2\" style=\"text-align:center;\">" + dr[0] + "</td>");
                     table.Append("<td class=\"qldm-column2\">" + dr[1] + "</td>");
-                    table.Append("<td class=\"qldm-column2\">" + dr[2] + "</td>");
                     table.Append("<td class=\"qldm-column2\">" + dr[3] + "</td>");
                     table.Append("<td class=\"qldm-column2\">" + dr[4] + "</td>");
-                    table.Append("<td class=\"qldm-column2\" style=\"text-align:center;\">");
-                    //table.Append("<a href=\"QuanLySanPhamChiTiet.aspx?idSP=" + dr[5] + "\"  class=\"cell_xem\">Chỉnh sửa</a>");
-                    table.Append("</td>");
+                    table.Append("<td class=\"qldm-column2\">" + dr[2] + "</td>");
                     table.Append("</tr>");
                 }
                 Panel3.Controls.Add(new Label { Text = table.ToString() }); ;
@@ -119,7 +113,7 @@ namespace ETech.WebApp.NCC
                     new SqlParameter("@NHACUNGCAPID", SqlDbType.Int)
                 };
             p[0].Value = id;
-            DataTable dt = dataAccess.ExecuteQuery("PROC_VIEW_DH_DAHUY_NCC", p);
+            DataTable dt = dataAccess.ExecuteQuery("PROC_DH_DAHUY", p);
             StringBuilder table = new StringBuilder();
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -128,12 +122,9 @@ namespace ETech.WebApp.NCC
                     table.Append("<tr class=\"row\">");
                     table.Append("<td class=\"qldm-column2\" style=\"text-align:center;\">" + dr[0] + "</td>");
                     table.Append("<td class=\"qldm-column2\">" + dr[1] + "</td>");
-                    table.Append("<td class=\"qldm-column2\">" + dr[2] + "</td>");
                     table.Append("<td class=\"qldm-column2\">" + dr[3] + "</td>");
                     table.Append("<td class=\"qldm-column2\">" + dr[4] + "</td>");
-                    table.Append("<td class=\"qldm-column2\" style=\"text-align:center;\">");
-                    //table.Append("<a href=\"QuanLySanPhamChiTiet.aspx?idSP=" + dr[5] + "\"  class=\"cell_xem\">Chỉnh sửa</a>");
-                    table.Append("</td>");
+                    table.Append("<td class=\"qldm-column2\">" + dr[2] + "</td>");
                     table.Append("</tr>");
                 }
                 Panel4.Controls.Add(new Label { Text = table.ToString() }); ;
