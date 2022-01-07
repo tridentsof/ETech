@@ -41,7 +41,6 @@ namespace ETech.WebApp.KH
                             table.Append("<tr>");
 
                             table.Append("<td>" + dr["DONHANGID"] + "</td>");
-                            table.Append("<td>" + dr["TENNHACUNGCAP"] + "</td>");
                             table.Append("<td>" + dr["NGAY"] + "</td>");
                             table.Append("<td>" + dr["HIENTHI_TRANGTHAI"] + "</td>");
                             table.Append("<td>" + dr["TONGSL"] + "</td>");

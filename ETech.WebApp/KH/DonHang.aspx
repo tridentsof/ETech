@@ -25,7 +25,19 @@
             border: white solid 1px;
             padding: 6px 6px 6px 6px;
         }
-        
+        td-btn-dh{
+            color:#3e67b9!important;
+        }
+        a, a:hover, a:focus, a:active {
+      text-decoration: none;
+      color: inherit;
+ }
+        .tr{
+            border-bottom: 1px solid black!important;
+        }
+        .head-lead{
+            height: 20px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -41,7 +53,6 @@
         <table class="donhang-table">
             <tr>
                 <th>Mã đơn hàng</th>
-                <th>Tên shop</th>
                 <th>Ngày</th>  
                 <th>Trạng thái</th>
                 <th>Tổng số lượng</th>

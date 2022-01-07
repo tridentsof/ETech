@@ -23,7 +23,6 @@ namespace ETech.WebApp.KH
             {
                 this.rpt2.DataSource = dt;
                 this.rpt2.DataBind();
-
             }
 
         }

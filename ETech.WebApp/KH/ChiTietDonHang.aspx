@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/KH/MasterPage.Master" AutoEventWireup="true" CodeBehind="ChiTietDonHang.aspx.cs" Inherits="ETech.WebApp.KH.ChiTietDonHang" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/KH/MasterPage.Master" AutoEventWireup="true" CodeFile="ChiTietDonHang.aspx.cs" Inherits="ETech.WebApp.KH.ChiTietDonHang" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta charset="UTF-8">
@@ -50,6 +50,7 @@
             <tr>
                 <th>Hình Ảnh</th>
                 <th>Tên Sản Phẩm</th>
+                <th>Tên shop</th>
                 <th>Giá</th>
                 <th>Số Lượng</th> 
                 <th>Tổng Tiền</th>
@@ -65,6 +66,9 @@
                             <%# Eval("TENSANPHAM") %>
                         </td>
                     </a>
+                        <td>
+                            <%# Eval("TENNHACUNGCAP") %>
+                        </td>
                         <td>
                            <%# Eval("DONGIA") %>
                         <td>
