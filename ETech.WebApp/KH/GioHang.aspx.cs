@@ -190,8 +190,8 @@ namespace ETech.WebApp.KH
                                 cmdCTDonHang.Parameters.AddWithValue("@NHACUNGCAPID", dr["NHACUNGCAPID"]);
                                 cmdCTDonHang.Parameters.AddWithValue("@PHUONGTHUCTHANHTOAN", phuongthucthanhtoan);
                                 cmdCTDonHang.Parameters.AddWithValue("@MATHANHTOANTRUCTUYEN", mathanhtoantructuyen);
+                                cmdCTDonHang.Parameters.AddWithValue("@TRANGTHAI", 1);
                                 cmdCTDonHang.Connection = dataAccess.getConnection();
-
                                 if (dataAccess.getConnection().State == ConnectionState.Closed)
                                     dataAccess.getConnection().Open();
                                 cmdCTDonHang.ExecuteNonQuery();

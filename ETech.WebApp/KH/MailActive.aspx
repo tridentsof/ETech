@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MailActive.aspx.cs" Inherits="ETech.WebApp.KH.MailActive" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="MailActive.aspx.cs" Inherits="ETech.WebApp.KH.MailActive" %>
 
 <!DOCTYPE html>
 
