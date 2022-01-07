@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/KH/MasterPage.Master" AutoEventWireup="true" CodeBehind="GioHang.aspx.cs" Inherits="ETech.WebApp.KH.GioHang" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/KH/MasterPage.Master" AutoEventWireup="true" CodeFile="GioHang.aspx.cs" Inherits="ETech.WebApp.KH.GioHang" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Giỏ hàng</title>
@@ -69,7 +69,7 @@
                             <%# Eval("TIENMUA","{0:n}") %>
                         </td>
                         <td>
-                            <asp:Button ID="btnDelete" CssClass="btn-delete-cart" runat="server" Text="X" OnClick="btnDelete_Click" />
+                            <asp:Button ID="btnDelete" CssClass="btn-delete-cart" runat="server" Text="X" OnCommand="btnDelete_Click" CommandArgument='<%# Container.ItemIndex %>'/>
                         </td>
                     </tr>
                 </ItemTemplate>
