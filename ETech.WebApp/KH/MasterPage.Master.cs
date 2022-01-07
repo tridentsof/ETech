@@ -35,7 +35,7 @@ namespace ETech.WebApp.KH
 
             //Đổ danh mục sản phẩm
             SqlParameter[] p = { };
-            DataTable dt = dataAccess.TableFill("PROC_GET_DANHMUC_SP", p);
+            DataTable dt = dataAccess.ExecuteQuery("PROC_GET_DANHMUC_SP", p);
 
             if(dt != null && dt.Rows.Count > 0)
             {
