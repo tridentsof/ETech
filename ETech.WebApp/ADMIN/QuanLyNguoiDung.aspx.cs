@@ -25,7 +25,7 @@ namespace ETech.WebApp.ADMIN
             dataAccess.MoKetNoiCSDL();
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "select TAIKHOANID, TENDANGNHAP, MATKHAU, HOTEN, EMAIL, DIACHI, SDT, 'QuanLynguoiDungChiTiet.aspx?id=' + CAST(TAIKHOANID AS NVARCHAR) AS CAPNHAT from [TAIKHOAN] where LOAITKID=2";
+            cmd.CommandText = "select TAIKHOANID, TENDANGNHAP, MATKHAU, HOTEN, EMAIL, DIACHI, SDT,CASE WHEN TRANGTHAI=1 THEN N'Đã Duyệt' else N'Chờ Duyệt' END ,'QuanLynguoiDungChiTiet.aspx?id=' + CAST(TAIKHOANID AS NVARCHAR) AS CAPNHAT from TAIKHOAN where LOAITKID=2";
             cmd.Connection = dataAccess.getConnection();
             SqlDataReader rd = cmd.ExecuteReader();
             if (rd.HasRows)
@@ -40,6 +40,7 @@ namespace ETech.WebApp.ADMIN
                     table.Append("<td class=\"qldm-column2\">" + rd[4] + "</td>");
                     table.Append("<td class=\"qldm-column2\">" + rd[5] + "</td>");
                     table.Append("<td class=\"qldm-column2\">" + rd[6] + "</td>");
+                    table.Append("<td class=\"qldm-column2\">" + rd[7] + "</td>");
                     table.Append("<td class=\"qldm-column2\"><a href=\"/ADMIN/QuanLyNguoiDungChiTiet.aspx?id=" + rd["TAIKHOANID"] + "\" class=\"qltk-btnCapNhat\">Xem Chi Tiết</a> </td>");
                     table.Append("</tr>");
                 }
