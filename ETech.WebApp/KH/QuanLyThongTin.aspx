@@ -32,7 +32,7 @@ body {
     .head-container {
   position: relative;
   top: -20px;
-  left: -110px;
+  left: -150px;
 }
 
 .div {
@@ -93,11 +93,11 @@ a {
   color: inherit;
 }
 
-            .btn {
+ .btn {
              box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
              margin: 60px 20px;
              width: 100px;
-            height: 30px;
+            height: 70px;
              border: none;
              transition: .3s;
              border-radius: 7px;
@@ -105,38 +105,23 @@ a {
             background: #fff;
 }
 
-.btn:active {
-  transform: scale(.8);
+.btn_update{
+    background-color:var(--primary-color);
+    color:white;
+    font-weight:600;
 }
-
-.btn:hover {
-  color: white;
-  background-color: #F8333C;
-}
-.btnMo{
-background:white;
-display:none;
-}
-.btnMo:hover{
-background: #6AB547;
-transition:0.25s ;
-}
-.btnKhoa{
-background:white;
-width: 108px;
-display:none;
-}
-.btnKhoa:hover{
-background:#70161E;
-transition:0.25s;
-}
-
-.btn_update:hover {
-  background-color: var(--primary-color);
-}
-
-.btn_add:hover {
-  background-color: #06BCC1;
+         .btn_update:hover {
+             background-color: white;
+             color: var(--primary-color);
+         }
+         .btn_huy{
+               background-color: dimgrey;
+               color:white;
+             font-weight:600;
+         }
+.btn_huy:hover {
+  background-color: white;
+  color:dimgrey;
 }
 .auto-style1 {
             float: left;
@@ -145,28 +130,6 @@ transition:0.25s;
             left: 0px;
             top: 0px;
         }
-                .cnsp-rblTrangThai tbody tr td {
-            display: flex;
-        }
-
-            .cnsp-rblTrangThai tbody tr td input {
-                margin: 0;
-                margin-top: 2px;
-                margin-right: 10px;
-                width: 10px;
-            }
-
-            .cnsp-rblTrangThai tbody tr td label {
-                font-weight: normal;
-            }
-
-            .cnsp-rblTrangThai tbody tr td:last-child {
-                display: flex
-            }
-table.cnsp-table tbody tr td:last-child:not(.cnsp-rblTrangThai tbody tr td:last-child) {
-            width: 100%;
-            display: block;
-            }
         .txterror {
             color: tomato;
             margin-top: 5px;
@@ -189,7 +152,7 @@ table.cnsp-table tbody tr td:last-child:not(.cnsp-rblTrangThai tbody tr td:last-
        <div class="container">
         <div class="title">
           <a href="TrangChu.aspx" class="head-container"><i class="fas fa-long-arrow-alt-left"></i>Back</a>
-          <h3>ĐỔI MẬT KHẨU</h3>
+          <h3>QUẢN LÝ THÔNG TIN CÁ NHÂN</h3>
        </div>
         <div class="div">
           <h5>Tên đăng nhập</h5>
@@ -238,7 +201,7 @@ table.cnsp-table tbody tr td:last-child:not(.cnsp-rblTrangThai tbody tr td:last-
         <asp:Label ID="lbThongBao" runat="server" Text="" CssClass="txterror"></asp:Label>
         <div class="auto-style2">
           <asp:button ID="btnCapNhat" class="btn btn_update" runat="server" Text="Cập nhật" Height="30px" OnClick="btnCapNhat_Click"></asp:button>
-          <asp:button ID="btnHuy" class="btn btn_add" runat="server" Text="Hủy" Height="30px" CausesValidation="false" OnClick="btnHuy_Click"  ></asp:button>
+          <asp:button ID="btnHuy" class="btn btn_huy" runat="server" Text="Hủy" Height="30px" CausesValidation="false" OnClick="btnHuy_Click"  ></asp:button>
         </div>
     </div>
 </asp:Content>

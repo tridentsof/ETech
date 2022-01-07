@@ -68,7 +68,7 @@ namespace ETech.WebApp.KH
 
         protected void btnHuy_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("TrangChu.aspx");
         }
     }
 }
