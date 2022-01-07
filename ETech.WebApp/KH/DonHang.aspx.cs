@@ -45,13 +45,12 @@ namespace ETech.WebApp.KH
                             table.Append("<tr>");
 
                             table.Append("<td>" + dr["DONHANGID"] + "</td>");
-                            table.Append("<td>" + dr["TENSANPHAM"] +"</td>");
+                            table.Append("<td>" + dr["TENNHACUNGCAP"] + "</td>");
                             table.Append("<td>" + dr["NGAY"] + "</td>");
                             table.Append("<td>" + dr["HIENTHI_TRANGTHAI"] +"</td>");
-                            table.Append("<td>" + dr["TENNHACUNGCAP"] + "</td>");
                             table.Append("<td>" + dr["TONGSL"] + "</td>");
                             table.Append("<td>" + dr["TONGTIEN"] + "</td>");
-
+                           
                             if (status == 0)
                             {
                                 table.Append("<td><i class=\"fas fa-times-circle x-icon\"></i></td>");

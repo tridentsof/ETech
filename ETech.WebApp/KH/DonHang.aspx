@@ -41,13 +41,12 @@
         <table class="donhang-table">
             <tr>
                 <th>Mã đơn hàng</th>
-                <th>Tên</th>
-                <th>Thời gian</th>  
-                <th>Trạng thái</th>
                 <th>Tên shop</th>
-                <th>Số lượng</th>
+                <th>Ngày</th>  
+                <th>Trạng thái</th>
+                <th>Tổng số lượng</th>
                 <th>Tổng tiền</th>
-                <th>Tiện ích</th>    
+                <th>Chi tiết</th>    
             </tr>
             <asp:Panel ID="Panel1" runat="server"></asp:Panel>
         </table>
