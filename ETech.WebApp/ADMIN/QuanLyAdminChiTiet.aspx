@@ -77,9 +77,6 @@ a {
   background: #fff;
 }
 
-.btn:active {
-  transform: scale(0.8);
-}
 
 .btn:hover {
   cursor: pointer;
@@ -89,27 +86,33 @@ a {
 .btnMo{
 background:white;
 display:none;
+color:var(--primary-color);
+width: 150px;
 }
 .btnMo:hover{
-background: #6AB547;
+background: var(--primary-color);
 transition:0.25s ;
+color:white;
 }
 .btnKhoa{
 background:white;
-width: 108px;
+width: 150px;
 display:none;
+color:var(--primary-color);
+padding:5px
 }
 .btnKhoa:hover{
-background:#70161E;
+background:var(--primary-color);
 transition:0.25s;
+}
+.btn_update{
+color:var(--primary-color);
+width:150px;
 }
 .btn_update:hover {
   background-color: var(--primary-color);
 }
 
-.btn_add:hover {
-  background-color: #06BCC1;
-}
         .auto-style2 {
             background-color: #fff;
             border-radius: 20px;
@@ -169,8 +172,10 @@ transition:0.25s;
             top: 0px;
         }
          .auto-style3 {
-             width: max-content;
-             margin-left: 25px 50px 75px 100px;
+             width: 100%;
+             display:flex;
+             margin-bottom:20px;
+             margin-left:270px;
          }
     </style>
 </asp:Content>
@@ -221,10 +226,8 @@ transition:0.25s;
         <asp:Label ID="lbThongBao" runat="server" Text="" CssClass="txterror"></asp:Label>
         <div class="auto-style3">
           <asp:button class="btn btn_update" runat="server" Text="Cập nhật" Height="30px" OnClick="btn_CapNhap_Click"></asp:button>
-          <asp:button class="btn btn_add" runat="server" Text="Xóa" Height="30px" OnClick="btn_Xoa_Click"></asp:button>
           <asp:button class="btn btnKhoa" runat="server" Text="Khoá tài khoản" Height="30px" OnClick="btn_Khoa_Click" ID="Khoa"></asp:button>
            <asp:button class="btn btnMo" runat="server" Text="Mở Tài Khoản" Height="30px" OnClick="btn_Mo_Click" ID="Mo"></asp:button>
         </div>
-    </div>
     </div>
 </asp:Content>

@@ -96,7 +96,8 @@ a {
 
 .btn {
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-  margin: 60px 20px;
+  margin-top: 10px;
+  margin-left: 10px;
   width: 100px;
   height: 30px;
   border: none;
@@ -106,68 +107,47 @@ a {
   background: #fff;
 }
 
-.btn:active {
-  transform: scale(.8);
-}
 
 .btn:hover {
+  cursor: pointer;
   color: white;
   background-color: #F8333C;
 }
 .btnMo{
 background:white;
 display:none;
+color:var(--primary-color);
+width: 150px;
 }
 .btnMo:hover{
-background: #6AB547;
+background: var(--primary-color);
 transition:0.25s ;
+color:white;
 }
 .btnKhoa{
 background:white;
-width: 108px;
+width: 150px;
 display:none;
+color:var(--primary-color);
+padding:5px
 }
 .btnKhoa:hover{
-background:#70161E;
+background:var(--primary-color);
 transition:0.25s;
 }
-
+.btn_update{
+color:var(--primary-color);
+width:150px;
+}
 .btn_update:hover {
   background-color: var(--primary-color);
 }
 
-.btn_add:hover {
-  background-color: #06BCC1;
-}
-.auto-style1 {
-            float: left;
-            width: 300px;
-            position: relative;
-            left: 0px;
-            top: 0px;
-        }
-                .cnsp-rblTrangThai tbody tr td {
+        .auto-style2 {
+            padding: 0;
             display: flex;
+            margin-top:80px;
         }
-
-            .cnsp-rblTrangThai tbody tr td input {
-                margin: 0;
-                margin-top: 2px;
-                margin-right: 10px;
-                width: 10px;
-            }
-
-            .cnsp-rblTrangThai tbody tr td label {
-                font-weight: normal;
-            }
-
-            .cnsp-rblTrangThai tbody tr td:last-child {
-                display: flex
-            }
-table.cnsp-table tbody tr td:last-child:not(.cnsp-rblTrangThai tbody tr td:last-child) {
-            width: 100%;
-            display: block;
-            }
         .txterror {
             color: tomato;
             margin-top: 5px;
@@ -176,10 +156,44 @@ table.cnsp-table tbody tr td:last-child:not(.cnsp-rblTrangThai tbody tr td:last-
             top: 10px;
             margin-bottom: 10px;
         }
-        .auto-style2 {
-            height: 299px;
-            width: 552px;
-            display:inline-flex;
+        .QLHS__box {
+            width: 500px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 21px;
+            padding: 7px;
+        }
+         .QLHS__box-input {
+            float: left;
+            width: 300px;
+            position: relative;
+        }
+         .effect {
+            height: 30px;
+            border: 1px solid #ccc;
+        }
+
+            .effect ~ .focus-border {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: var(--primary-color);
+                transition: 0.3s;
+            }
+
+            .effect:focus ~ .focus-border {
+                width: 100%;
+                transition: 0.4s;
+            }
+         .auto-style1 {
+            float: left;
+            width: 300px;
+            position: relative;
+            left: 0px;
+            top: 0px;
         }
     </style>
 </asp:Content>
@@ -232,7 +246,6 @@ table.cnsp-table tbody tr td:last-child:not(.cnsp-rblTrangThai tbody tr td:last-
         <asp:Label ID="lbThongBao" runat="server" Text="" CssClass="txterror"></asp:Label>
         <div class="auto-style2">
           <asp:button class="btn btn_update" runat="server" Text="Cập nhật" Height="30px" OnClick="btn_CapNhap_Click"></asp:button>
-          <asp:button class="btn btn_add" runat="server" Text="Xóa" Height="30px" OnClick="btn_Xoa_Click"></asp:button>
            <asp:button class="btn btnKhoa" runat="server" Text="Khoá tài khoản" Height="30px" OnClick="btn_Khoa_Click" ID="Khoa"></asp:button>
            <asp:button class="btn btnMo" runat="server" Text="Mở Tài Khoản" Height="30px" OnClick="btn_Mo_Click" ID="Mo"></asp:button>
         </div>

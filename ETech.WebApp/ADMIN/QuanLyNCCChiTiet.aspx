@@ -115,12 +115,28 @@ a {
     background-color: #F8333C;
 }
 
+.btn_update {
+    color: white;
+    background-color:var(--primary-color);
+        font-weight:500;
+}
+
 .btn_update:hover {
-    background-color: var(--primary-color);
+    background-color: white;
+    color:var(--primary-color);
 }
 
 .btn_add:hover {
     background-color: #06BCC1;
+}
+.btnHuy{
+    background-color:dimgrey;
+    color:white;
+    font-weight:500;
+}
+.btnHuy:hover{
+    color:dimgrey;
+    background-color:white;
 }
     </style>
 </asp:Content>
@@ -186,7 +202,7 @@ a {
             <asp:Button ID="Button1" CssClass="btn btn_update" runat="server" OnClick="Button1_Click" Text="Cập nhật" />
           
           
-            <asp:Button ID="Button2" CssClass="btn" runat="server" OnClick="Button2_Click" Text="Hủy" />
+            <asp:Button ID="Button2" CssClass="btn btnHuy" runat="server" OnClick="Button2_Click" Text="Hủy" />
         </div>
     </div>
 </asp:Content>
