@@ -71,7 +71,7 @@ namespace ETech.WebApp.NCC
                 }
                 else
                 {
-                    lbTB1.Text = "Sai Tài Khoản hoặc Mật Khẩu";
+                    lbTB1.Text = "Sai Tài Khoản hoặc Mật Khẩu, hoặc trong hàng chờ duyệt";
                 }
             }
         }

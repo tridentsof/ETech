@@ -104,6 +104,7 @@
                 color: #fff;
                 background-color: var(--primary-color);
             }
+
         .auto-style1 {
             float: left;
             width: 300px;
@@ -111,6 +112,7 @@
             left: 0px;
             top: 0px;
         }
+
         .txterror {
             color: tomato;
             margin-top: 5px;
@@ -118,6 +120,11 @@
             position: relative;
             top: 10px;
             margin-bottom: 10px;
+        }
+
+        .Deo_BIET_CSS {
+            display: flex;
+            justify-content: space-around;
         }
     </style>
 </asp:Content>
@@ -130,23 +137,24 @@
         <div class="QLHS__box">
             <h5>Tên đăng nhập</h5>
             <div class="auto-style1">
-                 <asp:Label ID="lbdangnhap" runat="server" ></asp:Label>
-                 &nbsp;<span class="focus-border"></span></div>
+                <asp:Label ID="lbdangnhap" runat="server"></asp:Label>
+                &nbsp;<span class="focus-border"></span>
+            </div>
         </div>
 
         <div class="QLHS__box">
             <h5>Họ tên</h5>
             <div class="QLHS__box-input">
-                <asp:TextBox ID="txthoten" class="effect" runat="server" ></asp:TextBox>
-            <span class="focus-border"></span>
+                <asp:TextBox ID="txthoten" class="effect" runat="server"></asp:TextBox>
+                <span class="focus-border"></span>
             </div>
         </div>
 
         <div class="QLHS__box">
             <h5>Email</h5>
             <div class="QLHS__box-input">
-                 <asp:TextBox ID="txtemail" class="effect" runat="server"></asp:TextBox>
-            <span class="focus-border"></span>
+                <asp:TextBox ID="txtemail" class="effect" runat="server"></asp:TextBox>
+                <span class="focus-border"></span>
             </div>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtemail" ErrorMessage="Email không hợp lệ" ValidationExpression="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" CssClass="txterror" Display="Dynamic"></asp:RegularExpressionValidator>
         </div>
@@ -155,7 +163,7 @@
             <h5>Địa chỉ</h5>
             <div class="QLHS__box-input">
                 <asp:TextBox ID="txtdiachi" class="effect" runat="server"></asp:TextBox>
-            <span class="focus-border"></span>
+                <span class="focus-border"></span>
             </div>
         </div>
 
@@ -163,44 +171,44 @@
             <h5>Số điện thoại</h5>
             <div class="QLHS__box-input">
                 <asp:TextBox ID="txtsdt" class="effect" runat="server"></asp:TextBox>
-            <span class="focus-border"></span>
+                <span class="focus-border"></span>
             </div>
         </div>
         <asp:Label ID="lbThongBao" runat="server" Text="" CssClass="txterror"></asp:Label>
-        
+
         <div class="QLHS__title">
             <h3>Đổi Mật Khẩu</h3>
-        </div>            <div class="QLHS__box">
+        </div>
+        <div class="QLHS__box">
             <h5>Mật Khẩu Cũ</h5>
             <div class="QLHS__box-input">
                 <asp:TextBox ID="txtMKC" CssClass="effect" runat="server" placeholder="Old Password" TextMode="Password" Width="300px"></asp:TextBox>
-            <span class="focus-border"></span>
+                <span class="focus-border"></span>
             </div>
         </div>
-            <div> 
+        <div>
             <div class="QLHS__box">
-            <h5>Mật Khẩu Mới</h5>
-            <div class="QLHS__box-input">
-                <asp:TextBox ID="txtMKM" CssClass="effect" runat="server" placeholder="New Password" TextMode="Password" Width="300px"></asp:TextBox>
-            <span class="focus-border"></span>
+                <h5>Mật Khẩu Mới</h5>
+                <div class="QLHS__box-input">
+                    <asp:TextBox ID="txtMKM" CssClass="effect" runat="server" placeholder="New Password" TextMode="Password" Width="300px"></asp:TextBox>
+                    <span class="focus-border"></span>
+                </div>
             </div>
-        </div>
-                <div> 
-            <div class="QLHS__box">
-            <h5>Nhập Lại Mật Khẩu</h5>
-            <div class="QLHS__box-input">
-                <asp:TextBox ID="TextBox3" CssClass="effect" runat="server" placeholder="Confirm Password" TextMode="Password" Width="300px"></asp:TextBox>               
-                <asp:CompareValidator ID="check" runat="server" ErrorMessage="Mật Khẩu không trùng khớp" ControlToValidate="TextBox3" ControlToCompare="txtMKM" Type="String" CssClass="txterror"  Display="Dynamic" ></asp:CompareValidator>
-            <span class="focus-border"></span>
-            </div>
-                
-        </div>
-        </div>
             <div>
-            <asp:Button ID="Button3" runat="server" CssClass="QLHS__btn QLHS__btn-save" Text="Cập Nhập"  CausesValidation="False" OnClick="Button3_Click" />
-            
-            <asp:Button ID="Button4" runat="server" CssClass="QLHS__btn QLHS__btn-changePW" Text="Hủy" OnClick="Button2_Click" CausesValidation="False" />
+                <div class="QLHS__box">
+                    <h5>Nhập Lại Mật Khẩu</h5>
+                    <div class="QLHS__box-input">
+                        <asp:TextBox ID="TextBox3" CssClass="effect" runat="server" placeholder="Confirm Password" TextMode="Password" Width="300px"></asp:TextBox>
+                        <asp:CompareValidator ID="check" runat="server" ErrorMessage="Mật Khẩu không trùng khớp" ControlToValidate="TextBox3" ControlToCompare="txtMKM" Type="String" CssClass="txterror" Display="Dynamic"></asp:CompareValidator>
+                        <span class="focus-border"></span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="Deo_BIET_CSS">
+                <asp:Button ID="Button3" runat="server" CssClass="QLHS__btn QLHS__btn-save" Text="Cập Nhập" CausesValidation="False" OnClick="Button3_Click" />
+                <asp:Button ID="Button4" runat="server" CssClass="QLHS__btn QLHS__btn-changePW" Text="Hủy" OnClick="Button2_Click" CausesValidation="False" />
+            </div>
         </div>
-    </div>
     </div>
 </asp:Content>
