@@ -75,6 +75,9 @@ namespace ETech.WebApp.NCC
                     table.Append("<td class=\"qldm-column2\">" + dr[3] + "</td>");
                     table.Append("<td class=\"qldm-column2\">" + dr[4] + "</td>");
                     table.Append("<td class=\"qldm-column2\">" + dr[2] + "</td>");
+                    table.Append("<td class=\"qldm-column2\" style=\"text-align:center;\">");
+                    table.Append("<a href=\"Xacnhanthanhctoan.aspx?idDH=" + dr[0] + "\"  class=\"cell_xem\">Xem chi tiết</a>");
+                    table.Append("</td>");
                     table.Append("</tr>");
                 }
                 Panel2.Controls.Add(new Label { Text = table.ToString() }); ;

@@ -196,6 +196,7 @@
                                 <th class="cell" style="min-width: auto">Địa chỉ</th>
                                 <th class="cell" style="min-width: auto">SDT</th>
                                  <th class="cell" style="min-width: auto">Ngày</th>
+                                <th class="cell" style="min-width: auto">Chức năng</th>
                             </tr>
                            
                         </thead>
